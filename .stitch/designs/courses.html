@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SBGL | BATTLE COURSE DIRECTORY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-dim": "#00ec3b",
+              "on-secondary-fixed-variant": "#8a3700",
+              "secondary-dim": "#ff7524",
+              "tertiary-fixed-dim": "#ced8eb",
+              "error-dim": "#d53d18",
+              "on-primary-container": "#005a10",
+              "on-primary": "#006413",
+              "on-surface": "#fdfbfe",
+              "on-error-container": "#ffd2c8",
+              "tertiary": "#eff3ff",
+              "secondary-fixed": "#ffc5ab",
+              "on-secondary-container": "#fff6f3",
+              "on-secondary": "#3c1300",
+              "tertiary-fixed": "#dce6fa",
+              "surface-dim": "#0d0e10",
+              "on-surface-variant": "#ababad",
+              "surface-container": "#181a1c",
+              "primary-fixed-dim": "#00ec3b",
+              "tertiary-container": "#dce6fa",
+              "on-primary-fixed": "#00440a",
+              "surface-container-highest": "#242629",
+              "surface-variant": "#242629",
+              "outline": "#757578",
+              "on-tertiary": "#525c6d",
+              "secondary": "#ff7524",
+              "surface-container-high": "#1e2022",
+              "inverse-surface": "#fbf9fb",
+              "surface-container-low": "#121316",
+              "primary": "#9cff93",
+              "error": "#ff7351",
+              "surface-container-lowest": "#000000",
+              "on-background": "#fdfbfe",
+              "secondary-fixed-dim": "#ffb28d",
+              "inverse-on-surface": "#555557",
+              "background": "#0d0e10",
+              "surface-tint": "#9cff93",
+              "tertiary-dim": "#ced8eb",
+              "on-tertiary-fixed-variant": "#545e6e",
+              "error-container": "#b92902",
+              "on-primary-fixed-variant": "#006513",
+              "surface-bright": "#2b2c2f",
+              "primary-fixed": "#00fc40",
+              "surface": "#0d0e10",
+              "primary-container": "#00fc40",
+              "outline-variant": "#47484a",
+              "inverse-primary": "#006f16",
+              "on-tertiary-fixed": "#384251",
+              "on-error": "#450900",
+              "on-tertiary-container": "#4a5464",
+              "on-secondary-fixed": "#5c2200",
+              "secondary-container": "#a04100"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .scanline {
+        background: linear-gradient(to bottom, transparent 50%, rgba(0, 252, 64, 0.03) 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+      }
+      .hud-glow {
+        box-shadow: 0 0 20px rgba(0, 252, 64, 0.15);
+      }
+      .power-bar-segment {
+        height: 8px;
+        background: #00fc40;
+        clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#0d0e10] shadow-[0_0_20px_rgba(0,252,64,0.15)]">
+<div class="flex items-center gap-8">
+<span class="text-3xl font-black italic tracking-tighter text-[#9cff93] dark:text-[#00fc40]">SBGL</span>
+<div class="hidden md:flex gap-6">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-[#eff3ff] opacity-70 hover:text-[#9cff93] hover:drop-shadow-[0_0_10px_#00fc40] transition-all" href="#">ROSTER</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-[#eff3ff] opacity-70 hover:text-[#9cff93] hover:drop-shadow-[0_0_10px_#00fc40] transition-all" href="#">SCHEDULE</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-[#00fc40] border-b-2 border-[#00fc40] pb-1" href="#">STANDINGS</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-[#eff3ff] opacity-70 hover:text-[#9cff93] hover:drop-shadow-[0_0_10px_#00fc40] transition-all" href="#">INTEL</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-[#eff3ff] opacity-70 hover:text-[#9cff93] hover:drop-shadow-[0_0_10px_#00fc40] transition-all" href="#">STORE</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors" data-icon="military_tech">military_tech</span>
+<button class="font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-[#9cff93] hover:text-[#ff7524] transition-colors">LOGIN</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<header class="relative h-[716px] flex flex-col items-center justify-center overflow-hidden border-b-0">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10"></div>
+<img alt="Cinematic volcanic mountain range with toxic green atmospheric haze" class="w-full h-full object-cover grayscale opacity-40" data-alt="Cinematic volcanic mountain range with toxic green atmospheric haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCopviKaCUoAEqAV0Om0Js679PcjwDbolOCtMpbmzBpue5WAbshrX58pOyQCt42G30Eaz_ab78r3fEmKPAtlmXPUyuqJIlHu-ptdUthUZldxMLXW4Tue6YUk3sSSgUb84oXAMTU4fjQymm2U-ZgRe4mLU6uaIufUyKZBZB14WjbEmN2w4BmufrV4rtNX5TJ2EVY8ipDsL8_2xXQpwfp1wyNAvpvsfZ6U4CNWrGMo2sEMZJ78bfwhBPGRhA7m3xn1lEEymVBgOfw-eY"/>
+<div class="absolute inset-0 scanline z-20"></div>
+</div>
+<div class="relative z-30 text-center px-4 max-w-5xl">
+<div class="flex justify-center items-center gap-4 mb-6">
+<span class="h-px w-12 bg-primary"></span>
+<span class="font-mono text-primary tracking-[0.3em] uppercase text-sm">Operation: Season 7</span>
+<span class="h-px w-12 bg-primary"></span>
+</div>
+<h1 class="font-headline text-6xl md:text-9xl font-black italic tracking-tighter uppercase leading-none mb-4">
+                    Battle Course <br/> <span class="text-primary drop-shadow-[0_0_15px_rgba(0,252,64,0.4)]">Directory</span>
+</h1>
+<p class="font-body text-tertiary max-w-2xl mx-auto text-lg mb-8 opacity-80 uppercase tracking-widest">
+                    6 Active Theaters. High-Stake Infrastructure. Deploy at your own risk.
+                </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-headline font-bold uppercase tracking-widest text-lg rounded-sm shadow-[0_0_15px_rgba(0,252,64,0.3)] hover:scale-105 transition-transform">
+                        INITIALIZE DEPLOYMENT
+                    </button>
+<button class="border border-outline/40 text-primary px-8 py-4 font-headline font-bold uppercase tracking-widest text-lg rounded-sm hover:bg-primary/10 transition-colors">
+                        SQUAD INTEL
+                    </button>
+</div>
+</div>
+</header>
+<!-- Course Stats Strip -->
+<section class="bg-surface-container-low py-6 border-y border-outline/10 overflow-hidden">
+<div class="flex flex-nowrap md:justify-around items-center gap-12 px-8 whitespace-nowrap overflow-x-auto scrollbar-hide">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-tertiary opacity-50 uppercase">Total Active Courses</span>
+<span class="font-mono text-2xl text-primary font-bold">06</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-tertiary opacity-50 uppercase">Most Dangerous</span>
+<span class="font-mono text-2xl text-secondary font-bold">VOLCANO RIDGE</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-tertiary opacity-50 uppercase">Munitions Consumed</span>
+<span class="font-mono text-2xl text-on-surface font-bold">1.4M ROUNDS</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-tertiary opacity-50 uppercase">Recovery Success Rate</span>
+<span class="font-mono text-2xl text-primary font-bold">74.2%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-tertiary opacity-50 uppercase">Active Operatives</span>
+<span class="font-mono text-2xl text-on-surface font-bold">4,102</span>
+</div>
+</div>
+</section>
+<!-- Course Filter Bar -->
+<section class="max-w-7xl mx-auto px-8 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex gap-2 p-1 bg-surface-container-highest rounded-sm">
+<button class="bg-primary text-on-primary px-6 py-2 font-headline font-bold uppercase text-sm tracking-widest">ACTIVE</button>
+<button class="text-tertiary hover:text-primary px-6 py-2 font-headline font-bold uppercase text-sm tracking-widest transition-colors">RETIRED</button>
+<button class="text-tertiary hover:text-secondary px-6 py-2 font-headline font-bold uppercase text-sm tracking-widest transition-colors">CLASSIFIED</button>
+</div>
+<div class="relative w-full md:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-lg" data-icon="search">search</span>
+<input class="w-full bg-surface-container-high border-none pl-10 pr-4 py-3 font-mono text-xs tracking-widest text-on-surface focus:ring-1 focus:ring-primary" placeholder="FILTER BY REGION..." type="text"/>
+</div>
+</div>
+<!-- Featured Course: Volcano Ridge -->
+<div class="mt-16 group relative overflow-hidden bg-surface-container p-1 shadow-2xl">
+<div class="absolute top-0 right-0 p-8 z-20">
+<div class="bg-secondary text-on-secondary px-4 py-1 font-headline font-black italic uppercase text-xs tracking-[0.2em]">FEATURED THEATER</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden bg-background">
+<div class="lg:col-span-7 relative h-[400px] lg:h-auto overflow-hidden">
+<img alt="Dramatic volcanic crater rim with red lava glow and dark smoke" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dramatic volcanic crater rim with red lava glow and dark smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl0uJAGpxIHsU6gjPv_Kity0CwDcIXxQYP8Kd2Fuma_d_wGi4xpiOJI5dMmrwruO-WvUZX0uhyn2GLpd8AHbBdikmeiPANgcJzNtA57jzzscG_wD1U6D--47i2EyN7TD1Oa9EBI3Pw3dVNZ164AhNa4T_XemAUzw6Iars9zLAzw3Fv0yuaueHB8jEj5vqFH-G3YIljTSozhsN6Gda2jLoalGbvzsOyrEbspDZ6uy1L1C6PIBsnuZbt0LJV1NYNv4VPhrSDDN6EgwE"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+</div>
+<div class="lg:col-span-5 p-12 flex flex-col justify-center">
+<div class="flex items-center gap-2 text-secondary mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-mono text-sm tracking-widest uppercase">Icelandic Highlands</span>
+</div>
+<h2 class="font-headline text-5xl font-black italic tracking-tighter uppercase mb-6">Volcano <br/> <span class="text-primary">Ridge</span></h2>
+<div class="space-y-6 mb-10">
+<div class="flex justify-between items-end border-b border-outline/10 pb-2">
+<span class="font-body text-tertiary/60 uppercase text-xs font-bold tracking-widest">Hazard Level</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<span class="block font-mono text-[10px] text-tertiary/50 uppercase">Elevation Change</span>
+<span class="block font-mono text-xl text-on-surface">450M</span>
+</div>
+<div>
+<span class="block font-mono text-[10px] text-tertiary/50 uppercase">Record Score</span>
+<span class="block font-mono text-xl text-primary">-7 [CLASSIFIED]</span>
+</div>
+</div>
+<div>
+<span class="block font-mono text-[10px] text-tertiary/50 uppercase mb-2">Munitions Allowed</span>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-3 py-1 font-mono text-[10px] text-on-surface">SMALL ARMS</span>
+<span class="bg-surface-container-highest px-3 py-1 font-mono text-[10px] text-on-surface">EXPLOSIVES</span>
+<span class="bg-primary/20 text-primary px-3 py-1 font-mono text-[10px] border border-primary/20">TACTICAL AIR SUPPORT</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-background py-4 font-headline font-bold uppercase tracking-[0.2em] hover:bg-primary transition-colors">ENTER BATTLESPACE</button>
+</div>
+</div>
+</div>
+<!-- Course Grid -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-low group cursor-pointer border-l-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img alt="Dark futuristic underground facility with glowing neon lights" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="Dark futuristic underground facility with glowing neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAQk-v18B0f7Q7W2PVsAnaazOaOeQPRXH2jAM5tWjio7AMDCssmdT8bHGEgEgq_mVgPNWvAySccJBUl0OaeZEMtkRscbLH-fHKxOIjKhtXH8FtE4t32jtZSXkHeOg3X0KDIv0QVF31tR5Hd_UTczaygZmFDHEtw8g9pMF2RT1InTqFXizvsznUbenO-DZIgDyC410aRH0ZJxbRqTBqRYNcxnqhahXvaJMUvXw9GJCIurjeiI4pToR7EKIz4-4ZOIO67Sm4-isRpFU"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-primary tracking-widest uppercase">Japan</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-4">Subterranean Open</h3>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-tertiary uppercase">Hazard 4/5</span>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Key Stat:</span>
+<span class="font-mono text-on-surface uppercase">Zero Natural Light</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Yardage:</span>
+<span class="font-mono text-on-surface">7,820Y</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Signature:</span>
+<span class="font-mono text-secondary uppercase">Sonic Disturbance</span>
+</div>
+</div>
+<button class="w-full border border-outline/20 py-3 font-headline font-bold uppercase text-xs tracking-widest hover:bg-surface-container-highest transition-colors">VIEW DETAILS</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low group cursor-pointer border-l-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img alt="Harsh arctic landscape with frozen tundra and snow mountains" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="Harsh arctic landscape with frozen tundra and snow mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqiFtRw5aHRbcyGS7qo8T5bcvn2rwloCpaK5Okqs9_KL5Lm3AF2dPQPoeccf5YGgLd3K6p7l8v2sUMsiT04dmqO383ZlTsanHnL-Pdom8Bm5zn3mn-Czto2LKrTztJR7bNsLl8Mt667gjb5sY_Oo8OIpxEpvlUKrIrltoJ_Px4r-I80MjenLZ2IK55E7Fih-qBTrSZxPKREr_uewNkkfqIUUhbH12dmkOjKDTpDtpB8-KQF8DS-qvBuwLXTCvqjNYcCz2a2Rt3QY4"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-primary tracking-widest uppercase">Norway</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-4">Arctic Thunder</h3>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-tertiary uppercase">Hazard 4/5</span>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Key Stat:</span>
+<span class="font-mono text-on-surface uppercase">Permafrost Fairways</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Yardage:</span>
+<span class="font-mono text-on-surface">8,105Y</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Signature:</span>
+<span class="font-mono text-secondary uppercase">Cryo-Mist Barriers</span>
+</div>
+</div>
+<button class="w-full border border-outline/20 py-3 font-headline font-bold uppercase text-xs tracking-widest hover:bg-surface-container-highest transition-colors">VIEW DETAILS</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low group cursor-pointer border-l-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img alt="Massive concrete sports stadium under intense floodlights at night" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="Massive concrete sports stadium under intense floodlights at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwpXqTznsXi64_C6KjktdX3RX1I57OvWumS0FNzdsbW6tCxn0qQQZAI_E2DbfnZnPxhkL0AkKA6vxPgdAHG9bFYb3u8PsLPLN_opo2O91K-NtK-pCYwHJhhBU6vyFvB4hJG0LkpM1YHqalt9ZpmGcQffsJvUxFJOJpug2EH0Wf72ZcrNCCjQT8ZN2Y_DluJwI36KLRlMBmmAtFkgs0w-bl8KE5xe6VI2yG33tItUDKbPSIGVpatgwtnymzmfnIt8xdjDxwatmI4PQ"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-primary tracking-widest uppercase">USA</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-4">Crater Cup Arena</h3>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-tertiary uppercase">Hazard 3/5</span>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Key Stat:</span>
+<span class="font-mono text-on-surface uppercase">50,000 Capacity</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Yardage:</span>
+<span class="font-mono text-on-surface">6,900Y</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Signature:</span>
+<span class="font-mono text-secondary uppercase">Urban Shrapnel</span>
+</div>
+</div>
+<button class="w-full border border-outline/20 py-3 font-headline font-bold uppercase text-xs tracking-widest hover:bg-surface-container-highest transition-colors">VIEW DETAILS</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low group cursor-pointer border-l-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img alt="Dense tropical jungle with hanging vines and misty atmosphere" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="Dense tropical jungle with hanging vines and misty atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyKwzwAgyNmryHSAzKAQ9f4gqdxN7gzxSNQ3fCtWB1Wxs1IsThksTvM-NKzQHmG-oAq8_XG4iIwM8yrPAkYjo2yLjZwvA4LW1YrwisZbkiwE6WCoViIf31w_f65LLmy1jAf2IjczVQ5WTPma_Y8B8ijz046lyGVBUvTyXYXfwVxZZ-BqAlFYqDf1CitLF7WnaMB6_J8BYWTgTt0Z7kqNBoPJscffBTfYOuWKu49K2meVAUSLwEsKAeyjQr8CPSYkbz9g-lwRSFls0"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-primary tracking-widest uppercase">Brazil</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-4">Jungle Gauntlet</h3>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-tertiary uppercase">Hazard 5/5</span>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Key Stat:</span>
+<span class="font-mono text-on-surface uppercase">Wildlife Hazards</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Yardage:</span>
+<span class="font-mono text-on-surface">7,450Y</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Signature:</span>
+<span class="font-mono text-secondary uppercase">Apex Predators</span>
+</div>
+</div>
+<button class="w-full border border-outline/20 py-3 font-headline font-bold uppercase text-xs tracking-widest hover:bg-surface-container-highest transition-colors">VIEW DETAILS</button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-low group cursor-pointer border-l-2 border-transparent hover:border-primary transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img alt="Quiet english countryside meadow with old stone walls" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="Quiet english countryside meadow with old stone walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Y0H6JE5r2VYSsX9zIkpwC3gs6g5jwBieWO_1AtEHxvPlTK5YYx-KSM_pfqNYhKz6963-4A6igD93CyU9Dd0BxqikGJBE9rFn89pdkkKR9IAFZ2rtdv4Oh7geViXN5Yj1NxnK-WiWqbcLeCWw8tf527IW4qcEmxLvwRVqh9lRPpc4L7_Rd8bgOm9RAd3sP8vPlcdvn9X3pJcH2ZyM5TKCYtiLC_GlmAjduaHmiIMM74yc7_NHIU5YGTGAIyp_ZnXF6uCEMmm4czk"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 font-mono text-[10px] text-primary tracking-widest uppercase">England</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-4">Meadow Lakes</h3>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-tertiary uppercase">Hazard 2/5</span>
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="skull" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+<span class="material-symbols-outlined text-tertiary/20 text-xs" data-icon="skull">skull</span>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Key Stat:</span>
+<span class="font-mono text-on-surface uppercase">Landmines</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Yardage:</span>
+<span class="font-mono text-on-surface">6,500Y</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="font-body text-tertiary">Signature:</span>
+<span class="font-mono text-secondary uppercase">Explosive Roughs</span>
+</div>
+</div>
+<button class="w-full border border-outline/20 py-3 font-headline font-bold uppercase text-xs tracking-widest hover:bg-surface-container-highest transition-colors">VIEW DETAILS</button>
+</div>
+</div>
+<!-- Card 6 (Placeholder for coming soon) -->
+<div class="bg-surface-container-lowest border border-dashed border-outline/20 flex flex-col items-center justify-center p-8 text-center">
+<span class="material-symbols-outlined text-4xl text-outline/30 mb-4" data-icon="lock">lock</span>
+<h3 class="font-headline text-xl font-bold uppercase text-outline/50">Classified Sector</h3>
+<p class="font-mono text-[10px] text-outline/40 uppercase mt-2">Unlocks Mid-Season 7</p>
+</div>
+</div>
+</section>
+<!-- Safety Disclaimer Section -->
+<section class="max-w-7xl mx-auto px-8 py-24">
+<div class="bg-surface-container-high p-12 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-secondary" data-icon="warning">warning</span>
+<h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Rules of Engagement &amp; Liability</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-4 font-mono text-xs text-tertiary/70 leading-relaxed uppercase">
+<p>&gt; [NOTICE] Spectator survival is not guaranteed near proximity mines or active fire zones.</p>
+<p>&gt; [NOTICE] SBGL is not responsible for equipment failure due to volcanic ash or electromagnetic interference.</p>
+<p>&gt; [NOTICE] Any operative found using unauthorized ballistic weaponry will be terminated from the leaderboard.</p>
+</div>
+<div class="space-y-4 font-mono text-xs text-tertiary/70 leading-relaxed uppercase">
+<p>&gt; [WARNING] Wildlife at Jungle Gauntlet has been biologically augmented. Do not approach for photo opportunities.</p>
+<p>&gt; [WARNING] Medical evacuation times exceed 45 minutes in all listed theaters. Bleed out accordingly.</p>
+<p>&gt; [WARNING] By clicking "ENTER BATTLESPACE", you waive all rights to physical integrity.</p>
+</div>
+</div>
+<div class="mt-12 flex items-center gap-6">
+<div class="flex gap-2">
+<div class="w-8 h-2 bg-secondary"></div>
+<div class="w-8 h-2 bg-secondary opacity-50"></div>
+<div class="w-8 h-2 bg-secondary opacity-20"></div>
+</div>
+<span class="font-mono text-[10px] text-secondary tracking-widest">CRITICAL SYSTEM STATUS: OPERATIONAL</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-[#181a1c] bg-[#0d0e10]">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-xl font-bold text-[#eff3ff]">SBGL TACTICAL</span>
+<span class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#eff3ff] opacity-50">© 2024 SBGL TACTICAL OPERATIONS. ALL RIGHTS RESERVED.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#eff3ff] hover:text-[#ff7524] transition-colors" href="#">PRIVACY DECLASSIFIED</a>
+<a class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#eff3ff] hover:text-[#ff7524] transition-colors" href="#">ENGAGEMENT RULES</a>
+<a class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#eff3ff] hover:text-[#ff7524] transition-colors" href="#">SUPPORT</a>
+<a class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#eff3ff] hover:text-[#ff7524] transition-colors" href="#">HQ COORDINATES</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="lan">lan</span>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="security">security</span>
+</div>
+</div>
+</footer>
+</body></html>

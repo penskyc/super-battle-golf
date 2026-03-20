@@ -1,29 +1,21 @@
 ---
-page: courses
+page: academy
 ---
-An immersive battle course directory page for the SBGL — showcasing the 6 official Battle Courses used in Season 7. Each course is extreme, unique, and dangerous. Present them as elite sports venues.
+The SBGL Academy — an elite training and certification page for aspiring battle golf professionals. Presented like a real-world sports academy with tiered programs, coaches, and enrollment.
 
 **DESIGN SYSTEM (REQUIRED):**
 Dark, aggressive sports website with military-meets-golf aesthetic.
 
 - Platform: Web, Desktop-first (responsive)
 - Palette: Bunker Black (#0d0e10) background, Battle Green (#9cff93 / #00fc40) primary, Explosion Orange (#ff7524) secondary, Snow White (#fdfbfe) text
-- Typography: Space Grotesk for headers (all-caps, tracked, italic), Inter for body, JetBrains Mono for stats/coordinates
+- Typography: Space Grotesk for headers (all-caps, tracked, italic), Inter for body, JetBrains Mono for stats/numbers
 - Styles: Sharp corners (minimal radius), subtle neon glow effects, high contrast dark surfaces
-- Atmosphere: Dark cyberpunk-sports aesthetic — classified military installation meets PGA championship venue
+- Atmosphere: Part elite military training facility, part prestigious sports academy
 
 **Page Structure:**
-1. **Hero Section:** Full-width header "BATTLE COURSE DIRECTORY" with dramatic tagline and course count stat. Scanline overlay effect.
-2. **Course Filter Bar:** Filter pills for ACTIVE / RETIRED / CLASSIFIED (matching news/shop pill style — flat rectangular, no border-radius)
-3. **Featured Course:** Large spotlight card for "Volcano Ridge" — the flagship course. Stats include Par, Hazard Level, Elevation Change, Munitions Permitted, Record Score. Dramatic background imagery placeholder.
-4. **Course Grid:** 5 remaining courses in a 2-3 column grid. Each card has: course name, location (country), hazard rating (1-5 skulls using Material Icons), key stats (par, yardage, signature hazard), and a "VIEW DETAILS" button.
-5. **Course Stats Strip:** A horizontal band showing aggregate stats — Total Active Courses: 6, Most Dangerous: Volcano Ridge, Safest: Meadow Lakes (relative), Total Munitions Used Per Season, Combined Elevation Change.
-6. **Safety Disclaimer Section:** A darkly humorous "safety" section — styled like a legal disclaimer but with absurd battle golf warnings. Monospace font, green text on dark background, terminal aesthetic.
-
-**The 6 Official Battle Courses:**
-1. Volcano Ridge — Iceland — Hazard Level 5/5 — Active crater rim course, lava hazard zones
-2. Subterranean Open — Japan — Hazard Level 4/5 — Underground cave system, zero natural light holes
-3. Arctic Thunder — Norway — Hazard Level 4/5 — Permafrost fairways, blizzard condition play
-4. Crater Cup Arena — USA — Hazard Level 3/5 — Purpose-built stadium course, 50,000 spectator capacity
-5. Jungle Gauntlet — Brazil — Hazard Level 5/5 — Rainforest canopy course, wildlife hazards permitted
-6. Meadow Lakes Classic — England — Hazard Level 2/5 — "Gentlemanly" course, still has landmines
+1. **Hero Section:** "SBGL ACADEMY" headline with tagline "Train. Survive. Compete." Background image placeholder (training facility). Stat badges: 847 Graduates | 23 Active Trainers | 94% Survival Rate.
+2. **Program Tiers:** 3 certification tiers as cards — Recruit (beginner, free trial), Operative ($299/mo), Elite Operative ($899/mo). Each has: tier name, price, bullet list of what's included, CTA button. Elite tier has orange accent / "MOST LETHAL" badge.
+3. **Training Modules:** Grid of 6 training disciplines — Explosive Avoidance, Long-Range Ballistics Golf, Tactical Course Navigation, Combat First Aid, Munitions Identification, Mental Fortitude Under Fire. Each as a card with icon, description, difficulty rating.
+4. **Coach Roster:** 3 featured coaches with name, specialty, and win record. Styled like player cards from the players page.
+5. **Testimonials:** 2-3 quotes from graduates — styled as classified intel briefs with redacted portions.
+6. **Enrollment CTA:** Full-width section with email signup form. "ENLIST NOW" CTA.

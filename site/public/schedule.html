@@ -101,15 +101,32 @@
 <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#0d0e10]/95 backdrop-blur-md">
 <div class="text-2xl font-black tracking-tighter text-[#fdfbfe] dark:text-[#fdfbfe]">SBGLEAGUE</div>
 <div class="hidden md:flex items-center space-x-8">
-<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="index.html">Home</a>
-<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="about.html">About</a>
-<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="players.html">Players</a>
-<a class="text-[#9cff93] font-bold border-b-2 border-[#9cff93] pb-1 hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="schedule.html">Schedule</a>
-<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="leaderboard.html">Leaderboard</a>
-<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="news.html">News</a>
-<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="shop.html">Store</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150" href="index.html">Home</a>
+<div class="relative group">
+<button class="text-[#9cff93] font-bold hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150 flex items-center gap-0.5">Compete<span class="material-symbols-outlined" style="font-size:15px;vertical-align:middle;margin-left:1px">expand_more</span></button>
+<div class="absolute top-full left-0 hidden group-hover:block pt-1 z-50">
+<div class="bg-[#0d0e10] border border-[#1e2022] min-w-[168px] py-1 shadow-xl">
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="players.html">Players</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#9cff93] bg-[#181a1c]" href="schedule.html">Schedule</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="leaderboard.html">Leaderboard</a>
 </div>
-<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">Buy Tickets</button>
+</div>
+</div>
+<div class="relative group">
+<button class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150 flex items-center gap-0.5">League<span class="material-symbols-outlined" style="font-size:15px;vertical-align:middle;margin-left:1px">expand_more</span></button>
+<div class="absolute top-full left-0 hidden group-hover:block pt-1 z-50">
+<div class="bg-[#0d0e10] border border-[#1e2022] min-w-[168px] py-1 shadow-xl">
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="about.html">About</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="courses.html">Courses</a>
+</div>
+</div>
+</div>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150" href="news.html">News</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150" href="shop.html">Store</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">
+    Buy Tickets
+</button>
 </nav>
 <main class="relative pt-20">
 <!-- Hero Section -->
@@ -413,14 +430,16 @@
 </section>
 </main>
 <!-- Footer (Shared) -->
+<!-- Footer -->
+<!-- Footer -->
+<!-- Footer -->
 <footer class="bg-[#000000] dark:bg-[#000000] border-t border-[#181a1c]">
 <div class="w-full py-16 px-8 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
-<!-- Brand Column -->
 <div class="space-y-6">
 <div class="text-xl font-black text-[#fdfbfe] tracking-tighter uppercase">SBGLEAGUE</div>
 <p class="font-body text-sm text-[#eff3ff]/60 leading-relaxed max-w-xs">
-                    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
-                </p>
+    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
+</p>
 <div class="flex gap-4">
 <a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
 <span class="material-symbols-outlined text-sm">hub</span>
@@ -433,7 +452,6 @@
 </a>
 </div>
 </div>
-<!-- League Links -->
 <div class="space-y-6">
 <h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">League</h4>
 <ul class="space-y-3 font-body text-sm">
@@ -443,7 +461,6 @@
 <li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Brand Assets</a></li>
 </ul>
 </div>
-<!-- Support Links -->
 <div class="space-y-6">
 <h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Logistics</h4>
 <ul class="space-y-3 font-body text-sm">
@@ -453,7 +470,6 @@
 <li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Media Accreditation</a></li>
 </ul>
 </div>
-<!-- Newsletter -->
 <div class="space-y-6">
 <h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Intelligence Access</h4>
 <p class="font-body text-xs text-[#eff3ff]/40">Receive direct encrypted updates on course layouts and athlete drafts.</p>
@@ -463,9 +479,8 @@
 </form>
 </div>
 </div>
-<!-- Copyright -->
 <div class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-[#181a1c] flex flex-col md:flex-row justify-between items-center gap-4">
-<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">© 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">&copy; 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
 <div class="flex items-center gap-6">
 <span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest uppercase">ENCRYPTED CONNECTION: AES-256</span>
 <span class="font-label text-[10px] text-[#9cff93] tracking-widest uppercase">SYSTEM STATUS: OPTIMAL</span>

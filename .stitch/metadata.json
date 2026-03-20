@@ -75,6 +75,20 @@
       "title": "SBGL News & Updates",
       "width": 2560,
       "note": "Hand-crafted to match Stitch design system (Tailwind + same theme tokens)"
+    },
+    "shop": {
+      "id": "c7c165bc85e944f48024f293c75b916c",
+      "sourceScreen": "projects/9882356895224258150/screens/c7c165bc85e944f48024f293c75b916c",
+      "title": "SBGL Merchandise Store",
+      "width": 2560,
+      "height": 7494
+    },
+    "courses": {
+      "id": "31fc9f71e8e341df89561fcf9f001a78",
+      "sourceScreen": "projects/9882356895224258150/screens/31fc9f71e8e341df89561fcf9f001a78",
+      "title": "SBGL Battle Course Directory",
+      "width": 2560,
+      "height": 7238
     }
   },
   "metadata": {
