@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SBGLEAGUE | Official Merchandise Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#242629",
+            "primary-container": "#00fc40",
+            "secondary-fixed": "#ffc5ab",
+            "surface-container-high": "#1e2022",
+            "on-primary-container": "#005a10",
+            "on-error": "#450900",
+            "surface-tint": "#9cff93",
+            "on-secondary-container": "#fff6f3",
+            "tertiary-fixed-dim": "#ced8eb",
+            "inverse-on-surface": "#555557",
+            "on-primary-fixed": "#00440a",
+            "surface": "#0d0e10",
+            "surface-container": "#181a1c",
+            "error-container": "#b92902",
+            "on-primary": "#006413",
+            "outline-variant": "#47484a",
+            "on-tertiary-container": "#4a5464",
+            "on-secondary-fixed": "#5c2200",
+            "surface-container-lowest": "#000000",
+            "error-dim": "#d53d18",
+            "outline": "#757578",
+            "primary-fixed-dim": "#00ec3b",
+            "secondary-fixed-dim": "#ffb28d",
+            "tertiary": "#eff3ff",
+            "secondary": "#ff7524",
+            "on-tertiary-fixed": "#384251",
+            "secondary-container": "#a04100",
+            "primary-dim": "#00ec3b",
+            "surface-container-highest": "#242629",
+            "on-surface": "#fdfbfe",
+            "on-background": "#fdfbfe",
+            "secondary-dim": "#ff7524",
+            "on-tertiary": "#525c6d",
+            "error": "#ff7351",
+            "on-secondary-fixed-variant": "#8a3700",
+            "primary": "#9cff93",
+            "tertiary-fixed": "#dce6fa",
+            "primary-fixed": "#00fc40",
+            "on-primary-fixed-variant": "#006513",
+            "on-tertiary-fixed-variant": "#545e6e",
+            "surface-bright": "#2b2c2f",
+            "on-secondary": "#3c1300",
+            "tertiary-container": "#dce6fa",
+            "surface-container-low": "#121316",
+            "tertiary-dim": "#ced8eb",
+            "surface-dim": "#0d0e10",
+            "inverse-surface": "#fbf9fb",
+            "on-surface-variant": "#ababad",
+            "background": "#0d0e10",
+            "inverse-primary": "#006f16",
+            "on-error-container": "#ffd2c8"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Inter"],
+            "mono": ["JetBrains Mono"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glow-primary {
+      box-shadow: 0 0 15px rgba(0, 252, 64, 0.3);
+    }
+    .glow-secondary {
+      box-shadow: 0 0 20px rgba(255, 117, 36, 0.3);
+    }
+    .scanline {
+      background: linear-gradient(to bottom, transparent 50%, rgba(0, 252, 64, 0.02) 50%);
+      background-size: 100% 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#0d0e10]/95 backdrop-blur-md">
+<div class="text-2xl font-black tracking-tighter text-[#fdfbfe] dark:text-[#fdfbfe]">SBGLEAGUE</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="index.html">Home</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="about.html">About</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="players.html">Players</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="schedule.html">Schedule</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="leaderboard.html">Leaderboard</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="news.html">News</a>
+<a class="text-[#9cff93] font-bold border-b-2 border-[#9cff93] pb-1 hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="shop.html">Store</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">
+    Buy Tickets
+</button>
+</nav>
+<main class="pt-20 pb-20">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,252,64,0.08)_0%,_transparent_70%)]"></div>
+<div class="scanline absolute inset-0 pointer-events-none opacity-20"></div>
+<h1 class="font-headline text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-4 relative z-10">
+    OFFICIAL <span class="text-primary-container">SBGL</span> STORE
+</h1>
+<div class="relative z-10">
+<p class="font-headline text-xl md:text-2xl tracking-[0.2em] text-on-surface-variant uppercase mb-2">Gear Up. Battle Ready.</p>
+<div class="h-1 w-32 bg-primary-container mx-auto glow-primary"></div>
+</div>
+<div class="absolute bottom-10 left-10 hidden lg:block opacity-30">
+<p class="font-mono text-[10px] text-primary-container tracking-widest leading-relaxed text-left uppercase">
+    SYSTEM_STATUS: ACTIVE<br/>
+    SECURE_TERMINAL: 88.02<br/>
+    ENCRYPTION: BATTLE_READY_V7
+</p>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="max-w-[1440px] mx-auto px-6 mb-12">
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-6 py-2 bg-primary text-on-primary font-headline font-bold text-xs tracking-widest uppercase hover:bg-primary-dim transition-colors">ALL</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">APPAREL</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">EQUIPMENT</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">COLLECTIBLES</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">SEASON 7</button>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="max-w-[1440px] mx-auto px-6 mb-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-secondary/20 text-secondary px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">BESTSELLER</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="helmet">skull</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">SBGL MK-7 Blast Helmet Replica</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$249</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-primary-container/20 text-primary-container px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">NEW</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="apparel">apparel</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">Season 7 Competitor Jersey — The Crusher Edition</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$89</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">LIMITED</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="sports_golf">sports_golf</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">Battle Golf Club Set — Tournament Grade</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$1,299</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-secondary/20 text-secondary px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">BESTSELLER</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="blur_circular">blur_circular</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">SBGL Official Ball 6-Pack UV-marked</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$45</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-primary-container/20 text-primary-container px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">NEW</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="gallery_thumbnail">gallery_thumbnail</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">Season 7 Poster Set</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$29</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-primary-container/20 text-primary-container px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">NEW</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="alarm_on">alarm_on</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">Proximity Mine Alarm Clock</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$39</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">LIMITED</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="trophy">trophy</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">SBGL Championship Trophy Replica</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$199</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 8 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-secondary/20 text-secondary px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">BESTSELLER</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="checkroom">checkroom</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">Blast Armor T-Shirt</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$34</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+<!-- Product Card 9 -->
+<div class="group bg-surface-container-low p-1 transition-all hover:bg-primary-container/20">
+<div class="bg-surface p-8 relative flex flex-col h-full">
+<div class="absolute top-4 right-4 bg-primary-container/20 text-primary-container px-3 py-1 font-mono text-[10px] font-bold tracking-tighter uppercase">NEW</div>
+<div class="h-64 flex items-center justify-center mb-6 bg-surface-container-lowest border border-outline-variant/10">
+<span class="material-symbols-outlined text-8xl text-on-surface-variant opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" data-icon="backpack">backpack</span>
+</div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-wide mb-2">Battle Caddy Bag — Official SBGL Logo</h3>
+<p class="font-mono text-primary-container text-lg mb-8">$299</p>
+<button class="mt-auto w-full py-4 bg-primary-container text-on-primary font-headline font-black uppercase tracking-widest text-sm hover:glow-primary transition-all active:scale-95">ADD TO CART</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Charity Auction Banner -->
+<section class="max-w-[1440px] mx-auto px-6 mb-24">
+<div class="relative bg-surface-container-lowest p-1">
+<div class="absolute inset-0 bg-secondary/10"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 p-12 border-l-8 border-secondary">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="h-2 w-2 bg-secondary animate-pulse"></span>
+<span class="font-mono text-secondary text-xs tracking-widest uppercase">Live Auction Event</span>
+</div>
+<h2 class="font-headline text-4xl md:text-5xl font-black uppercase mb-6 leading-none">
+    THE CRUSHER'S SIGNED JERSEY — <span class="text-secondary">CHARITY AUCTION</span>
+</h2>
+<div class="flex items-end gap-6 mb-8">
+<div>
+<p class="font-headline text-xs text-on-surface-variant uppercase mb-1 tracking-widest">Starting Bid</p>
+<p class="font-mono text-3xl text-secondary font-bold">$2,000+</p>
+</div>
+<div class="h-10 w-px bg-outline-variant/30"></div>
+<div>
+<p class="font-headline text-xs text-on-surface-variant uppercase mb-1 tracking-widest">Time Remaining</p>
+<p class="font-mono text-3xl font-bold">14:22:05</p>
+</div>
+</div>
+<button class="px-12 py-5 bg-secondary text-on-secondary font-headline font-black uppercase tracking-widest hover:glow-secondary transition-all active:scale-95">BID NOW</button>
+</div>
+<div class="relative h-80 bg-surface-container flex items-center justify-center overflow-hidden">
+<img alt="Signed Jersey" class="absolute inset-0 w-full h-full object-cover opacity-40 grayscale" data-alt="Framed signed athletic jersey on a textured wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA9GqJ2vnJT3pqkHBLeQm2RUSp-NGEJp_mUqgucd8LFF-wYocH3ru_hSE2bgy2VTel3c1R6ZCuTc0yJ8xTWAcEhEB1R_z5qWt-uvNH8R2prifkhfghmdlhxA-mLUDTl5aENScLpMrqso3peID1wcMG-l9JCInz0zLVCPISKgx3uU_VVhPFkl8m3lQhWJDvMh7qsKR6aqek02-5-pKNm6oR3sbSV0A8viXfcufXSixtISVnYOcfa2YrfsLF_kbtwEavNpChVmK99Y8"/>
+<div class="relative z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-8xl text-secondary opacity-80" data-icon="signature" style="font-variation-settings: 'FILL' 1;">signature</span>
+<p class="font-headline font-bold text-lg mt-4 uppercase tracking-[0.3em]">Authentic Gear</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Loyalty Section -->
+<section class="max-w-[1440px] mx-auto px-6 mb-24">
+<div class="bg-surface-container-low p-12 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+<div class="flex-1">
+<h2 class="font-headline text-3xl font-black uppercase mb-2">JOIN THE SBGL ARMORY PROGRAM</h2>
+<p class="font-body text-on-surface-variant max-w-xl">Enlist in our loyalty program to earn Battle Credits with every purchase. Access exclusive drops, priority shipping, and classified member-only intel.</p>
+</div>
+<div class="flex-1 w-full max-w-md">
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-highest border-none focus:ring-2 focus:ring-primary-container font-mono text-xs uppercase p-4" placeholder="ENTER IDENTIFICATION EMAIL" type="email"/>
+<button class="bg-primary-container text-on-primary px-8 font-headline font-bold uppercase text-xs tracking-widest hover:glow-primary transition-all">JOIN</button>
+</div>
+<p class="font-mono text-[9px] text-on-surface-variant/40 mt-3 tracking-widest uppercase italic">Encryption: AES-256 Enabled | Privacy Protocol 9.0</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] dark:bg-[#000000] border-t border-[#181a1c]">
+<div class="w-full py-16 px-8 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div class="space-y-6">
+<div class="text-xl font-black text-[#fdfbfe] tracking-tighter uppercase">SBGLEAGUE</div>
+<p class="font-body text-sm text-[#eff3ff]/60 leading-relaxed max-w-xs">
+    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
+</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+<!-- League Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">League</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Athlete Code of Conduct</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Brand Assets</a></li>
+</ul>
+</div>
+<!-- Support Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Logistics</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Contact Support</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Ticketing FAQ</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Arena Safety Manual</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Media Accreditation</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Intelligence Access</h4>
+<p class="font-body text-xs text-[#eff3ff]/40">Receive direct encrypted updates on course layouts and athlete drafts.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-surface-container border-none text-xs font-label p-3 focus:ring-1 focus:ring-primary-container outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary-container text-on-primary font-headline font-bold uppercase text-xs py-3 tracking-widest hover:bg-primary-fixed-dim transition-all">Subscribe</button>
+</form>
+</div>
+</div>
+<!-- Copyright -->
+<div class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-[#181a1c] flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">© 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-6">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest uppercase">ENCRYPTED CONNECTION: AES-256</span>
+<span class="font-label text-[10px] text-[#9cff93] tracking-widest uppercase">SYSTEM STATUS: OPTIMAL</span>
+</div>
+</div>
+</footer>
+</body></html>
