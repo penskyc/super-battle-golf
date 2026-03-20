@@ -21,6 +21,8 @@ This site covers Season 7 — featuring 12 elite competitors, $2.4M in total pri
 | [Leaderboard](site/public/leaderboard.html) | Season standings, stat leaders, Grand Slam qualification |
 | [News](site/public/news.html) | Match reports, player news, league updates |
 | [Store](site/public/shop.html) | Official merchandise — apparel, equipment, collectibles, charity auction |
+| [Courses](site/public/courses.html) | Battle Course directory — 8 official courses with terrain, hazard ratings, and records |
+| [Academy](site/public/academy.html) | Elite training & certification — program tiers, training modules, coaches, enrollment |
 
 ## Built With
 

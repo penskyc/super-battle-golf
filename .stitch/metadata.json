@@ -89,6 +89,13 @@
       "title": "SBGL Battle Course Directory",
       "width": 2560,
       "height": 7238
+    },
+    "academy": {
+      "id": "332d6e3a919342a8aab39f9a010b864f",
+      "sourceScreen": "projects/9882356895224258150/screens/332d6e3a919342a8aab39f9a010b864f",
+      "title": "SBGL Academy Training Facility",
+      "width": 2560,
+      "height": 9498
     }
   },
   "metadata": {

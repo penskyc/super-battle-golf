@@ -34,6 +34,7 @@ Super Battle Golf is a real sport. Professional athletes compete on specially de
 - [x] `news.html` — News & Match Reports
 - [x] `shop.html` — Official Merchandise Store
 - [x] `courses.html` — Official Battle Course Directory
+- [x] `academy.html` — Training & Certification Programs
 
 ---
 
@@ -45,9 +46,5 @@ Super Battle Golf is a real sport. Professional athletes compete on specially de
 
 ## 6. Creative Freedom / Future Pages
 
-- `academy.html` — Training & Certification Programs
-- `sponsors.html` — League Partners & Sponsors
-- `media.html` — Photo Gallery & Video Archive
-- `academy.html` — Training & Certification Programs
 - `sponsors.html` — League Partners & Sponsors
 - `media.html` — Photo Gallery & Video Archive

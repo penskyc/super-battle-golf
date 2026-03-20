@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .italic-force { font-style: italic; }
+        .neon-glow-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 252, 64, 0.15);
+        }
+        .neon-glow-secondary:hover {
+            box-shadow: 0 0 30px rgba(255, 117, 36, 0.15);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#8af2ff",
+              "on-secondary": "#3c1400",
+              "surface": "#0d0e10",
+              "primary-container": "#00fc40",
+              "surface-bright": "#2b2c2f",
+              "primary-fixed": "#00fc40",
+              "on-tertiary-fixed-variant": "#005c64",
+              "inverse-primary": "#006f16",
+              "on-background": "#fdfbfe",
+              "error-container": "#b92902",
+              "secondary-fixed": "#ffc5ab",
+              "on-secondary-fixed-variant": "#8a3700",
+              "surface-container-lowest": "#000000",
+              "surface-container-low": "#121316",
+              "primary-dim": "#00ec3b",
+              "tertiary-fixed-dim": "#00dbec",
+              "surface-dim": "#0d0e10",
+              "on-tertiary-container": "#005159",
+              "inverse-surface": "#faf9fb",
+              "primary": "#9cff93",
+              "surface-container-highest": "#242629",
+              "tertiary-fixed": "#0eeafd",
+              "outline-variant": "#47484a",
+              "on-tertiary": "#005b63",
+              "tertiary-container": "#0eeafd",
+              "tertiary-dim": "#00dbec",
+              "secondary": "#ff7524",
+              "surface-container": "#181a1c",
+              "surface-container-high": "#1e2022",
+              "secondary-dim": "#ff7524",
+              "on-primary-fixed": "#00440a",
+              "on-secondary-fixed": "#5c2200",
+              "on-secondary-container": "#fff6f3",
+              "surface-tint": "#9cff93",
+              "on-surface-variant": "#ababad",
+              "on-error-container": "#ffd2c8",
+              "on-tertiary-fixed": "#003d42",
+              "on-primary-fixed-variant": "#006513",
+              "secondary-fixed-dim": "#ffb28d",
+              "inverse-on-surface": "#555557",
+              "surface-variant": "#242629",
+              "error-dim": "#d53d18",
+              "background": "#0d0e10",
+              "secondary-container": "#a04100",
+              "on-error": "#450900",
+              "primary-fixed-dim": "#00ec3b",
+              "on-surface": "#fdfbfe",
+              "error": "#ff7351",
+              "on-primary-container": "#005a10",
+              "outline": "#757578",
+              "on-primary": "#006413"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#0d0e10]/95 backdrop-blur-md">
+<div class="text-2xl font-black tracking-tighter text-[#fdfbfe] dark:text-[#fdfbfe]">SBGLEAGUE</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150" href="index.html">Home</a>
+<div class="relative group">
+<button class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150 flex items-center gap-0.5">Compete<span class="material-symbols-outlined" style="font-size:15px;vertical-align:middle;margin-left:1px">expand_more</span></button>
+<div class="absolute top-full left-0 hidden group-hover:block pt-1 z-50">
+<div class="bg-[#0d0e10] border border-[#1e2022] min-w-[168px] py-1 shadow-xl">
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="players.html">Players</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="schedule.html">Schedule</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="leaderboard.html">Leaderboard</a>
+</div>
+</div>
+</div>
+<div class="relative group">
+<button class="text-[#9cff93] font-bold hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150 flex items-center gap-0.5">League<span class="material-symbols-outlined" style="font-size:15px;vertical-align:middle;margin-left:1px">expand_more</span></button>
+<div class="absolute top-full left-0 hidden group-hover:block pt-1 z-50">
+<div class="bg-[#0d0e10] border border-[#1e2022] min-w-[168px] py-1 shadow-xl">
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="about.html">About</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#eff3ff]/70 hover:text-[#9cff93] hover:bg-[#181a1c] transition-all" href="courses.html">Courses</a>
+<a class="block px-4 py-2.5 text-sm font-medium text-[#9cff93] bg-[#181a1c]" href="academy.html">Academy</a>
+</div>
+</div>
+</div>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150" href="news.html">News</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all duration-150" href="shop.html">Store</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">
+    Buy Tickets
+</button>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full min-h-[921px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent z-10"></div>
+<img alt="Academy Background" class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 brightness-50" data-alt="High-tech golf training facility with tactical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFmEzTLoPZnnb4vTNjM6CPbhOhTyRmslGfQ8Mn23CLs84yOdr2Oqy1Mx_mWPNFZu6RSlp0N3FhmT0ccY2Bv05i1Swe-LQsvMhJaj4mlePAVaqxKRSIzB0FizOS0Y0aDxvYotImpYtL4joCALS7gT6MU8P1FvzC3tX36wODXdsZljV-tLJDUjf7gJM7tIsDSCCFDpXeFHHQgHIeIw_8UKpMGVGClnjDUU2r41lfpD4aOVBHe54AbiHX4H66At3Piz6NrquFQ9qJf2U"/>
+<div class="relative z-20 container mx-auto px-6 flex flex-col items-start pt-20">
+<span class="font-mono text-primary tracking-[0.5em] uppercase mb-4 text-sm">[ STATUS: RECRUITMENT ACTIVE ]</span>
+<h1 class="font-headline text-7xl md:text-9xl font-black italic uppercase leading-none tracking-tighter text-white mb-4">
+                SBGL<br/><span class="text-primary">ACADEMY</span>
+</h1>
+<p class="font-headline text-2xl md:text-3xl italic uppercase tracking-widest text-on-surface-variant mb-12">
+                Train. Survive. Compete.
+            </p>
+<div class="flex flex-wrap gap-8 md:gap-16 mt-8">
+<div class="flex flex-col">
+<span class="font-mono text-3xl text-primary font-bold">847</span>
+<span class="font-headline italic text-sm tracking-widest uppercase text-on-surface-variant">Graduates</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-3xl text-primary font-bold">23</span>
+<span class="font-headline italic text-sm tracking-widest uppercase text-on-surface-variant">Active Trainers</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-3xl text-secondary font-bold">94%</span>
+<span class="font-headline italic text-sm tracking-widest uppercase text-on-surface-variant">Survival Rate</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Program Tiers -->
+<section class="py-24 px-6 bg-surface">
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<h2 class="font-headline text-5xl italic font-black uppercase tracking-tighter leading-none">Certification<br/><span class="text-primary-dim">Pathways</span></h2>
+<div class="h-px flex-grow mx-8 bg-outline-variant/30 mb-4 hidden md:block"></div>
+<p class="font-mono text-xs text-on-surface-variant tracking-widest uppercase max-w-xs text-right">Choose your level of engagement. Failure is not an option.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Recruit -->
+<div class="bg-surface-container-high p-8 flex flex-col border-l-4 border-outline-variant hover:bg-surface-variant transition-colors group">
+<h3 class="font-headline text-3xl italic font-bold uppercase mb-2">Recruit</h3>
+<div class="font-mono text-xl mb-8">FREE TRIAL</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> Basic Combat Fundamentals
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> Live Range Access (Limited)
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight text-on-surface-variant opacity-40">
+<span class="material-symbols-outlined text-lg">lock</span> Classified Intel
+                        </li>
+</ul>
+<button class="w-full border-2 border-primary text-primary py-4 font-headline font-bold italic uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">START INITIATION</button>
+</div>
+<!-- Operative -->
+<div class="bg-surface-container-high p-8 flex flex-col border-l-4 border-primary neon-glow-primary transition-all relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-primary-dim uppercase tracking-[0.2em] opacity-30">Active_Duty_v4.2</div>
+<h3 class="font-headline text-3xl italic font-bold uppercase mb-2">Operative</h3>
+<div class="font-mono text-xl mb-8">$299<span class="text-xs text-on-surface-variant">/MO</span></div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> Full Combat Training
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 24/7 Live Range Access
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> Squad Coordination
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> Basic Intel Feed
+                        </li>
+</ul>
+<button class="w-full bg-primary-fixed text-on-primary-fixed py-4 font-headline font-bold italic uppercase tracking-widest hover:brightness-110 transition-all">DEPLOY NOW</button>
+</div>
+<!-- Elite Operative -->
+<div class="bg-surface-container-high p-8 flex flex-col border-l-4 border-secondary neon-glow-secondary transition-all relative overflow-hidden">
+<div class="absolute -top-1 -right-1 bg-secondary text-on-secondary px-6 py-2 font-headline italic font-bold uppercase text-[10px] rotate-45 transform translate-x-4 translate-y-1">MOST LETHAL</div>
+<h3 class="font-headline text-3xl italic font-bold uppercase mb-2">Elite Operative</h3>
+<div class="font-mono text-xl mb-8 text-secondary">$899<span class="text-xs text-on-surface-variant">/MO</span></div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-secondary text-lg">verified</span> Master-Class Ballistics
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-secondary text-lg">verified</span> Priority Field Deployment
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-secondary text-lg">verified</span> Top-Tier Classified Intel
+                        </li>
+<li class="flex items-center gap-3 text-sm font-body uppercase tracking-tight">
+<span class="material-symbols-outlined text-secondary text-lg">verified</span> 1-on-1 Commander Access
+                        </li>
+</ul>
+<button class="w-full bg-secondary text-on-secondary py-4 font-headline font-bold italic uppercase tracking-widest hover:brightness-110 transition-all">ENLIST AT PEAK</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Training Modules -->
+<section class="py-24 px-6 bg-surface-container-low">
+<div class="container mx-auto">
+<h2 class="font-headline text-4xl italic font-black uppercase tracking-tighter mb-16 border-l-8 border-primary pl-6">Mission Critical Modules</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Module 1 -->
+<div class="bg-surface p-6 border border-outline-variant/10 group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="explosion">explosion</span>
+<span class="font-mono text-[10px] text-on-surface-variant opacity-50 tracking-tighter">MOD_001</span>
+</div>
+<h4 class="font-headline text-xl italic font-bold uppercase mb-2">Explosive Avoidance</h4>
+<p class="text-sm text-on-surface-variant mb-6">Master the art of high-yield obstacle evasion while maintaining putting form.</p>
+<div class="space-y-1">
+<div class="flex justify-between font-mono text-[10px] uppercase tracking-widest mb-1">
+<span>Threat Level</span>
+<span class="text-secondary">CRITICAL</span>
+</div>
+<div class="flex gap-1">
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+</div>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="bg-surface p-6 border border-outline-variant/10 group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="target">target</span>
+<span class="font-mono text-[10px] text-on-surface-variant opacity-50 tracking-tighter">MOD_002</span>
+</div>
+<h4 class="font-headline text-xl italic font-bold uppercase mb-2">Kinetic Precision</h4>
+<p class="text-sm text-on-surface-variant mb-6">Long-range drive calculations under heavy suppression fire.</p>
+<div class="space-y-1">
+<div class="flex justify-between font-mono text-[10px] uppercase tracking-widest mb-1">
+<span>Difficulty</span>
+<span class="text-primary">HIGH</span>
+</div>
+<div class="flex gap-1">
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-outline-variant/20"></div>
+</div>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="bg-surface p-6 border border-outline-variant/10 group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="visibility_off">visibility_off</span>
+<span class="font-mono text-[10px] text-on-surface-variant opacity-50 tracking-tighter">MOD_003</span>
+</div>
+<h4 class="font-headline text-xl italic font-bold uppercase mb-2">Low-Light Extraction</h4>
+<p class="text-sm text-on-surface-variant mb-6">Retrieving assets in zero-visibility conditions with thermal optics.</p>
+<div class="space-y-1">
+<div class="flex justify-between font-mono text-[10px] uppercase tracking-widest mb-1">
+<span>Complexity</span>
+<span class="text-primary">MODERATE</span>
+</div>
+<div class="flex gap-1">
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-outline-variant/20"></div>
+<div class="h-1 flex-grow bg-outline-variant/20"></div>
+</div>
+</div>
+</div>
+<!-- Module 4 -->
+<div class="bg-surface p-6 border border-outline-variant/10 group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="medical_services">medical_services</span>
+<span class="font-mono text-[10px] text-on-surface-variant opacity-50 tracking-tighter">MOD_004</span>
+</div>
+<h4 class="font-headline text-xl italic font-bold uppercase mb-2">Trauma Mitigation</h4>
+<p class="text-sm text-on-surface-variant mb-6">Field-dressing bunker injuries while your opponent is putting.</p>
+<div class="space-y-1">
+<div class="flex justify-between font-mono text-[10px] uppercase tracking-widest mb-1">
+<span>Stress Level</span>
+<span class="text-secondary">EXTREME</span>
+</div>
+<div class="flex gap-1">
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+<div class="h-1 flex-grow bg-secondary"></div>
+</div>
+</div>
+</div>
+<!-- Module 5 -->
+<div class="bg-surface p-6 border border-outline-variant/10 group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="terminal">terminal</span>
+<span class="font-mono text-[10px] text-on-surface-variant opacity-50 tracking-tighter">MOD_005</span>
+</div>
+<h4 class="font-headline text-xl italic font-bold uppercase mb-2">Encryption Warfare</h4>
+<p class="text-sm text-on-surface-variant mb-6">Counter-intelligence strategies to hide your yardage from enemy scouts.</p>
+<div class="space-y-1">
+<div class="flex justify-between font-mono text-[10px] uppercase tracking-widest mb-1">
+<span>Technicality</span>
+<span class="text-primary">EXPERT</span>
+</div>
+<div class="flex gap-1">
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-outline-variant/20"></div>
+</div>
+</div>
+</div>
+<!-- Module 6 -->
+<div class="bg-surface p-6 border border-outline-variant/10 group hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="hub">hub</span>
+<span class="font-mono text-[10px] text-on-surface-variant opacity-50 tracking-tighter">MOD_006</span>
+</div>
+<h4 class="font-headline text-xl italic font-bold uppercase mb-2">Command Integration</h4>
+<p class="text-sm text-on-surface-variant mb-6">Leading a multi-person tactical golf unit through hostile territory.</p>
+<div class="space-y-1">
+<div class="flex justify-between font-mono text-[10px] uppercase tracking-widest mb-1">
+<span>Command Value</span>
+<span class="text-primary">ULTIMATE</span>
+</div>
+<div class="flex gap-1">
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+<div class="h-1 flex-grow bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Coach Roster -->
+<section class="py-24 px-6 bg-surface">
+<div class="container mx-auto">
+<h2 class="font-headline text-4xl italic font-black uppercase tracking-tighter mb-16 text-center">Master <span class="text-secondary">Commanders</span></h2>
+<div class="grid md:grid-cols-3 gap-12">
+<!-- Coach 1 -->
+<div class="relative group">
+<div class="aspect-[3/4] overflow-hidden grayscale contrast-125 mb-6 relative">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Vektor K." class="w-full h-full object-cover" data-alt="Coach Vektor K. looking stern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSojzotJ5leJyMtmdMyCTahosd0DsxPv1DUVXZ7LQpOz_UEGDitngsPUfvXsNZFucLNMQAlqfM6i0BDp3huKXQX6Sj-5DxPvpr3QrB6_znqAERTeyTWT0rBB7XdjoFixhXzz6xvujn_1i7s84_4ADFTqO0sSxnvBvOsA3rdsCsUku8U3YMEeFLdtCWneljnDMlO2BRLL764CCpgFO9mS70hrH6a_LNWCzZkK_LQvTGu44PLwOW69pNvtmPc7x51iWuWgQZRfYsHMQ"/>
+</div>
+<div class="absolute -bottom-4 left-4 bg-primary text-on-primary px-4 py-2 font-headline italic font-bold uppercase text-xs tracking-widest">VEKTOR K.</div>
+<div class="pt-6 space-y-2">
+<div class="font-mono text-[10px] uppercase text-on-surface-variant tracking-[0.2em]">Specialty: Breach &amp; Extraction</div>
+<div class="font-mono text-sm text-secondary font-bold italic">WIN RECORD: 142 - 04 - 01</div>
+</div>
+</div>
+<!-- Coach 2 -->
+<div class="relative group">
+<div class="aspect-[3/4] overflow-hidden grayscale contrast-125 mb-6 relative">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Sloane V." class="w-full h-full object-cover" data-alt="Coach Sloane V. looking intense" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLDwu7l3IAuqtHIwJRGyXPG_s3zOnGcTpfhEHUSmBiO5IOiWL8rTQ3PGbiN7csQQoke_fkyOwaY9tHK5hsF2yk-y3F15jliuHtImcYmT1AGxvPqhuwjTTZI2slBSvrMtAOoHVe0nmQopkdvCZ-o7x3OBFn8M54QwKvSnsmMZRC7ncJ_EqEH-w2IDQj_CO92pSS9Kddy30CMcWGNi6c2bSCjpeGsT0t_vR7R_b6okUaSD1LpnE_e9WrUdZleAUFOJJ064Nh0_Q8Fiw"/>
+</div>
+<div class="absolute -bottom-4 left-4 bg-primary text-on-primary px-4 py-2 font-headline italic font-bold uppercase text-xs tracking-widest">SLOANE V.</div>
+<div class="pt-6 space-y-2">
+<div class="font-mono text-[10px] uppercase text-on-surface-variant tracking-[0.2em]">Specialty: Infiltration &amp; Stealth</div>
+<div class="font-mono text-sm text-secondary font-bold italic">WIN RECORD: 098 - 00 - 00</div>
+</div>
+</div>
+<!-- Coach 3 -->
+<div class="relative group">
+<div class="aspect-[3/4] overflow-hidden grayscale contrast-125 mb-6 relative">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Jax R." class="w-full h-full object-cover" data-alt="Coach Jax R. looking focused" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrIUWKB3eP4m7QU05eIiL3J0NZS7Q7_N147kEGwXoRrnjWjyWJAoPCS9UP8EkLXewei2aNImdrClIcDmD0zsE0hTO5RocbYjUy4qMjujU03X6oNogUECe4uU0IG_3oz_JQf7hdq9tuPtBGKBt_7mZbEGnMK7erctVjeDO8Uoiov-vdKlH9a9niOaJGHNXHpRYaPlU0NLsNXfJk2GdHgqE5uESWzSuNWxNKEY_VsEdiKZyAo9_r6f29-skK3OStz9lqFQIotPPv6f4"/>
+</div>
+<div class="absolute -bottom-4 left-4 bg-primary text-on-primary px-4 py-2 font-headline italic font-bold uppercase text-xs tracking-widest">JAX R.</div>
+<div class="pt-6 space-y-2">
+<div class="font-mono text-[10px] uppercase text-on-surface-variant tracking-[0.2em]">Specialty: Ballistic Calculation</div>
+<div class="font-mono text-sm text-secondary font-bold italic">WIN RECORD: 211 - 12 - 03</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials (Field Reports) -->
+<section class="py-24 px-6 bg-surface-container-lowest overflow-hidden relative">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="container mx-auto relative z-10">
+<h2 class="font-headline text-2xl italic font-bold uppercase tracking-widest mb-12 text-on-surface-variant flex items-center gap-4">
+<span class="w-12 h-px bg-outline-variant"></span>
+                Graduate Field Reports
+                <span class="w-12 h-px bg-outline-variant"></span>
+</h2>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="bg-surface-container-high p-8 relative">
+<div class="absolute top-4 right-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">format_quote</span>
+</div>
+<p class="font-mono text-sm leading-relaxed mb-8">
+                        "The training at SBGL changed my life. During the [REDACTED] operation, my kinetics coach's voice was the only thing keeping me focused. We hit the 18th hole while under [REDACTED] mortars. Survival wasn't just likely; it was mandatory."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-outline-variant rounded-full"></div>
+<div>
+<div class="font-headline italic font-bold uppercase text-xs">Operative #714</div>
+<div class="font-mono text-[10px] text-on-surface-variant uppercase">Class of '23 - Urban Extraction Unit</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 relative">
+<div class="absolute top-4 right-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">format_quote</span>
+</div>
+<p class="font-mono text-sm leading-relaxed mb-8">
+                        "I entered as a hobbyist and left as a weapon. The [REDACTED] module is particularly intense. You haven't played golf until you've navigated a minefield with a 7-iron. SBGL doesn't just teach you the game; they [REDACTED] your soul."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-outline-variant rounded-full"></div>
+<div>
+<div class="font-headline italic font-bold uppercase text-xs">Operative #902</div>
+<div class="font-mono text-[10px] text-on-surface-variant uppercase">Elite Class '24 - Stealth Division</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Enrollment CTA -->
+<section class="py-32 px-6 bg-primary-fixed text-on-primary-fixed">
+<div class="container mx-auto max-w-4xl text-center">
+<h2 class="font-headline text-6xl md:text-8xl italic font-black uppercase tracking-tighter mb-8 leading-none">Ready for the Front?</h2>
+<p class="font-headline text-xl italic uppercase tracking-[0.2em] mb-12 opacity-80">Your elite career begins with a single enlistment.</p>
+<div class="flex flex-col md:flex-row gap-0 group">
+<input class="flex-grow bg-white/10 border-2 border-on-primary-fixed/20 p-6 font-mono text-sm placeholder:text-on-primary-fixed/40 focus:outline-none focus:border-on-primary-fixed/60 transition-all uppercase" placeholder="ENTER YOUR OPERATIVE EMAIL" type="email"/>
+<button class="bg-on-primary-fixed text-primary-fixed p-6 px-12 font-headline font-black italic uppercase tracking-widest hover:bg-black transition-all">ENLIST NOW</button>
+</div>
+<p class="font-mono text-[10px] uppercase tracking-widest mt-8 opacity-40">By enlisting, you agree to the SBGL tactical liability waivers and survival protocols.</p>
+</div>
+</section>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="bg-[#000000] dark:bg-[#000000] border-t border-[#181a1c]">
+<div class="w-full py-16 px-8 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-black text-[#fdfbfe] tracking-tighter uppercase">SBGLEAGUE</div>
+<p class="font-body text-sm text-[#eff3ff]/60 leading-relaxed max-w-xs">
+    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
+</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">League</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Athlete Code of Conduct</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Brand Assets</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Logistics</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Contact Support</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Ticketing FAQ</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Arena Safety Manual</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Media Accreditation</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Intelligence Access</h4>
+<p class="font-body text-xs text-[#eff3ff]/40">Receive direct encrypted updates on course layouts and athlete drafts.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-surface-container border-none text-xs font-label p-3 focus:ring-1 focus:ring-primary-container outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary-container text-on-primary font-headline font-bold uppercase text-xs py-3 tracking-widest hover:bg-primary-fixed-dim transition-all">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-[#181a1c] flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">&copy; 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-6">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest uppercase">ENCRYPTED CONNECTION: AES-256</span>
+<span class="font-label text-[10px] text-[#9cff93] tracking-widest uppercase">SYSTEM STATUS: OPTIMAL</span>
+</div>
+</div>
+</footer>
+</body></html>
