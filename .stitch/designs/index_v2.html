@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SBGLEAGUE | Super Battle Golf League</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-variant": "#242629",
+                "primary-container": "#00fc40",
+                "secondary-fixed": "#ffc5ab",
+                "surface-container-high": "#1e2022",
+                "on-primary-container": "#005a10",
+                "on-error": "#450900",
+                "surface-tint": "#9cff93",
+                "on-secondary-container": "#fff6f3",
+                "tertiary-fixed-dim": "#ced8eb",
+                "inverse-on-surface": "#555557",
+                "on-primary-fixed": "#00440a",
+                "surface": "#0d0e10",
+                "surface-container": "#181a1c",
+                "error-container": "#b92902",
+                "on-primary": "#006413",
+                "outline-variant": "#47484a",
+                "on-tertiary-container": "#4a5464",
+                "on-secondary-fixed": "#5c2200",
+                "surface-container-lowest": "#000000",
+                "error-dim": "#d53d18",
+                "outline": "#757578",
+                "primary-fixed-dim": "#00ec3b",
+                "secondary-fixed-dim": "#ffb28d",
+                "tertiary": "#eff3ff",
+                "secondary": "#ff7524",
+                "on-tertiary-fixed": "#384251",
+                "secondary-container": "#a04100",
+                "primary-dim": "#00ec3b",
+                "surface-container-highest": "#242629",
+                "on-surface": "#fdfbfe",
+                "on-background": "#fdfbfe",
+                "secondary-dim": "#ff7524",
+                "on-tertiary": "#525c6d",
+                "error": "#ff7351",
+                "on-secondary-fixed-variant": "#8a3700",
+                "primary": "#9cff93",
+                "tertiary-fixed": "#dce6fa",
+                "primary-fixed": "#00fc40",
+                "on-primary-fixed-variant": "#006513",
+                "on-tertiary-fixed-variant": "#545e6e",
+                "surface-bright": "#2b2c2f",
+                "on-secondary": "#3c1300",
+                "tertiary-container": "#dce6fa",
+                "surface-container-low": "#121316",
+                "tertiary-dim": "#ced8eb",
+                "surface-dim": "#0d0e10",
+                "inverse-surface": "#fbf9fb",
+                "on-surface-variant": "#ababad",
+                "background": "#0d0e10",
+                "inverse-primary": "#006f16",
+                "on-error-container": "#ffd2c8"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glow-primary {
+            filter: drop-shadow(0 0 12px rgba(0, 252, 64, 0.4));
+        }
+        .glow-secondary {
+            filter: drop-shadow(0 0 12px rgba(255, 117, 36, 0.4));
+        }
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-move {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#0d0e10]/95 backdrop-blur-md">
+<div class="text-2xl font-black tracking-tighter text-[#fdfbfe] dark:text-[#fdfbfe]">SBGLEAGUE</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#9cff93] font-bold border-b-2 border-[#9cff93] pb-1 hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="#">Home</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="#">About</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="#">Players</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="#">Schedule</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="#">Leaderboard</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="#">News</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">
+            Buy Tickets
+        </button>
+</nav>
+<!-- Ticker Bar -->
+<div class="mt-[72px] bg-primary-container py-2 border-y border-primary-container/20 ticker-wrap relative z-40">
+<div class="ticker-move text-on-primary-container font-label text-xs font-bold uppercase tracking-[0.2em]">
+<span>VOLCANO RIDGE ACCESS DENIED — CRATER CUP UPDATE: DAVE LEADS BY 3 — MK-7 ARMOR RESTOCKED — SEASON 7 QUALIFIERS COMMENCE IN 48H — </span>
+<span>VOLCANO RIDGE ACCESS DENIED — CRATER CUP UPDATE: DAVE LEADS BY 3 — MK-7 ARMOR RESTOCKED — SEASON 7 QUALIFIERS COMMENCE IN 48H — </span>
+</div>
+</div>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-8 overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-low opacity-40 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Dark futuristic golf course with glowing neon highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEeWo5d7ZjjoOOOhnjnNrVSNKI3uxl8L3nMV2NRZtjU8HZkCJhBBPp3lKdiCIvvgGO5EycF5lMgQoRRDCGQDIbE1XB9RWgamBQcjowkpZUWDc5h7VesQW2CpsJbjgiN3fOiNLzWKIOFxpdbHROUQ7svpCPgfrGs0QUyNEHpSqWRjobngXTt4eqlhC8hMyu0M1y4_esP7QcYMCMWD7LJVRK3MF3eSpUKtKW8OWXPH2Okpm0UOrze-3pL4oV4arcnUs6PF9lABStZS4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 w-full max-w-7xl mx-auto items-center">
+<div class="lg:col-span-7">
+<h1 class="font-headline text-[5rem] md:text-[8rem] leading-[0.85] font-black uppercase tracking-tighter mb-6 flex flex-col">
+<span class="text-on-surface">Super</span>
+<span class="text-primary-container glow-primary">Battle</span>
+<span class="text-secondary glow-secondary">Golf</span>
+</h1>
+<p class="font-body text-xl text-tertiary/80 max-w-lg mb-10 border-l-4 border-primary-container pl-6">
+                        Where Every Stroke is a Battle. Precision meets ordinance in the world's most dangerous spectator sport.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary px-10 py-4 font-headline text-lg font-extrabold uppercase tracking-widest glow-primary hover:bg-primary-fixed-dim transition-all">
+                            Watch Live
+                        </button>
+<button class="border-2 border-primary-container text-primary-container px-10 py-4 font-headline text-lg font-extrabold uppercase tracking-widest hover:bg-primary-container/10 transition-all">
+                            Learn the Rules
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="bg-surface-container-highest p-1 p-[1px] bg-gradient-to-br from-primary-container/50 to-transparent">
+<div class="bg-surface-container-high p-8">
+<div class="flex justify-between items-center mb-8">
+<span class="bg-error px-3 py-1 text-[10px] font-label font-bold text-on-error uppercase flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+</span>
+                                    Live Feed: Volcano Ridge
+                                </span>
+<span class="font-label text-xs text-tertiary/40">HUD REVISION 0.94B</span>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end border-b border-surface-container pb-4">
+<div>
+<p class="font-label text-[10px] text-primary uppercase mb-1">Current Leader</p>
+<p class="font-headline text-2xl font-bold uppercase">Demolition Dave</p>
+</div>
+<div class="text-right">
+<p class="font-label text-3xl text-primary font-black">-7</p>
+</div>
+</div>
+<div class="flex justify-between items-end border-b border-surface-container pb-4">
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Chaser</p>
+<p class="font-headline text-2xl font-bold uppercase">Bunker Buster Chen</p>
+</div>
+<div class="text-right">
+<p class="font-label text-3xl text-tertiary font-black">-4</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center gap-4 text-xs font-label text-tertiary/60 uppercase">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span>Proximity Alert: 200m from Strike Zone</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="bg-surface-container-lowest py-20 px-8 relative overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="border-l border-surface-container pl-6">
+<h3 class="font-label text-5xl md:text-6xl text-primary-container font-black mb-2">48</h3>
+<p class="font-headline uppercase text-tertiary/60 tracking-widest text-sm font-bold">Elite Athletes</p>
+</div>
+<div class="border-l border-surface-container pl-6">
+<h3 class="font-label text-5xl md:text-6xl text-primary-container font-black mb-2">16</h3>
+<p class="font-headline uppercase text-tertiary/60 tracking-widest text-sm font-bold">Tactical Courses</p>
+</div>
+<div class="border-l border-surface-container pl-6">
+<h3 class="font-label text-5xl md:text-6xl text-primary-container font-black mb-2">07</h3>
+<p class="font-headline uppercase text-tertiary/60 tracking-widest text-sm font-bold">Full Seasons</p>
+</div>
+<div class="border-l border-surface-container pl-6">
+<h3 class="font-label text-5xl md:text-6xl text-primary-container font-black mb-2">$2.4M</h3>
+<p class="font-headline uppercase text-tertiary/60 tracking-widest text-sm font-bold">Annual Prize Pool</p>
+</div>
+</div>
+</section>
+<!-- Features Bento -->
+<section class="py-24 px-8 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tight text-on-surface">
+                        Golf. <span class="text-secondary">But Deadlier.</span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Feature Card 1 -->
+<div class="bg-surface-container p-8 min-h-[300px] flex flex-col justify-between group hover:bg-surface-container-highest transition-all border-t-2 border-transparent hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">explosion</span>
+<div>
+<h4 class="font-headline text-2xl font-bold uppercase mb-3">Battle Mechanics</h4>
+<p class="text-tertiary/60 text-sm leading-relaxed">Artillery-assisted drives and tactical wedge deployments are standard operating procedures.</p>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="bg-surface-container p-8 min-h-[300px] flex flex-col justify-between group hover:bg-surface-container-highest transition-all border-t-2 border-transparent hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">sports_golf</span>
+<div>
+<h4 class="font-headline text-2xl font-bold uppercase mb-3">Real Golf Rules</h4>
+<p class="text-tertiary/60 text-sm leading-relaxed">At its core, it's still golf. Lowest score wins, assuming you survive the back nine.</p>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="bg-surface-container p-8 min-h-[300px] flex flex-col justify-between group hover:bg-surface-container-highest transition-all border-t-2 border-transparent hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<div>
+<h4 class="font-headline text-2xl font-bold uppercase mb-3">Global Competition</h4>
+<p class="text-tertiary/60 text-sm leading-relaxed">Athletes from all six sectors compete for the ultimate title: The Iron Putter.</p>
+</div>
+</div>
+<!-- Feature Card 4 -->
+<div class="bg-surface-container p-8 min-h-[300px] flex flex-col justify-between group hover:bg-surface-container-highest transition-all border-t-2 border-transparent hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div>
+<h4 class="font-headline text-2xl font-bold uppercase mb-3">Safety Gear</h4>
+<p class="text-tertiary/60 text-sm leading-relaxed">Full Kevlar-weave uniforms and blast-resistant visors are mandatory for all participants.</p>
+</div>
+</div>
+<!-- Feature Card 5 -->
+<div class="bg-surface-container p-8 min-h-[300px] flex flex-col justify-between group hover:bg-surface-container-highest transition-all border-t-2 border-transparent hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">map</span>
+<div>
+<h4 class="font-headline text-2xl font-bold uppercase mb-3">Battle Courses</h4>
+<p class="text-tertiary/60 text-sm leading-relaxed">From radioactive bunkers to high-altitude volcanic ridges, our terrains are active combat zones.</p>
+</div>
+</div>
+<!-- Feature Card 6 -->
+<div class="bg-surface-container p-8 min-h-[300px] flex flex-col justify-between group hover:bg-surface-container-highest transition-all border-t-2 border-transparent hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">satellite_alt</span>
+<div>
+<h4 class="font-headline text-2xl font-bold uppercase mb-3">Live Coverage</h4>
+<p class="text-tertiary/60 text-sm leading-relaxed">4K drone-feed surveillance of every hole with real-time biometric telemetry overlays.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Events -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<h2 class="font-headline text-5xl font-black uppercase tracking-tight">Deployment Schedule</h2>
+<a class="font-label text-sm text-primary uppercase flex items-center gap-2 hover:opacity-80" href="#">View Full Season Calendar <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="space-y-4">
+<!-- Event Row 1 -->
+<div class="bg-surface p-6 flex flex-col md:grid md:grid-cols-12 gap-6 items-center hover:bg-surface-container-high transition-colors">
+<div class="md:col-span-1 flex flex-col items-center justify-center">
+<span class="font-label text-xs text-tertiary/40 uppercase">APR</span>
+<span class="font-headline text-3xl font-black">12</span>
+</div>
+<div class="md:col-span-2">
+<span class="bg-primary-container/10 border border-primary-container text-primary-container px-3 py-1 text-[10px] font-label font-bold uppercase tracking-widest">Live</span>
+</div>
+<div class="md:col-span-4">
+<h5 class="font-headline text-xl font-bold uppercase">Season 7 Opener</h5>
+</div>
+<div class="md:col-span-3 text-tertiary/60 font-label text-xs uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            The Void Basin, Sector 4
+                        </div>
+<div class="md:col-span-2 text-right w-full">
+<button class="bg-primary-container text-on-primary w-full py-2 font-headline font-bold uppercase text-xs tracking-widest">Buy Tickets</button>
+</div>
+</div>
+<!-- Event Row 2 -->
+<div class="bg-surface p-6 flex flex-col md:grid md:grid-cols-12 gap-6 items-center hover:bg-surface-container-high transition-colors">
+<div class="md:col-span-1 flex flex-col items-center justify-center">
+<span class="font-label text-xs text-tertiary/40 uppercase">MAY</span>
+<span class="font-headline text-3xl font-black">04</span>
+</div>
+<div class="md:col-span-2">
+<span class="bg-surface-container-highest border border-outline text-tertiary/60 px-3 py-1 text-[10px] font-label font-bold uppercase tracking-widest">Upcoming</span>
+</div>
+<div class="md:col-span-4">
+<h5 class="font-headline text-xl font-bold uppercase">Neon Sands Invitational</h5>
+</div>
+<div class="md:col-span-3 text-tertiary/60 font-label text-xs uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            District 9 Dunes
+                        </div>
+<div class="md:col-span-2 text-right w-full">
+<button class="bg-primary-container text-on-primary w-full py-2 font-headline font-bold uppercase text-xs tracking-widest">Buy Tickets</button>
+</div>
+</div>
+<!-- Event Row 3 -->
+<div class="bg-surface p-6 flex flex-col md:grid md:grid-cols-12 gap-6 items-center hover:bg-surface-container-high transition-colors">
+<div class="md:col-span-1 flex flex-col items-center justify-center">
+<span class="font-label text-xs text-tertiary/40 uppercase">JUN</span>
+<span class="font-headline text-3xl font-black">19</span>
+</div>
+<div class="md:col-span-2">
+<span class="bg-surface-container-highest border border-outline text-tertiary/60 px-3 py-1 text-[10px] font-label font-bold uppercase tracking-widest">Upcoming</span>
+</div>
+<div class="md:col-span-4">
+<h5 class="font-headline text-xl font-bold uppercase">The Bunker Classic</h5>
+</div>
+<div class="md:col-span-3 text-tertiary/60 font-label text-xs uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            Sector 0 Command Center
+                        </div>
+<div class="md:col-span-2 text-right w-full">
+<button class="bg-primary-container text-on-primary w-full py-2 font-headline font-bold uppercase text-xs tracking-widest">Buy Tickets</button>
+</div>
+</div>
+<!-- Event Row 4 -->
+<div class="bg-surface p-6 flex flex-col md:grid md:grid-cols-12 gap-6 items-center hover:bg-surface-container-high transition-colors">
+<div class="md:col-span-1 flex flex-col items-center justify-center">
+<span class="font-label text-xs text-tertiary/40 uppercase">JUL</span>
+<span class="font-headline text-3xl font-black">30</span>
+</div>
+<div class="md:col-span-2">
+<span class="bg-surface-container-highest border border-outline text-tertiary/60 px-3 py-1 text-[10px] font-label font-bold uppercase tracking-widest">Upcoming</span>
+</div>
+<div class="md:col-span-4">
+<h5 class="font-headline text-xl font-bold uppercase">Thunder Ridge Open</h5>
+</div>
+<div class="md:col-span-3 text-tertiary/60 font-label text-xs uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            The High Peaks
+                        </div>
+<div class="md:col-span-2 text-right w-full">
+<button class="bg-primary-container text-on-primary w-full py-2 font-headline font-bold uppercase text-xs tracking-widest">Buy Tickets</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Elite Strikers -->
+<section class="py-24 px-8 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tight">Elite Strikers</h2>
+<p class="font-label text-primary mt-2 uppercase tracking-[0.2em] text-xs">Top Tier Bio-Athletes Season 7</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Player Card 1 -->
+<div class="group relative bg-surface-container-high overflow-hidden">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Tactical golfer athlete in high-tech battle gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASx-Q_2Zo84KwjqQwEHuEUitRunXGnsrhTXuFNQw3Ry2hMFlMk6j4nnqvfbxF_LaMHNBZ88uA03FJ488IETi0_qOT2T8yJtUnA6C-GFjZfdJ3Xn2132QNYTBCABUoNOyeH_7w8jY91Rg9AC47EvuZvnpVLS_7vxXBBxGBa2n-zNEWTYJ75oFjK2-qZAmPclh3kWhTvoAtYb1YjJhv4qTZDwROGV-TvYkxrA41xws1DdSqV8fIam9Xmz-X_yOCc2DwVN8f41mOF-Dc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-transparent to-transparent"></div>
+</div>
+<div class="absolute top-4 left-4 bg-primary text-on-primary font-label font-bold px-3 py-1 text-xs">RANK #1</div>
+<div class="p-6 relative -mt-12 bg-surface-container-highest/90 backdrop-blur-md m-2">
+<h5 class="font-headline text-xl font-black uppercase mb-4">The Crusher</h5>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Avg Score</p>
+<p class="font-label text-sm font-bold text-primary">-8.2</p>
+</div>
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Hit %</p>
+<p class="font-label text-sm font-bold text-primary">94.5%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Player Card 2 -->
+<div class="group relative bg-surface-container-high overflow-hidden">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Military style athlete portrait for battle golf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4cVMhn0969Pybxn-oSXQ4JguAq8f2e1yl4nfMbdr7e9YhbGhrfD4ZfPST0ftj2cbJ7pur64qM_F9SCtoV0iJfXpuSyzQdi58hDDtbyn97KFLF03LEZyp369EN5vycn097DEe4cUAwgQu_M9MDUYVZA6mR0CTVyKd9YaaZl_S78ew60JdvWhbFPrEaBQraV4uc_7jhj46li2K_8colO9ju3WX8OAPHgbcfwwQlmigunTwIewnl00GWSPzaWbb1amgFpeM5gLb6WC8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-transparent to-transparent"></div>
+</div>
+<div class="absolute top-4 left-4 bg-surface text-tertiary font-label font-bold px-3 py-1 text-xs">RANK #2</div>
+<div class="p-6 relative -mt-12 bg-surface-container-highest/90 backdrop-blur-md m-2">
+<h5 class="font-headline text-xl font-black uppercase mb-4">Demolition Dave</h5>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Avg Score</p>
+<p class="font-label text-sm font-bold text-primary">-7.9</p>
+</div>
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Hit %</p>
+<p class="font-label text-sm font-bold text-primary">88.1%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Player Card 3 -->
+<div class="group relative bg-surface-container-high overflow-hidden">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Professional athlete with tactical visor equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjy5Sz4ubbK-qZ4hVlaHsUc2F1ScD5Im7NBAHN9D36G68GNisFibqDNriqzcSPrYOIvKmaNtGVG-z0Lt68BhEJncXdjIMRns7otb8IaxVSm5rb-vFnxx76-tnMW2ZzXSLPj5TStJyUTSvLiVd2ovVB1r16FMYZm03Nkr2a1Hh21rg1vgpIHzK45WtSnFHnO7lCvCFdz0H70VytQzWUoZjm9nGocjsUCjY68X2Q6SSy8MCGw8R2chHAW0Q9sjZU1XHa8wUYThU-dvw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-transparent to-transparent"></div>
+</div>
+<div class="absolute top-4 left-4 bg-surface text-tertiary font-label font-bold px-3 py-1 text-xs">RANK #3</div>
+<div class="p-6 relative -mt-12 bg-surface-container-highest/90 backdrop-blur-md m-2">
+<h5 class="font-headline text-xl font-black uppercase mb-4">Iron Maiden</h5>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Avg Score</p>
+<p class="font-label text-sm font-bold text-primary">-7.1</p>
+</div>
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Hit %</p>
+<p class="font-label text-sm font-bold text-primary">91.3%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Player Card 4 -->
+<div class="group relative bg-surface-container-high overflow-hidden">
+<div class="aspect-[3/4] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="High intensity athlete ready for battle golf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZJryZ1uff-YB8wK7wYZlRmHjbINq0r1_s7565OUo6IWzFcYs15nRl35IOsArp10DAJUQ80l5HLeqXPA4FKWc71jEWlFoYeEMz4M5Zd0C4j8riSxzFa1Bd_JzMgbTqXvS-0ESiLILK3pJ5YqvE8gOpa-AF3YesmyLkTqnZg6lIvx6ZAjEVImAlC3kUo05dnBzH0zxmaYzdVyGAd-zsUrasWM5PW3f0H7ditoK7A0XWlbXsGyj25nDyzgUIGaY_c4Rx_qwwEEwEb1Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-transparent to-transparent"></div>
+</div>
+<div class="absolute top-4 left-4 bg-surface text-tertiary font-label font-bold px-3 py-1 text-xs">RANK #4</div>
+<div class="p-6 relative -mt-12 bg-surface-container-highest/90 backdrop-blur-md m-2">
+<h5 class="font-headline text-xl font-black uppercase mb-4">Bunker Buster</h5>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Avg Score</p>
+<p class="font-label text-sm font-bold text-primary">-6.8</p>
+</div>
+<div>
+<p class="font-label text-[10px] text-tertiary/40 uppercase mb-1">Hit %</p>
+<p class="font-label text-sm font-bold text-primary">85.9%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Intelligence Feed -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="font-headline text-5xl font-black uppercase tracking-tight">Intelligence Feed</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- News Item 1 -->
+<article class="bg-surface group">
+<div class="aspect-video overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="New tactical armor prototype for golf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZECmHl_sOcD0dnp78UfNBFkijDRFD_PStPU_JzfGPGP0Uca3AHgBydgcbZVsNRH_7pxxdA0MDVLAsnYkPOGbdOgFjuXoG6MSfeE9nEyK9DCifCBCfrpgHfuqFhwcxsD9baKJEVTJBj9qLXV9pDuaA7dLqzk8lG_-_C5NhZWd5SOr-QQhfSLrio66pQ-NosqnPQzIy2DJUSkfJ1hssRg6JPFEN7lf49EF2GwqCCJEWfhPQ4I8fGtoWkbITRCyh8FThoYs_T623fB4"/>
+</div>
+<div class="p-6">
+<span class="bg-secondary text-on-secondary font-label text-[10px] font-bold uppercase tracking-widest px-2 py-1 inline-block mb-4">Gear Tech</span>
+<h3 class="font-headline text-2xl font-bold uppercase mb-4 group-hover:text-primary transition-colors">New MK-7 Blast Armor Hits the Field</h3>
+<p class="text-tertiary/60 text-sm mb-6">Engineered with graphene-reinforced fibers to withstand direct bunker detonations while maintaining full drive mobility.</p>
+<a class="font-label text-xs uppercase text-primary font-bold border-b border-primary/20 pb-1 hover:border-primary transition-colors" href="#">Read Full Report</a>
+</div>
+</article>
+<!-- News Item 2 -->
+<article class="bg-surface group">
+<div class="aspect-video overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Satellite thermal view of a battle golf course" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Ws-mpjEazVKY3gTlnMpIlkoJsUi7jSpb2ApC-4SyHGus8puTEcJVWDLKAl-B0hZqP7YeIcTsVUoER45a_fRQKvxHx1f4jSYbqaLtralqjnEN2eNpUC1rqQSx_oqLmD9eyPDzXPIKHuQx8njil3csrxIcLXbfl_bduvx_owLnPIH5e1bpB4qo6iurNq7jMYo_6eh-iazMKZRWBcBk3wsRNzDkiZCpkDjNXW6p6aLXzxmW0mjVOV07cSBOyg4mujGOBotJGziRwMk"/>
+</div>
+<div class="p-6">
+<span class="bg-secondary text-on-secondary font-label text-[10px] font-bold uppercase tracking-widest px-2 py-1 inline-block mb-4">Course Intel</span>
+<h3 class="font-headline text-2xl font-bold uppercase mb-4 group-hover:text-primary transition-colors">Void Basin Reconnaissance Finalized</h3>
+<p class="text-tertiary/60 text-sm mb-6">Thermal mapping reveals unpredictable gas vents on the 14th green. Athletes advised to bring environmental filters.</p>
+<a class="font-label text-xs uppercase text-primary font-bold border-b border-primary/20 pb-1 hover:border-primary transition-colors" href="#">Read Full Report</a>
+</div>
+</article>
+<!-- News Item 3 -->
+<article class="bg-surface group">
+<div class="aspect-video overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High tech telemetry computer console" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACA1L0ShZapL4roqVyoaMoj3hcLL7DNuFXLap9rZcn6FE6Bpt3nDSCI1T8m1lR7a1GbGnHYH7a1-87vPg5Qm3Vh-WkpWh2L0ykIHskgkGozJ_hjud7ylLH-r6Knt_EytEOd1jJqZ8PrMwhAvgRiIQcx3aRPdD9t-GhkgTtRJJ_O_RL3megX7pBhiylI227vr3z8jKTGhk1fWDMQuOQzG7D9gOB3BvWQorO-XCSRYsjFb0mTHw8xCejoQHDrmjtqRxifq5v9Cd4e68"/>
+</div>
+<div class="p-6">
+<span class="bg-secondary text-on-secondary font-label text-[10px] font-bold uppercase tracking-widest px-2 py-1 inline-block mb-4">League News</span>
+<h3 class="font-headline text-2xl font-bold uppercase mb-4 group-hover:text-primary transition-colors">Bio-Link Regulation Updates</h3>
+<p class="text-tertiary/60 text-sm mb-6">League commissioners tighten rules on sub-dermal range-finding chips. Fair play remains our secondary priority.</p>
+<a class="font-label text-xs uppercase text-primary font-bold border-b border-primary/20 pb-1 hover:border-primary transition-colors" href="#">Read Full Report</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Season 7 CTA Banner -->
+<section class="py-24 px-8 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-container z-0 opacity-10"></div>
+<div class="max-w-7xl mx-auto relative z-10 text-center">
+<p class="font-label text-primary-container font-black uppercase tracking-[0.4em] mb-4">System Overdrive Initiated</p>
+<h2 class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter mb-12">Season 7 Kicks Off April 12</h2>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-primary-container text-on-primary px-12 py-5 font-headline text-xl font-extrabold uppercase tracking-widest glow-primary hover:scale-105 transition-transform">
+                        Get Tickets
+                    </button>
+<button class="border-2 border-primary-container text-primary-container px-12 py-5 font-headline text-xl font-extrabold uppercase tracking-widest hover:bg-primary-container/10 transition-all">
+                        Meet the Athletes
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] dark:bg-[#000000] border-t border-[#181a1c]">
+<div class="w-full py-16 px-8 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div class="space-y-6">
+<div class="text-xl font-black text-[#fdfbfe] tracking-tighter uppercase">SBGLEAGUE</div>
+<p class="font-body text-sm text-[#eff3ff]/60 leading-relaxed max-w-xs">
+                    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+<!-- League Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">League</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Athlete Code of Conduct</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Brand Assets</a></li>
+</ul>
+</div>
+<!-- Support Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Logistics</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Contact Support</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Ticketing FAQ</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Arena Safety Manual</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Media Accreditation</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Intelligence Access</h4>
+<p class="font-body text-xs text-[#eff3ff]/40">Receive direct encrypted updates on course layouts and athlete drafts.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-surface-container border-none text-xs font-label p-3 focus:ring-1 focus:ring-primary-container outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary-container text-on-primary font-headline font-bold uppercase text-xs py-3 tracking-widest hover:bg-primary-fixed-dim transition-all">Subscribe</button>
+</form>
+</div>
+</div>
+<!-- Copyright -->
+<div class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-[#181a1c] flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">© 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-6">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest uppercase">ENCRYPTED CONNECTION: AES-256</span>
+<span class="font-label text-[10px] text-[#9cff93] tracking-widest uppercase">SYSTEM STATUS: OPTIMAL</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,83 @@
+{
+  "name": "projects/9882356895224258150",
+  "projectId": "9882356895224258150",
+  "title": "Super Battle Golf League",
+  "visibility": "PRIVATE",
+  "createTime": "2026-03-20T00:08:43.077220Z",
+  "updateTime": "2026-03-20T00:12:23.745048Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "DARK",
+    "font": "SPACE_GROTESK",
+    "roundness": "ROUND_FOUR",
+    "customColor": "#00FF41",
+    "saturation": 3
+  },
+  "screens": {
+    "index": {
+      "id": "cf57b27ce66b4b478e63f0f3a95fc7da",
+      "sourceScreen": "projects/9882356895224258150/screens/cf57b27ce66b4b478e63f0f3a95fc7da",
+      "title": "SBGL Official Home Page",
+      "width": 2560,
+      "height": 10698,
+      "htmlDownloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzMxYTk1OWVlNWUwODRhNzFhYzA5YzY1M2YzZDMxNjBiEgsSBxD639XJrwIYAZIBIwoKcHJvamVjdF9pZBIVQhM5ODgyMzU2ODk1MjI0MjU4MTUw&filename=&opi=96797242",
+      "screenshotDownloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ugvPaJafVUooxZWhhNskabQHPgEs5jEAI8qMYao1akORjUYgxU-JJZAaDHPOB8llJf7vjHJK52rvvsFo2VyZpUfqVnrGQmT9hey9G4zlB7KpOoETzrYJxrA9zTnTjlye9MvKXh4-gkpJe6NM-NXVhN4rpjUdeWLvhJddHz-SrLk-K7aDBNvNaLpEjgEd-P1-Svq1W_BSOZDsxVMGDBRtNRSgDercMvx3zDvmf3m3HJnLGiJgKzEp29hxO8"
+    },
+    "index_v2": {
+      "id": "acdd5707bc8e4709969dec6432eec245",
+      "sourceScreen": "projects/9882356895224258150/screens/acdd5707bc8e4709969dec6432eec245",
+      "title": "SBGL Official Home Page (Flash)",
+      "width": 2560,
+      "height": 10898,
+      "htmlDownloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2VhYjcyNGQxYWJiZDRlZjViODUxN2IzYThjNzAzMTJmEgsSBxD639XJrwIYAZIBIwoKcHJvamVjdF9pZBIVQhM5ODgyMzU2ODk1MjI0MjU4MTUw&filename=&opi=96797242",
+      "screenshotDownloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0uhO76kNi__bv1U2GCtvZIKGt6mopG4dkRIVxvL8bhmCzZ64Uzd7UnpVr7zZSS0DSUC4tp2zDNNPd_-5a20_XGV4q9-8Q9YvnxRvXeuYQ9FgJNzP1zGod-kq6d3omRcyRu_FiSFXErHGhwxMaW1WD1-m41JU94GhgBQijwreQF7W_c-eD995vsOVCjtyZhw0X2QZFfXn7eb_yUrvGgn1ic8v05dl5xIqPd7JCbN7MheKov3_DqDH1VT68Og"
+    },
+    "about": {
+      "id": "cdf451208c1c4e63a1508e090ccb1be5",
+      "sourceScreen": "projects/9882356895224258150/screens/cdf451208c1c4e63a1508e090ccb1be5",
+      "title": "About the Sport - SBGL",
+      "width": 2560,
+      "height": 8778,
+      "htmlDownloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzJlMzhmY2ZhNzViZDRkYjViNDZmY2Q1OTA1Zjg0OWQ2EgsSBxD639XJrwIYAZIBIwoKcHJvamVjdF9pZBIVQhM5ODgyMzU2ODk1MjI0MjU4MTUw&filename=&opi=96797242",
+      "screenshotDownloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ugfQs1v1e6ANLzGr3qUdEKXJDHG13d7NifC3kbDGiuXZzJjjjrJyfwbWqDFaGu9Dx7qqumOlR18Fftg_mjJjjb5n76onLw3Y--VB7Jy4MbyD2xP7mte9WG6mf656XeqK00vRcmnVlbhLPM3nMbQV72pRWzc02BJZ7YxkPDZ9rZUYzLcPhpW7kjNzc9wdmRmGsj_DL3a9okqdb5_dCH1dngE7qNsYKp_cfjC2MTQ_TD6nb0edxlAME8dnjs"
+    },
+    "players": {
+      "id": "dfbb1e8b80a4493e8ce9ac6bc096b862",
+      "sourceScreen": "projects/9882356895224258150/screens/dfbb1e8b80a4493e8ce9ac6bc096b862",
+      "title": "SBGL Season 7 Roster",
+      "width": 2560,
+      "height": 5632,
+      "htmlDownloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzRiNTJkYmE0OGE2MDQ4MDM4NDQyYmEwMjhmYTlhZjdkEgsSBxD639XJrwIYAZIBIwoKcHJvamVjdF9pZBIVQhM5ODgyMzU2ODk1MjI0MjU4MTUw&filename=&opi=96797242",
+      "screenshotDownloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ujY5-891YhT_K84Uo9xaRtPYn8n6Wic9AXNADilREWuo2HwZLQB2krip45qwPdUkaYfdQf8AQbjjx-2WLnSnYfu69A7aj4s0zOF4sJFvk4edB7aLKeLMD_7i3KWET-88yD9LQQHUMTS2tkegcAg0ROLnJHorAwk0MUDNOhyPs0bqnovI9pva1H3NaOYDnY0wQLss6qcsDoUEn4tu3gIx5XcbALVW0roLwDBtfcWzbTehu6CkX8GeWgqDlI"
+    },
+    "schedule": {
+      "id": "d0c8421aa92443e9969b4a31283e4f5a",
+      "sourceScreen": "projects/9882356895224258150/screens/d0c8421aa92443e9969b4a31283e4f5a",
+      "title": "SBGL Season 7 Schedule",
+      "width": 2560,
+      "height": 7240,
+      "htmlDownloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2EyYzE4NjlhMDMzNjRmZDg4ZmFiYzMxYzY2YzIzOTliEgsSBxD639XJrwIYAZIBIwoKcHJvamVjdF9pZBIVQhM5ODgyMzU2ODk1MjI0MjU4MTUw&filename=&opi=96797242",
+      "screenshotDownloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0uirVKRzge5ypHTSYt5Dz8Sg7fUZdpAJfpoYRNq3DcZGRF9rv8Nx1CzZdlF21g8BERyDRxucMvdrVuBCoqmh80LkP9RIMIHXP4SvZgHz568tK9-B_R-etPfu3uRkaCN9BhDfS3FVhzdJGxmUsNknAd8KEvjg-bjEmOKWkQwGgnhGZVPRgexl_r6vf2hHz8ffhExgNsqCWgsvxXsHfcsxQaX2l8Fz_90zEm7NjzULvASm47Gdt6wdSuXAzjI"
+    },
+    "leaderboard": {
+      "id": "4feccf733b644024b6b2009f85e73c22",
+      "sourceScreen": "projects/9882356895224258150/screens/4feccf733b644024b6b2009f85e73c22",
+      "title": "SBGL Season 7 Leaderboard",
+      "width": 2560,
+      "height": 4042,
+      "htmlDownloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzU4MzkxYmUwMmUyMTRjOWY5YWZmMDI3ZTJlOWFlMGE3EgsSBxD639XJrwIYAZIBIwoKcHJvamVjdF9pZBIVQhM5ODgyMzU2ODk1MjI0MjU4MTUw&filename=&opi=96797242",
+      "screenshotDownloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ujmuwOXxrpGYO1ojm_QhL9igJOrFVtdrpsoTZENBhJqiPhIfPRCTxshCZEpXmObKsB0bmkf8AQ2R-8iVSnCRRxBZSKfbnxFm5a9V3CTklU1RC2iM3bP9s3MdDQeAsOAzGqfCCMrwDKI_njG6ZAmhVFuoBqeU1fr8pBYYadbMenwZqYKtvucjBDOB-2wvEgE015JFw1UkouYk42aaxiLmeRDutMeqYN-0BQXttGpdVYMyPd-8qekktSqLDY"
+    },
+    "news": {
+      "id": "handcrafted",
+      "title": "SBGL News & Updates",
+      "width": 2560,
+      "note": "Hand-crafted to match Stitch design system (Tailwind + same theme tokens)"
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

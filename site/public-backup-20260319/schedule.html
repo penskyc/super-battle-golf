@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournament Schedule — Super Battle Golf League</title>
+  <meta name="description" content="Full Season 7 schedule for the Super Battle Golf League — dates, venues, and ticket information.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .tab {
+      padding: 14px 24px;
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font-display);
+    }
+    .tab:hover { color: var(--text-primary); }
+    .tab.active { color: var(--color-green); border-bottom-color: var(--color-green); }
+    .event-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .event-card:hover { border-color: var(--color-green); box-shadow: 0 4px 20px rgba(0,255,65,0.06); }
+    .event-card.live { border-color: var(--color-red); box-shadow: 0 0 20px rgba(255,23,68,0.1); }
+    .event-date-block { text-align: center; }
+    .event-month { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-green); }
+    .event-day { font-family: var(--font-display); font-size: 48px; line-height: 1; color: var(--text-primary); }
+    .event-year { font-size: 13px; color: var(--text-secondary); }
+    .event-details h3 { font-family: var(--font-display); font-size: 26px; letter-spacing: 0.04em; }
+    .event-meta { display: flex; gap: 20px; margin-top: 8px; flex-wrap: wrap; }
+    .event-meta-item { font-size: 14px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+    .event-actions { display: flex; flex-direction: column; gap: 10px; min-width: 140px; }
+    .prize-band {
+      display: flex;
+      gap: 0;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+    .prize-tier {
+      flex: 1;
+      text-align: center;
+      padding: 16px 8px;
+    }
+    .prize-tier-1 { background: rgba(255,215,0,0.08); border-right: 1px solid var(--border); }
+    .prize-tier-2 { background: rgba(192,192,192,0.06); border-right: 1px solid var(--border); }
+    .prize-tier-3 { background: rgba(205,127,50,0.06); }
+    .prize-amount { font-family: var(--font-mono); font-size: 22px; font-weight: 700; }
+    .prize-label { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+    .bracket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .bracket-col { padding: 0 16px; }
+    .bracket-col:not(:last-child) { border-right: 1px solid var(--border); }
+    .bracket-heading { font-family: var(--font-display); font-size: 14px; letter-spacing: 0.1em; color: var(--color-green); margin-bottom: 16px; }
+    .match-pair {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .match-pair .match-player-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    .match-pair .match-player-row:first-child { border-bottom: 1px solid var(--border); }
+    .match-pair .match-player-row.winner { color: var(--color-green); font-weight: 600; }
+    .match-player-row .score { font-family: var(--font-mono); font-weight: 700; }
+    @media (max-width: 768px) {
+      .event-card { grid-template-columns: 1fr; }
+      .event-actions { flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⛳</div>
+      <div class="logo-text">SBG<span>LEAGUE</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="players.html">Players</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="news.html">News</a>
+      <a href="schedule.html" class="nav-cta">Buy Tickets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">Season 7 — 2026</span>
+    <h1 class="display-2 mt-16">Tournament<br><span class="text-green">Schedule</span></h1>
+    <p class="text-muted mt-24" style="font-size:18px;max-width:600px;">16 events. 16 Battle Courses. $2.4M in prize money. The full Season 7 calendar — from the Crater Cup to the Grand Slam Championship.</p>
+    <div class="flex gap-16 mt-32">
+      <div class="stat-box" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 28px;">
+        <span class="stat-number" style="font-size:40px;">16</span>
+        <span class="stat-label">Events</span>
+      </div>
+      <div class="stat-box" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 28px;">
+        <span class="stat-number" style="font-size:40px;">22</span>
+        <span class="stat-label">Countries</span>
+      </div>
+      <div class="stat-box" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 28px;">
+        <span class="stat-number" style="font-size:40px;">$2.4M</span>
+        <span class="stat-label">Prize Pool</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tabs -->
+<section>
+  <div class="container">
+    <div class="tab-bar">
+      <button class="tab active">All Events</button>
+      <button class="tab">Majors</button>
+      <button class="tab">Invitational</button>
+      <button class="tab">Grand Slam</button>
+      <button class="tab">Past Results</button>
+    </div>
+
+    <!-- LIVE Event -->
+    <div class="event-card live">
+      <div class="event-date-block">
+        <div class="event-month">April</div>
+        <div class="event-day">12</div>
+        <div class="event-year">– 14, 2026</div>
+      </div>
+      <div class="event-details">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <h3>Crater Cup — Quarterfinals</h3>
+          <span class="badge badge-red" style="animation:livePulse 1.5s infinite;">● LIVE NOW</span>
+        </div>
+        <div class="event-meta">
+          <div class="event-meta-item">🌋 Volcano Ridge, Hawaii, USA</div>
+          <div class="event-meta-item">🏆 Major Event · $400K Prize</div>
+          <div class="event-meta-item">👥 16 Athletes competing</div>
+          <div class="event-meta-item">📡 Broadcasting on BattleSports Network</div>
+        </div>
+        <div class="prize-band mt-16" style="max-width:400px;">
+          <div class="prize-tier prize-tier-1"><div class="prize-amount" style="color:#FFD700;">$200K</div><div class="prize-label">1st Place</div></div>
+          <div class="prize-tier prize-tier-2"><div class="prize-amount" style="color:#C0C0C0;">$100K</div><div class="prize-label">2nd Place</div></div>
+          <div class="prize-tier prize-tier-3"><div class="prize-amount" style="color:#CD7F32;">$50K</div><div class="prize-label">3rd Place</div></div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-orange" style="padding:10px 20px;font-size:14px;text-align:center;">Watch Live</a>
+        <a href="#bracket" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;text-align:center;">View Bracket</a>
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-month">April</div>
+        <div class="event-day">19</div>
+        <div class="event-year">– 21, 2026</div>
+      </div>
+      <div class="event-details">
+        <h3>Crater Cup — Semifinals & Final</h3>
+        <div class="event-meta">
+          <div class="event-meta-item">🌋 Volcano Ridge, Hawaii, USA</div>
+          <div class="event-meta-item">🏆 Major Event · $400K Prize</div>
+          <div class="event-meta-item">👥 4 Athletes · Final Showdown</div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-primary" style="padding:10px 20px;font-size:14px;text-align:center;">Buy Tickets</a>
+        <span class="badge badge-orange" style="text-align:center;">Selling Fast</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-month">May</div>
+        <div class="event-day">03</div>
+        <div class="event-year">– 05, 2026</div>
+      </div>
+      <div class="event-details">
+        <h3>Pacific Rim Battle Open</h3>
+        <div class="event-meta">
+          <div class="event-meta-item">🏔️ Glacier Ridge, Alaska, USA</div>
+          <div class="event-meta-item">🏅 Open Event · $180K Prize</div>
+          <div class="event-meta-item">👥 32 Athletes</div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-primary" style="padding:10px 20px;font-size:14px;text-align:center;">Buy Tickets</a>
+        <a href="#" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;text-align:center;">View Info</a>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-month">May</div>
+        <div class="event-day">24</div>
+        <div class="event-year">– 26, 2026</div>
+      </div>
+      <div class="event-details">
+        <h3>European Assault Classic</h3>
+        <div class="event-meta">
+          <div class="event-meta-item">🏰 Castle Greens, Edinburgh, Scotland</div>
+          <div class="event-meta-item">🏆 Major Event · $350K Prize</div>
+          <div class="event-meta-item">👥 24 Athletes</div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-primary" style="padding:10px 20px;font-size:14px;text-align:center;">Buy Tickets</a>
+        <a href="#" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;text-align:center;">View Info</a>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-month">June</div>
+        <div class="event-day">14</div>
+        <div class="event-year">– 16, 2026</div>
+      </div>
+      <div class="event-details">
+        <h3>Desert Storm Invitational</h3>
+        <div class="event-meta">
+          <div class="event-meta-item">🏜️ Desert Warzone, Dubai, UAE</div>
+          <div class="event-meta-item">⭐ Invitational · $250K Prize</div>
+          <div class="event-meta-item">👥 16 Athletes · Invite Only</div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;text-align:center;">View Info</a>
+        <span class="badge badge-gray" style="text-align:center;">Invite Only</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date-block">
+        <div class="event-month">July</div>
+        <div class="event-day">05</div>
+        <div class="event-year">– 07, 2026</div>
+      </div>
+      <div class="event-details">
+        <h3>Pacific Storm Open — Okinawa</h3>
+        <div class="event-meta">
+          <div class="event-meta-item">🌊 Pacific Storm Links, Okinawa, Japan</div>
+          <div class="event-meta-item">🏅 Open Event · $200K Prize</div>
+          <div class="event-meta-item">👥 32 Athletes</div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-primary" style="padding:10px 20px;font-size:14px;text-align:center;">Buy Tickets</a>
+        <a href="#" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;text-align:center;">View Info</a>
+      </div>
+    </div>
+
+    <div class="event-card" style="border-color: #FFD700;box-shadow:0 0 30px rgba(255,215,0,0.08);">
+      <div class="event-date-block">
+        <div class="event-month" style="color:#FFD700;">November</div>
+        <div class="event-day" style="color:#FFD700;">08</div>
+        <div class="event-year">– 15, 2026</div>
+      </div>
+      <div class="event-details">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <h3>Grand Slam Championship</h3>
+          <span class="badge" style="background:rgba(255,215,0,0.15);color:#FFD700;border-color:rgba(255,215,0,0.4);">🏆 SEASON FINALE</span>
+        </div>
+        <div class="event-meta">
+          <div class="event-meta-item">🌋 Volcano Ridge, Hawaii, USA</div>
+          <div class="event-meta-item">🏆 Grand Slam · $800K Prize</div>
+          <div class="event-meta-item">👥 Top 8 Season Qualifiers Only</div>
+          <div class="event-meta-item">📡 Global Broadcast to 180+ Countries</div>
+        </div>
+        <div class="prize-band mt-16" style="max-width:500px;">
+          <div class="prize-tier prize-tier-1"><div class="prize-amount" style="color:#FFD700;">$450K</div><div class="prize-label">Champion</div></div>
+          <div class="prize-tier prize-tier-2"><div class="prize-amount" style="color:#C0C0C0;">$200K</div><div class="prize-label">Runner-Up</div></div>
+          <div class="prize-tier prize-tier-3"><div class="prize-amount" style="color:#CD7F32;">$100K</div><div class="prize-label">3rd–4th</div></div>
+        </div>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn btn-primary" style="padding:10px 20px;font-size:14px;text-align:center;">Early Access</a>
+        <a href="#" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;text-align:center;">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Bracket -->
+<section id="bracket" style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Crater Cup · Live</span>
+      <h2 class="display-3">Tournament<br><span class="text-green">Bracket</span></h2>
+    </div>
+    <div class="bracket-grid">
+      <div class="bracket-col">
+        <div class="bracket-heading">QUARTERFINALS</div>
+        <div class="match-pair">
+          <div class="match-player-row winner"><span>💀 The Crusher</span><span class="score" style="color:var(--color-green);">-18</span></div>
+          <div class="match-player-row"><span>🌪️ Storm King</span><span class="score">-12</span></div>
+        </div>
+        <div class="match-pair">
+          <div class="match-player-row" style="color:var(--text-secondary);">💣 Demolition Dave</div>
+          <div class="match-player-row" style="color:var(--text-secondary);">🔥 Bunker Buster</div>
+        </div>
+        <div class="match-pair">
+          <div class="match-player-row winner"><span>⚡ Iron Maiden</span><span class="score" style="color:var(--color-green);">-15</span></div>
+          <div class="match-player-row"><span>🎯 Dead Eye</span><span class="score">-14</span></div>
+        </div>
+        <div class="match-pair">
+          <div class="match-player-row" style="color:var(--text-secondary);">🛡️ Shield Wall</div>
+          <div class="match-player-row" style="color:var(--text-secondary);">☁️ Le Brouillard</div>
+        </div>
+      </div>
+      <div class="bracket-col">
+        <div class="bracket-heading">SEMIFINALS</div>
+        <div class="match-pair" style="margin-top:40px;">
+          <div class="match-player-row" style="color:var(--text-secondary);">💀 The Crusher</div>
+          <div class="match-player-row" style="color:var(--text-secondary);">TBD</div>
+        </div>
+        <div class="match-pair" style="margin-top:68px;">
+          <div class="match-player-row" style="color:var(--text-secondary);">⚡ Iron Maiden</div>
+          <div class="match-player-row" style="color:var(--text-secondary);">TBD</div>
+        </div>
+      </div>
+      <div class="bracket-col">
+        <div class="bracket-heading">FINAL</div>
+        <div class="match-pair" style="margin-top:80px;">
+          <div class="match-player-row" style="color:var(--text-secondary);">TBD</div>
+          <div class="match-player-row" style="color:var(--text-secondary);">TBD</div>
+        </div>
+        <div style="text-align:center;margin-top:16px;">
+          <span class="badge" style="background:rgba(255,215,0,0.15);color:#FFD700;border-color:rgba(255,215,0,0.4);">🏆 Crater Cup Champion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">SBG<span>LEAGUE</span></div>
+        <p>The official governing body of Super Battle Golf worldwide. Sanctioning elite full-contact golf competition since Season 1.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Competition</h4>
+        <ul>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="leaderboard.html">Standings</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="news.html">Results</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The Sport</h4>
+        <ul>
+          <li><a href="about.html">About SBG</a></li>
+          <li><a href="about.html#rules">Rules</a></li>
+          <li><a href="about.html#courses">Battle Courses</a></li>
+          <li><a href="about.html#safety">Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Media</h4>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="#">SBGL+ Stream</a></li>
+          <li><a href="#">Photo Gallery</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Super Battle Golf League. All rights reserved.</span>
+      <span>Sanctioned by the World Battle Sports Authority · Safety First, Victory Always</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

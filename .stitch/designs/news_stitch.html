@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-dim": "#00ec3b",
+              "surface-tint": "#9cff93",
+              "secondary-fixed": "#ffc5ab",
+              "primary-fixed-dim": "#00ec3b",
+              "primary": "#9cff93",
+              "secondary": "#ff7524",
+              "on-surface-variant": "#ababad",
+              "on-background": "#fdfbfe",
+              "outline": "#757578",
+              "tertiary-fixed": "#dce6fa",
+              "secondary-dim": "#ff7524",
+              "on-primary-fixed": "#00440a",
+              "on-error": "#450900",
+              "tertiary-container": "#dce6fa",
+              "inverse-on-surface": "#555557",
+              "error-dim": "#d53d18",
+              "error-container": "#b92902",
+              "surface-bright": "#2b2c2f",
+              "surface-container-low": "#121316",
+              "on-error-container": "#ffd2c8",
+              "primary-container": "#00fc40",
+              "surface-container-highest": "#242629",
+              "on-secondary-container": "#fff6f3",
+              "on-secondary": "#3c1300",
+              "on-tertiary-fixed-variant": "#545e6e",
+              "secondary-container": "#a04100",
+              "outline-variant": "#47484a",
+              "on-primary-fixed-variant": "#006513",
+              "on-primary": "#006413",
+              "tertiary": "#eff3ff",
+              "surface": "#0d0e10",
+              "on-tertiary-fixed": "#384251",
+              "on-tertiary": "#525c6d",
+              "on-secondary-fixed": "#5c2200",
+              "surface-container-high": "#1e2022",
+              "on-secondary-fixed-variant": "#8a3700",
+              "surface-container-lowest": "#000000",
+              "secondary-fixed-dim": "#ffb28d",
+              "inverse-primary": "#006f16",
+              "surface-dim": "#0d0e10",
+              "primary-fixed": "#00fc40",
+              "on-tertiary-container": "#4a5464",
+              "tertiary-fixed-dim": "#ced8eb",
+              "tertiary-dim": "#ced8eb",
+              "surface-container": "#181a1c",
+              "background": "#0d0e10",
+              "on-primary-container": "#005a10",
+              "on-surface": "#fdfbfe",
+              "inverse-surface": "#fbf9fb",
+              "surface-variant": "#242629",
+              "error": "#ff7351"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glow-primary {
+        box-shadow: 0 0 15px rgba(0, 252, 64, 0.3);
+      }
+      .bg-grid {
+        background-image: linear-gradient(to right, rgba(156, 255, 147, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(156, 255, 147, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      .text-glow {
+        text-shadow: 0 0 8px rgba(0, 252, 64, 0.6);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4 bg-[#121316] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic tracking-tighter text-[#00fc40] drop-shadow-[0_0_8px_#00fc40]">SBGL</span>
+<div class="hidden md:flex gap-6 font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-sm">
+<a class="text-slate-400 hover:bg-[#242629] hover:text-[#00fc40] transition-colors active:scale-95 duration-200" href="#">ROSTER</a>
+<a class="text-slate-400 hover:bg-[#242629] hover:text-[#00fc40] transition-colors active:scale-95 duration-200" href="#">SCHEDULE</a>
+<a class="text-slate-400 hover:bg-[#242629] hover:text-[#00fc40] transition-colors active:scale-95 duration-200" href="#">STANDINGS</a>
+<a class="text-[#00fc40] border-b-2 border-[#00fc40] pb-1" href="#">INTEL</a>
+<a class="text-slate-400 hover:bg-[#242629] hover:text-[#00fc40] transition-colors active:scale-95 duration-200" href="#">STORE</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-[#00fc40] text-[#006413] px-4 py-2 font-['Space_Grotesk'] uppercase tracking-[0.1em] font-bold text-xs glow-primary hover:bg-[#00ec3b] transition-all active:scale-95">
+                DECODE INTEL
+            </button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-[#00fc40] cursor-pointer p-2 hover:bg-surface-container-highest transition-colors rounded">notifications</span>
+<span class="material-symbols-outlined text-[#00fc40] cursor-pointer p-2 hover:bg-surface-container-highest transition-colors rounded">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12 bg-grid min-h-screen">
+<!-- Header Section -->
+<header class="mb-12 border-l-4 border-primary pl-6">
+<h1 class="font-headline text-6xl md:text-8xl font-black italic uppercase tracking-tighter text-on-surface text-glow">
+                SBGL NEWS
+            </h1>
+<p class="font-mono text-secondary text-sm md:text-base tracking-[0.3em] mt-2 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-secondary"></span>
+                STRAIGHT FROM THE BLAST ZONE
+                <span class="w-8 h-[1px] bg-secondary"></span>
+</p>
+</header>
+<!-- News Filter -->
+<div class="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-4 scrollbar-hide">
+<button class="px-6 py-2 bg-primary text-on-primary font-headline font-bold text-xs tracking-widest uppercase hover:bg-primary-dim transition-colors">ALL</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">MATCH REPORTS</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">PLAYER NEWS</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">EQUIPMENT</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">LEAGUE UPDATES</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant font-headline font-bold text-xs tracking-widest uppercase hover:text-primary hover:bg-surface-container-highest transition-all">SEASON 7</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Content Area -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Featured News -->
+<section class="relative group cursor-pointer overflow-hidden bg-surface-container-lowest">
+<div class="aspect-[16/9] w-full relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 opacity-60" data-alt="Exploding golf ball in tactical arena atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD1N74B_NNmSuiBe8EHxvwWtYXrqQP04RpfvSoFL9YWGNx3ZpJyAbMN8uZjwL7LieIV3Rx6D5nxVhbziBmvYPFzseKLcJ9nEskQMdUO9m3FhlVWA_-6G8N_Y-1-IoWQt6dQLcCj6TBgJdWj8sLjy3QNVFsVCqd6vxmYeC7xwn7J9oIMpdD8DZ3YvQr2s9o6hpfGFnttAnt9e0QeNyHAOGnM5YyW3Q0oz8KvFsCQt4-62G52bG8TWWjuH3SH9ujK23WbWOABe98EZA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="inline-block px-3 py-1 bg-secondary text-on-secondary font-mono text-[10px] tracking-widest uppercase mb-4">BREAKING REPORT</span>
+<h2 class="font-headline text-3xl md:text-5xl font-black uppercase text-on-surface leading-none mb-4 group-hover:text-primary transition-colors">
+                            THE CRUSHER WINS BLASTZONE OPEN IN DRAMATIC OVERTIME
+                        </h2>
+<button class="flex items-center gap-2 text-primary font-headline font-extrabold tracking-widest text-sm group-hover:gap-4 transition-all">
+                            READ FULL INTEL <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="absolute top-4 right-4 text-primary opacity-30">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">target</span>
+</div>
+</section>
+<!-- News Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<article class="bg-surface-container-low group">
+<div class="aspect-video relative overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" data-alt="Tactical gear details on golf equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD12ArAEfyBpE01vilE8qpVZnnCZiCwMiiXKus0gy4bHURyJ8OofqovI5cADWtmQueNC7sZDBB4hy8ZYWtt85KgG8IAcB2PaRFhPn4NHgVXdvMHNhsWiAO_N7iTBAOYN-NuxDz3dGOPJ4LkJpuajnEo4eB5m1Rs4xZujNTHorQ8z3LUSR-KdZ1BR2S-kFBkNAl82Didrq_h110XgU30yqBzIfSrQivVbd6mG3Ny5I7YY1MDBzdQIKtrzn9QyI7XbZGqgKQvtLM7g0g"/>
+<div class="absolute top-0 left-0 p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-primary font-mono text-[9px] tracking-tighter uppercase">PLAYER NEWS</span>
+</div>
+</div>
+<div class="px-4 pb-6">
+<h3 class="font-headline text-xl font-bold uppercase text-on-surface mb-2 group-hover:text-primary transition-colors">IRON MIKE REVEALS NEW IONIZED DRIVER</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-body mb-4">Prototyped in the subterranean labs of sector 4, the new driver promises 15% more kinetic impact on long-range deployments.</p>
+<a class="inline-flex items-center gap-1 text-primary text-xs font-headline font-black uppercase group-hover:gap-2 transition-all" href="#">
+                                ACCESS DATA <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-low group">
+<div class="aspect-video relative overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" data-alt="Modern golf course under neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiHVK-rI1dJJaDXzGPnqbr6c8JVfpRprU01962JTW3SMKK5x8-5RC1YLGvR3rewzVpXIvGA8Kg6R-Byg5QXmqbUXLepNgLdxIz1j_TFOU3B8Vvb09TW2kmOcZYpsDy7hwQMsHO6BiBoy7uU73NLW7HR175eswrrvpdvMye_LUUsMyT0VDW761xbec3nLsmLqkITDdFPcw85HoiucPAct056rUpjgaGCEDDYeSZzciSqQpb1OhMof7esiJ8XDlg6FkhuW9HgFXHW_o"/>
+<div class="absolute top-0 left-0 p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-primary font-mono text-[9px] tracking-tighter uppercase">LEAGUE UPDATES</span>
+</div>
+</div>
+<div class="px-4 pb-6">
+<h3 class="font-headline text-xl font-bold uppercase text-on-surface mb-2 group-hover:text-primary transition-colors">MIDNIGHT CRATER TO HOST FINALS</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-body mb-4">League officials have confirmed that the Season 7 climax will take place at the highly radioactive Midnight Crater facility.</p>
+<a class="inline-flex items-center gap-1 text-primary text-xs font-headline font-black uppercase group-hover:gap-2 transition-all" href="#">
+                                ACCESS DATA <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-low group">
+<div class="aspect-video relative overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" data-alt="Digital display showing tournament standings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiVvgQXi8C9MwX89syBtJDvbQGkSJRAy6mVhSpcitvtiiRO0WcSleycuV4SNODz4v9UwmKLCwylEqaIBQCrcYwvCwPR2fQE_G0eFHMIQ4PBdRSOwe-Hk3a7oprbS84eqJJ95TkUg7Q7cSQ7zMOnPgmr3lzJi_tguSZqw2atNbJ9R7VuzvxhajR6ywkXFXCQXfSjEQTS_Xc9hErJC0_G4qtn_6arqk5EgWG5ec4e4PJyLunVCgnFs7wzD3CqSvm-5EdWJdmpCZKqlA"/>
+<div class="absolute top-0 left-0 p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-primary font-mono text-[9px] tracking-tighter uppercase">EQUIPMENT</span>
+</div>
+</div>
+<div class="px-4 pb-6">
+<h3 class="font-headline text-xl font-bold uppercase text-on-surface mb-2 group-hover:text-primary transition-colors">BALLISTICS OF THE 'VULCAN' CORE</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-body mb-4">An in-depth analysis of why the new Vulcan core is dominating the short-game meta in recent deployments.</p>
+<a class="inline-flex items-center gap-1 text-primary text-xs font-headline font-black uppercase group-hover:gap-2 transition-all" href="#">
+                                ACCESS DATA <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-low group">
+<div class="aspect-video relative overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" data-alt="Tactical map of a golf course layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXaqVqILlAZ_RqQXDlk7UYS0E8a4pXb8_mQ17qFKgeA4ZXIGUrPWHxvf_zNt8uWZUgyndAMUuUb0mejpYeSLR55vXUrLmeIhgLtONi55pDk0sNmguQqKMro-lWVfWuge55aw0iiHRY2Bwc_glWDT5hjA8jWoycn2_oGwzAfsDklGkie1jo_4NbJA3QX7a1ShMsdR-nAz3WEDknJE6cEYSxaVn3qYNv2QpqWP0uUymgEE4bBqE01kiAkp5RjAo5eZPzzCQ4RGupbYM"/>
+<div class="absolute top-0 left-0 p-4">
+<span class="px-2 py-1 bg-surface-container-highest text-primary font-mono text-[9px] tracking-tighter uppercase">SEASON 7</span>
+</div>
+</div>
+<div class="px-4 pb-6">
+<h3 class="font-headline text-xl font-bold uppercase text-on-surface mb-2 group-hover:text-primary transition-colors">RANKED PLAY RESET PROTOCOL</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-body mb-4">Prepare for the global ranking reset. New divisions and tactical rewards have been encrypted for next week's drop.</p>
+<a class="inline-flex items-center gap-1 text-primary text-xs font-headline font-black uppercase group-hover:gap-2 transition-all" href="#">
+                                ACCESS DATA <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</article>
+</section>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Latest Results -->
+<section class="bg-surface-container-high p-6 border-l-2 border-primary/20">
+<h4 class="font-headline text-lg font-black uppercase tracking-widest text-primary mb-6 flex items-center justify-between">
+                        LATEST RESULTS <span class="material-symbols-outlined text-sm">analytics</span>
+</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between group">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface-variant">MATCH #441</span>
+<span class="font-headline font-bold uppercase">Iron Mike</span>
+</div>
+<div class="flex gap-2 items-center">
+<span class="font-mono text-xl font-black text-secondary">3</span>
+<span class="text-on-surface-variant font-mono">-</span>
+<span class="font-mono text-xl font-black text-primary">5</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-mono text-[10px] text-on-surface-variant">FINAL</span>
+<span class="font-headline font-bold uppercase">The Crusher</span>
+</div>
+</div>
+<div class="h-[1px] bg-white/5"></div>
+<div class="flex items-center justify-between group">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface-variant">MATCH #440</span>
+<span class="font-headline font-bold uppercase">Ghost Putter</span>
+</div>
+<div class="flex gap-2 items-center">
+<span class="font-mono text-xl font-black text-primary">2</span>
+<span class="text-on-surface-variant font-mono">-</span>
+<span class="font-mono text-xl font-black text-on-surface-variant opacity-40">0</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-mono text-[10px] text-on-surface-variant">FINAL</span>
+<span class="font-headline font-bold uppercase">T-Bone</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SBGL+ Insider Subscription -->
+<section class="bg-primary text-on-primary p-6 relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline text-xl font-black uppercase leading-tight mb-2">SBGL+ INSIDER</h4>
+<p class="font-body text-xs mb-6 opacity-80 uppercase tracking-tighter">Get encrypted field intel directly to your terminal. Weekly drop.</p>
+<div class="space-y-3">
+<input class="w-full bg-on-primary/10 border-none placeholder:text-on-primary/50 text-xs font-mono py-3 px-4 focus:ring-2 focus:ring-on-primary/20" placeholder="ENTER TERMINAL ID (EMAIL)" type="email"/>
+<button class="w-full bg-on-primary text-primary font-headline font-black py-3 text-xs tracking-[0.2em] uppercase hover:bg-surface-bright transition-all">
+                                SUBSCRIBE FREE
+                            </button>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10 pointer-events-none" style="font-variation-settings: 'FILL' 1;">security</span>
+</section>
+<!-- Standings Snapshot -->
+<section class="bg-surface-container-high p-6">
+<h4 class="font-headline text-lg font-black uppercase tracking-widest text-on-surface mb-6">STANDINGS SNAPSHOT</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-4 bg-surface-container-lowest p-2">
+<span class="font-mono text-secondary font-bold text-lg w-4">01</span>
+<div class="flex-grow">
+<div class="font-headline font-bold uppercase text-xs">V. Stryker</div>
+<div class="w-full bg-surface-container-highest h-1 mt-1 overflow-hidden flex gap-[1px]">
+<div class="h-full bg-primary flex-grow" style="flex: 0.9;"></div>
+<div class="h-full bg-primary/20 flex-grow" style="flex: 0.1;"></div>
+</div>
+</div>
+<span class="font-mono text-[10px] text-primary">1,240 XP</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-2 opacity-80">
+<span class="font-mono text-on-surface-variant font-bold text-lg w-4">02</span>
+<div class="flex-grow">
+<div class="font-headline font-bold uppercase text-xs">The Crusher</div>
+<div class="w-full bg-surface-container-highest h-1 mt-1 overflow-hidden flex gap-[1px]">
+<div class="h-full bg-primary flex-grow" style="flex: 0.85;"></div>
+<div class="h-full bg-primary/20 flex-grow" style="flex: 0.15;"></div>
+</div>
+</div>
+<span class="font-mono text-[10px] text-primary">1,195 XP</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-2 opacity-60">
+<span class="font-mono text-on-surface-variant font-bold text-lg w-4">03</span>
+<div class="flex-grow">
+<div class="font-headline font-bold uppercase text-xs">Neon Nomad</div>
+<div class="w-full bg-surface-container-highest h-1 mt-1 overflow-hidden flex gap-[1px]">
+<div class="h-full bg-primary flex-grow" style="flex: 0.78;"></div>
+<div class="h-full bg-primary/20 flex-grow" style="flex: 0.22;"></div>
+</div>
+</div>
+<span class="font-mono text-[10px] text-primary">1,120 XP</span>
+</div>
+</div>
+</section>
+<!-- Trending Tags -->
+<section>
+<h4 class="font-headline text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant mb-4">TRENDING_PROTOCOLS</h4>
+<div class="flex flex-wrap gap-2">
+<a class="px-3 py-1 bg-surface-container-highest font-mono text-[10px] text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">#Blastzone</a>
+<a class="px-3 py-1 bg-surface-container-highest font-mono text-[10px] text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">#Season_7</a>
+<a class="px-3 py-1 bg-surface-container-highest font-mono text-[10px] text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">#Ionized_Iron</a>
+<a class="px-3 py-1 bg-surface-container-highest font-mono text-[10px] text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">#Subterranean_Open</a>
+<a class="px-3 py-1 bg-surface-container-highest font-mono text-[10px] text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">#V_Stryker</a>
+</div>
+</section>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto flex flex-col items-center justify-center gap-8 py-16 px-8 border-t border-white/5 bg-[#000000]">
+<span class="text-xl font-black text-[#fdfbfe]">SBGL</span>
+<div class="flex flex-wrap justify-center gap-8 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest text-slate-600">
+<a class="hover:text-[#00fc40] cursor-crosshair opacity-70 hover:opacity-100 duration-300" href="#">TERMS OF ENGAGEMENT</a>
+<a class="hover:text-[#00fc40] cursor-crosshair opacity-70 hover:opacity-100 duration-300" href="#">PRIVACY PROTOCOL</a>
+<a class="hover:text-[#00fc40] cursor-crosshair opacity-70 hover:opacity-100 duration-300" href="#">CONTACT COMMAND</a>
+<a class="hover:text-[#00fc40] cursor-crosshair opacity-70 hover:opacity-100 duration-300" href="#">INTEL DISCLOSURE</a>
+</div>
+<p class="font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest text-slate-400">
+            © 2024 SBGL TACTICAL DEPLOYMENT. ALL RIGHTS RESERVED. COORDINATES ENCRYPTED.
+        </p>
+</footer>
+</body></html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SBGL | SEASON 7 ROSTER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#ffc5ab",
+                        "on-tertiary-container": "#4a5464",
+                        "error-container": "#b92902",
+                        "on-background": "#fdfbfe",
+                        "surface-container": "#181a1c",
+                        "surface-container-high": "#1e2022",
+                        "on-error-container": "#ffd2c8",
+                        "on-secondary-fixed": "#5c2200",
+                        "surface-dim": "#0d0e10",
+                        "inverse-primary": "#006f16",
+                        "on-primary-fixed": "#00440a",
+                        "primary-container": "#00fc40",
+                        "primary": "#9cff93",
+                        "error-dim": "#d53d18",
+                        "outline-variant": "#47484a",
+                        "tertiary-dim": "#ced8eb",
+                        "tertiary-container": "#dce6fa",
+                        "on-tertiary-fixed": "#384251",
+                        "error": "#ff7351",
+                        "on-primary": "#006413",
+                        "on-secondary": "#3c1300",
+                        "secondary-fixed-dim": "#ffb28d",
+                        "primary-fixed": "#00fc40",
+                        "inverse-surface": "#fbf9fb",
+                        "primary-fixed-dim": "#00ec3b",
+                        "on-primary-container": "#005a10",
+                        "surface-variant": "#242629",
+                        "secondary-container": "#a04100",
+                        "on-surface": "#fdfbfe",
+                        "surface-container-lowest": "#000000",
+                        "primary-dim": "#00ec3b",
+                        "on-primary-fixed-variant": "#006513",
+                        "tertiary": "#eff3ff",
+                        "outline": "#757578",
+                        "on-error": "#450900",
+                        "secondary": "#ff7524",
+                        "surface": "#0d0e10",
+                        "on-secondary-container": "#fff6f3",
+                        "surface-container-highest": "#242629",
+                        "on-surface-variant": "#ababad",
+                        "surface-container-low": "#121316",
+                        "on-tertiary": "#525c6d",
+                        "surface-bright": "#2b2c2f",
+                        "surface-tint": "#9cff93",
+                        "background": "#0d0e10",
+                        "on-tertiary-fixed-variant": "#545e6e",
+                        "on-secondary-fixed-variant": "#8a3700",
+                        "inverse-on-surface": "#555557",
+                        "tertiary-fixed-dim": "#ced8eb",
+                        "tertiary-fixed": "#dce6fa",
+                        "secondary-dim": "#ff7524"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px -5px rgba(0, 252, 64, 0.4);
+        }
+        .glow-text-primary {
+            text-shadow: 0 0 12px rgba(156, 255, 147, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#0d0e10]/95 backdrop-blur-md">
+<div class="text-2xl font-black tracking-tighter text-[#fdfbfe] dark:text-[#fdfbfe]">SBGLEAGUE</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="index.html">Home</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="about.html">About</a>
+<a class="text-[#9cff93] font-bold border-b-2 border-[#9cff93] pb-1 hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="players.html">Players</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="schedule.html">Schedule</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="leaderboard.html">Leaderboard</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="news.html">News</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">Buy Tickets</button>
+</nav>
+<main class="pt-24 pb-20 min-h-screen">
+<!-- Hero Section -->
+<section class="px-8 py-16 md:py-24 text-center max-w-7xl mx-auto">
+<h1 class="font-headline font-black text-6xl md:text-8xl tracking-widest uppercase italic glow-text-primary text-primary mb-4">
+                SEASON 7 ROSTER
+            </h1>
+<p class="font-mono text-secondary tracking-widest text-lg md:text-xl uppercase">
+                // The Warriors of the Fairway
+            </p>
+</section>
+<!-- Podium Section -->
+<section class="px-8 mb-24 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+<!-- Rank #2 -->
+<div class="order-2 md:order-1 bg-surface-container-low border-b-4 border-outline p-1 pt-8 relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-outline px-4 py-1 text-on-surface font-headline font-bold text-xl skew-x-[-12deg]">#2</div>
+<div class="p-6 bg-surface-container-high h-full">
+<img alt="Neon Banshee Profile" class="w-full h-64 object-cover mb-6 grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Female cybernetic tactical athlete with neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLmHzLuIho0SHXL4mvK8KEf79FmOjuSyLkRLysyYKJ3NNsaLuh0US8HnYrdJSzkLldRWgV6mfN2p_EkOFKiWKqwVO5yXmWfqcuz0NY470YtWHiO_QpJqA8LMQsT00g6m6gZY_Gf1mt-lNCLnTqrH4kfHF182cx-VU4vYmWeVRAbWXae0EQTnr3bnXZQrZSsTaHUIkZ14sFBEeYXkC0hydLfXR8yLXJXWyVAY2nexxEFVwuWDAzcnlit4v24StvxBe8I28X9mWLDGQ"/>
+<h3 class="font-headline font-black text-3xl text-on-surface mb-2 italic">NEON BANSHEE</h3>
+<div class="flex gap-2 mb-6">
+<span class="bg-primary-container/10 text-primary px-3 py-1 text-[10px] font-mono border border-primary/20">SPEED &amp; STEALTH</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant pt-6">
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant uppercase">Hit Accuracy</p>
+<p class="font-mono text-2xl text-on-surface">91%</p>
+</div>
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant uppercase">Battle Rating</p>
+<p class="font-mono text-2xl text-secondary">9.4</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank #1 -->
+<div class="order-1 md:order-2 bg-primary-container/20 border-b-4 border-primary p-1 pt-12 relative group -translate-y-4 md:-translate-y-8">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-headline font-black text-3xl px-6 py-2 skew-x-[-12deg] glow-primary">#1</div>
+<div class="p-8 bg-surface-container-highest h-full">
+<img alt="The Crusher Profile" class="w-full h-80 object-cover mb-6 group-hover:scale-[1.02] transition-transform duration-500" data-alt="Heavy armored male elite soldier with high tech helmet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdPw3Z5pkw89FfmESoFCZPe5mO4VkcA1rc2H62oQGz9kZppF8Da3kMsgeVY9UK61jfRy7P7e8KjxnBb1PSKBBMgzQNQQ2-CgA7QnD2IKhN21LJkynGm9cfhNikKW_s7qWsZtAP_8PHnZUpLDeNj0ZyhSPieCPIoMNgj4eaVLuBp2KPu-xec1M9a_uIrYTTGqQpFv4wnxmQw22XkJfARS_nDMvlsurCHKFmpQuWQVE3d1uwo4zp9_N5fZLQAT45OmaoCPTy1a4BiA"/>
+<h3 class="font-headline font-black text-4xl text-primary mb-2 italic glow-text-primary">THE CRUSHER</h3>
+<div class="flex gap-2 mb-6">
+<span class="bg-primary text-on-primary px-3 py-1 text-[10px] font-mono font-bold">HEAVY ARSENAL</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-primary/30 pt-6">
+<div>
+<p class="text-[10px] font-mono text-primary uppercase">Hit Accuracy</p>
+<p class="font-mono text-3xl text-on-surface">94%</p>
+</div>
+<div>
+<p class="text-[10px] font-mono text-primary uppercase">Battle Rating</p>
+<p class="font-mono text-3xl text-secondary">9.8</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank #3 -->
+<div class="order-3 bg-surface-container-low border-b-4 border-secondary/50 p-1 pt-8 relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-secondary/50 px-4 py-1 text-on-surface font-headline font-bold text-xl skew-x-[-12deg]">#3</div>
+<div class="p-6 bg-surface-container-high h-full">
+<img alt="Iron Mike Profile" class="w-full h-64 object-cover mb-6 grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Determined tactical athlete in dark military gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmdIJPrOX8xBNmreHJao5YYzzLi7m0MRNdefWBCY2VcXUvXsvcX8Hkpxxh2rLUYbA3cJTH2oDhr9y71R9WbkXCOQ9yvaHuZYEmGRwf78xYzLaRBvOTSS5bEmzDwb6rpaPqlxh2EeAgXxwydJjG5HhDYHV2kWnRJtGm5Z086iGyEXN6pci1xlLyUPtkQmcws_9A296NtfYOFbxn1gfuvO7iCkvAj7JjlDr24EldDvJ3w6Lfz0wjiZHyd8lyfeymOCXg185yFrjquh8"/>
+<h3 class="font-headline font-black text-3xl text-on-surface mb-2 italic">IRON MIKE</h3>
+<div class="flex gap-2 mb-6">
+<span class="bg-primary-container/10 text-primary px-3 py-1 text-[10px] font-mono border border-primary/20">PRECISION STRIKER</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-outline-variant pt-6">
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant uppercase">Hit Accuracy</p>
+<p class="font-mono text-2xl text-on-surface">88%</p>
+</div>
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant uppercase">Battle Rating</p>
+<p class="font-mono text-2xl text-secondary">8.9</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="px-8 mb-12 max-w-7xl mx-auto">
+<div class="flex flex-wrap items-center justify-center gap-4 bg-surface-container-low p-4 rounded-sm">
+<button class="px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest bg-primary text-on-primary rounded-full">ALL</button>
+<button class="px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">STRIKERS</button>
+<button class="px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">DEFENDERS</button>
+<button class="px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">TACTICIANS</button>
+<button class="px-6 py-2 font-mono text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">ROOKIES</button>
+</div>
+</section>
+<!-- Player Grid -->
+<section class="px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Player Cards - Dynamically templated based on the list provided -->
+<!-- Card 4 -->
+<div class="bg-surface-container-low group overflow-hidden">
+<div class="relative h-48">
+<img alt="Lady Detonator" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Female combat professional with red tactical glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsN_9HzNV6gHO3-_eJ06463pMa1EST3ElCmOEyvTiUAM3b33YDp5MHAUH8QF7B6JwH1vjAOtmYEf3ZTqdGzlkFqG2YtLGYhPIOflipvs3_bMHyR4wNr-aB4a9BsVuxLfxta-3SeKzhkTj_-Kb7qIxCO6jkcWIatc1eWZd-XmH-7Za5pb0nnbuiv7RMmXqyqidRCWEcOz4YYHyefbNV9YIqaaO8hp70pWZY14AJ4LHoRdKSOHnzG1peg5GhnI_QpXWs9scb_ZRfFQQ"/>
+<div class="absolute top-4 right-4 bg-surface-container-highest px-3 py-1 font-headline font-bold text-sm">#4</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-2xl mb-1 italic">LADY DETONATOR</h4>
+<p class="font-mono text-[10px] text-primary mb-4 uppercase tracking-tighter">MINE LAYER</p>
+<div class="flex justify-between items-center mb-6">
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Hit</p>
+<p class="font-mono text-lg font-bold">85%</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Rating</p>
+<p class="font-mono text-lg font-bold text-secondary">8.5</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Class</p>
+<p class="font-mono text-lg font-bold text-on-surface">TAC</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest border border-outline-variant hover:border-primary hover:text-primary font-headline font-bold text-xs tracking-widest uppercase transition-all">VIEW PROFILE</button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-low group overflow-hidden">
+<div class="relative h-48">
+<img alt="The Ghost" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Stealth soldier in dark grey tactical suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsuWWODwxh2SG6mevktVNllw31UOxUiIIN0nWC3uye15_iBKkjhOht8jnzK7uSUcfc0WkeZftzRtkOa9ZsqLRbU_Naqg5lB55jN_SEEoC1VlQj3voaCTs830w9GnmTiA-uB5QEnFVGlnQxNXbcZ7tGeM7hYWtcTnfmoh1bblaR5UsI5x1M2NE1WDkf8lQEC-7tkQlBMR7_gPidiWGM9hZ13LM2WMQtruoAsXRA9no33rttQZ-xCePnJtH0-3JPa3Mx58TKZMFuVA8"/>
+<div class="absolute top-4 right-4 bg-surface-container-highest px-3 py-1 font-headline font-bold text-sm">#5</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-2xl mb-1 italic">THE GHOST</h4>
+<p class="font-mono text-[10px] text-primary mb-4 uppercase tracking-tighter">SMOKE TACTICIAN</p>
+<div class="flex justify-between items-center mb-6">
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Hit</p>
+<p class="font-mono text-lg font-bold">82%</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Rating</p>
+<p class="font-mono text-lg font-bold text-secondary">8.1</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Class</p>
+<p class="font-mono text-lg font-bold text-on-surface">DEF</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest border border-outline-variant hover:border-primary hover:text-primary font-headline font-bold text-xs tracking-widest uppercase transition-all">VIEW PROFILE</button>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-low group overflow-hidden">
+<div class="relative h-48">
+<img alt="Sandstorm" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Tactical expert in desert camo gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpQFgocN0NygJremnOSiptfqIuecq75JFInx-5drsEjEE-4QaiuVYlWoDyZr7XdOJpAwN5GcJmlts-i4UR6bC7GOk54EzK_eNqp44TDtVSWYHO32enZ_XnPVSjc9Qn3f83Ny5bGR7ZLduL2yo4fpUpv4vTMlCZJ7KZvx6Z-ptf2GiUOHDhLrtjpOuA02YFX8an-Trx1_Lpvx-eWESO3PDjVfFiFZdczfxlNpfvP-ChMOS_hEbICdEjUk3Xn4cO0YxWyEpSDCSeM4k"/>
+<div class="absolute top-4 right-4 bg-surface-container-highest px-3 py-1 font-headline font-bold text-sm">#6</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-2xl mb-1 italic">SANDSTORM</h4>
+<p class="font-mono text-[10px] text-primary mb-4 uppercase tracking-tighter">BUNKER BREAKER</p>
+<div class="flex justify-between items-center mb-6">
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Hit</p>
+<p class="font-mono text-lg font-bold">79%</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Rating</p>
+<p class="font-mono text-lg font-bold text-secondary">7.8</p>
+</div>
+<div class="w-px h-8 bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-[9px] font-mono text-on-surface-variant uppercase">Class</p>
+<p class="font-mono text-lg font-bold text-on-surface">STR</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest border border-outline-variant hover:border-primary hover:text-primary font-headline font-bold text-xs tracking-widest uppercase transition-all">VIEW PROFILE</button>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="bg-surface-container-low group overflow-hidden">
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-headline font-bold text-2xl italic">VIPER</h4>
+<span class="font-headline font-bold text-sm bg-surface-container-highest px-2">#7</span>
+</div>
+<img alt="Viper" class="w-full h-40 object-cover mb-4 grayscale group-hover:grayscale-0 transition-all" data-alt="Sharp featured man with tech glasses and hood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvNGO0mmhCvh-mYRVzs3Y-uoOGswyFDJloD10q5YDj9miawjNDZ_5gYbsF7KJX_8vLFrwBV1gcStcecAt7dJySl_6x8VJEsS2G-Q0SiZfRbn7T1JFV0t1XeEeMqjs4HpO2mepwj_phEyTw4Job9bRGu6vDUBp07zokH_FN8nQ0vPyqTdkCg1yRWBZx_8gNH6jny0F0-3OSWq2s4yi5gd90MPg6ksK4tIgV2UmSTUfY8L24goFUQWwSJnHL1LPngHe024xfat4NPuI"/>
+<p class="font-mono text-[10px] text-primary mb-4 uppercase">QUICK DRAW</p>
+<div class="flex justify-between font-mono mb-6">
+<span>HIT: 76%</span>
+<span class="text-secondary">RTG: 7.4</span>
+</div>
+<button class="w-full py-2 border-l-2 border-primary bg-surface-container-high font-headline font-bold text-xs tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">VIEW PROFILE</button>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="bg-surface-container-low group overflow-hidden">
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-headline font-bold text-2xl italic">KNUCKLES</h4>
+<span class="font-headline font-bold text-sm bg-surface-container-highest px-2">#8</span>
+</div>
+<img alt="Knuckles" class="w-full h-40 object-cover mb-4 grayscale group-hover:grayscale-0 transition-all" data-alt="Tough looking male athlete with scars and tech ear-piece" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3rvz_EhsTtM4MfSFyUsEGcdG1-cbri5t7yHff7pDDiU6alL6oPqybx84dLrVy5lycEz4yitjtAvcr5uoNT7GtS_Xp14aX1iaoQEEroS_EkjgmqbpiuS0sbUp97ufNHl1mp7sddXV0qGx_QGYPmkPkpZOZGa3O02iTG0MtTP4qvSr0XNufBcFcyUF9F6FXzS0WEEnSCGOf9OV3Y2SSVicHseNtmdJA2-UoJ_aGWxURDfgA5Vy5-exE1s2hw68trPbfg9s_uxAojTY"/>
+<p class="font-mono text-[10px] text-primary mb-4 uppercase">MELEE SPECIALIST</p>
+<div class="flex justify-between font-mono mb-6">
+<span>HIT: 73%</span>
+<span class="text-secondary">RTG: 7.1</span>
+</div>
+<button class="w-full py-2 border-l-2 border-primary bg-surface-container-high font-headline font-bold text-xs tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">VIEW PROFILE</button>
+</div>
+</div>
+<!-- Card 9 -->
+<div class="bg-surface-container-low group overflow-hidden">
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-headline font-bold text-2xl italic">DUCHESS</h4>
+<span class="font-headline font-bold text-sm bg-surface-container-highest px-2">#9</span>
+</div>
+<img alt="Duchess" class="w-full h-40 object-cover mb-4 grayscale group-hover:grayscale-0 transition-all" data-alt="Sophisticated woman in sleek futuristic commander uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4pzKNgj-LDJSwz53yk8FH4_kIWeXluI98mKyXA1S5BgMykXXzukGPFWG_jFPG6u8sRXWRN7u1zRapYVkmaxLA05hPGtzGozDSpGiIe3dXtHd8KCKlt3OBRB926YVfz1ro3Xchp1RnPmZyIFXblIlT7SdzSTwNvwJka4sGKSAjXXmSCHyzt5W5ujlg8P3nSWVZnE3FZpUagG5oDb0z7ItVXS8KxxTuVPtV0m1i51gEYQjL5g3KSAdW2zf5LUZvPbMAeJgFMvWQa68"/>
+<p class="font-mono text-[10px] text-primary mb-4 uppercase">DIPLOMATIC STRIKER</p>
+<div class="flex justify-between font-mono mb-6">
+<span>HIT: 70%</span>
+<span class="text-secondary">RTG: 6.8</span>
+</div>
+<button class="w-full py-2 border-l-2 border-primary bg-surface-container-high font-headline font-bold text-xs tracking-widest uppercase hover:bg-primary hover:text-on-primary transition-all">VIEW PROFILE</button>
+</div>
+</div>
+<!-- Card 10 -->
+<div class="bg-surface-container-low p-6 flex items-center gap-6 group hover:bg-surface-container-high transition-colors">
+<img alt="Boom-Boom" class="w-24 h-24 object-cover grayscale group-hover:grayscale-0" data-alt="Man with intense gaze and explosion-proof gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMbWZbXGkU6gjZScoKTUVdRB-ArfemHfM2kLXjMyq2fW21P4WJlz-Y8VN7ZWM0cf_eonyErAmRn7Vz7Au04ZZBCENGBs65766nxXQrolXHxUZ7KDgg7jcXqmXDMYZlItgGVfNehvRIz6euxyxtSXKZeXq81JTfUtB0xkFpOxmep5p0NQy0jcuFWcQrGuDlNh3lxM8uOPm0VCsiSoLCPDtU62Wo6gPwExMmS9xohSsWJdaECYRXlwHcsFLUoIFXbDxWyZh4VU_1Egw"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-headline font-bold text-lg italic">BOOM-BOOM</h4>
+<span class="font-mono text-xs opacity-50">#10</span>
+</div>
+<p class="font-mono text-[9px] text-secondary mb-2 uppercase">EXPLOSIVE ENTRY</p>
+<div class="flex gap-4 font-mono text-xs">
+<span class="text-on-surface">HIT: 67%</span>
+<span class="text-primary">RTG: 6.5</span>
+</div>
+</div>
+</div>
+<!-- Card 11 -->
+<div class="bg-surface-container-low p-6 flex items-center gap-6 group hover:bg-surface-container-high transition-colors">
+<img alt="Zigzag" class="w-24 h-24 object-cover grayscale group-hover:grayscale-0" data-alt="Agile young athlete with dynamic body paint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2UM0EES-A3k1ofXoTxH4qiHhl3IL-iiiwb0_5oNqSisPCwCiq7A_GexjiWgxeN_GhYIdWcahwcosB1OSsGVLnAsBDoUzjbuZ99xsE68uTSPoft7awrJc2Wde9gDefJvC8SPeaKHLllpJYM1P_nl7oIjRTKThlMhZ2RyiQuZ2Os9bLXfd121xuWpShxSaL3yMsH_v-UADNoImMbnU11eIH4dNyJ0Z8aEhQ8hn2AjWX-THy0WJ3V0PMK8gQtoNg9pX0NKmk8rHIUHY"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-headline font-bold text-lg italic">ZIGZAG</h4>
+<span class="font-mono text-xs opacity-50">#11</span>
+</div>
+<p class="font-mono text-[9px] text-secondary mb-2 uppercase">EVASION EXPERT</p>
+<div class="flex gap-4 font-mono text-xs">
+<span class="text-on-surface">HIT: 64%</span>
+<span class="text-primary">RTG: 6.2</span>
+</div>
+</div>
+</div>
+<!-- Card 12 -->
+<div class="bg-surface-container-low p-6 flex items-center gap-6 group hover:bg-surface-container-high transition-colors">
+<img alt="Rookie-9" class="w-24 h-24 object-cover grayscale group-hover:grayscale-0" data-alt="Unknown rookie silhouette with glowing visor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZT_Ak2EBVG06aJMFVuVXsl2-DKGUabcXXCXfU_FhwhVsNaOSFbpLjvD4Bx4Z9aI7FdnrmJBOohX-oBTmacst1wkoOXGpSkBLwYB_CBGFCkqRyKqs8s8y-i6O0J1nKE3z9E__chQD-LXrM7Q6tdbN_YVn3qVBg_7Dv3Ao_MnJI8Y9xF11OAiOWcbg_c81TDAv73_8bieM8ZvRIlXskI-NNMejO7yKN0VeRSWJPbPKOjE6dvF0Uzl1V6oPpp3GNwFcNEpmnvYJU6L8"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-headline font-bold text-lg italic">ROOKIE-9</h4>
+<span class="font-mono text-xs opacity-50">#12</span>
+</div>
+<p class="font-mono text-[9px] text-secondary mb-2 uppercase">ROOKIE CONTENDER</p>
+<div class="flex gap-4 font-mono text-xs">
+<span class="text-on-surface">HIT: 61%</span>
+<span class="text-primary">RTG: 5.9</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="px-8 mt-24 mb-16 max-w-7xl mx-auto">
+<div class="bg-surface-container-high p-12 relative overflow-hidden group">
+<div class="absolute right-0 top-0 h-full w-1/3 bg-primary skew-x-[-12deg] translate-x-20 opacity-10"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="text-center md:text-left">
+<h2 class="font-headline font-black text-4xl md:text-5xl text-primary italic mb-4 glow-text-primary uppercase tracking-tighter">
+                            BECOME A CERTIFIED COMPETITOR
+                        </h2>
+<p class="font-mono text-on-surface-variant tracking-widest uppercase text-sm">
+                            Phase 2 Recruitment is active. Operational security is your responsibility.
+                        </p>
+</div>
+<button class="bg-primary text-on-primary font-headline font-black text-xl px-10 py-5 skew-x-[-6deg] hover:scale-105 active:scale-95 transition-all glow-primary">
+                        ENLIST NOW
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] dark:bg-[#000000] border-t border-[#181a1c]">
+<div class="w-full py-16 px-8 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div class="space-y-6">
+<div class="text-xl font-black text-[#fdfbfe] tracking-tighter uppercase">SBGLEAGUE</div>
+<p class="font-body text-sm text-[#eff3ff]/60 leading-relaxed max-w-xs">
+                    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+<!-- League Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">League</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Athlete Code of Conduct</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Brand Assets</a></li>
+</ul>
+</div>
+<!-- Support Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Logistics</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Contact Support</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Ticketing FAQ</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Arena Safety Manual</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Media Accreditation</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Intelligence Access</h4>
+<p class="font-body text-xs text-[#eff3ff]/40">Receive direct encrypted updates on course layouts and athlete drafts.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-surface-container border-none text-xs font-label p-3 focus:ring-1 focus:ring-primary-container outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary-container text-on-primary font-headline font-bold uppercase text-xs py-3 tracking-widest hover:bg-primary-fixed-dim transition-all">Subscribe</button>
+</form>
+</div>
+</div>
+<!-- Copyright -->
+<div class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-[#181a1c] flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">© 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-6">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest uppercase">ENCRYPTED CONNECTION: AES-256</span>
+<span class="font-label text-[10px] text-[#9cff93] tracking-widest uppercase">SYSTEM STATUS: OPTIMAL</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SBGL | About the Sport</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#ff7524",
+                        "tertiary-container": "#dce6fa",
+                        "on-secondary-fixed": "#5c2200",
+                        "surface": "#0d0e10",
+                        "on-surface-variant": "#ababad",
+                        "on-primary-fixed": "#00440a",
+                        "on-secondary-fixed-variant": "#8a3700",
+                        "primary-dim": "#00ec3b",
+                        "error-dim": "#d53d18",
+                        "on-background": "#fdfbfe",
+                        "inverse-surface": "#fbf9fb",
+                        "surface-container": "#181a1c",
+                        "secondary-fixed": "#ffc5ab",
+                        "on-tertiary": "#525c6d",
+                        "on-tertiary-fixed": "#384251",
+                        "on-primary-fixed-variant": "#006513",
+                        "secondary-dim": "#ff7524",
+                        "surface-container-high": "#1e2022",
+                        "on-primary-container": "#005a10",
+                        "on-secondary-container": "#fff6f3",
+                        "on-secondary": "#3c1300",
+                        "surface-dim": "#0d0e10",
+                        "tertiary-fixed": "#dce6fa",
+                        "error-container": "#b92902",
+                        "outline": "#757578",
+                        "error": "#ff7351",
+                        "primary-container": "#00fc40",
+                        "on-error": "#450900",
+                        "inverse-on-surface": "#555557",
+                        "surface-container-low": "#121316",
+                        "outline-variant": "#47484a",
+                        "secondary-fixed-dim": "#ffb28d",
+                        "primary": "#9cff93",
+                        "surface-container-highest": "#242629",
+                        "on-tertiary-fixed-variant": "#545e6e",
+                        "tertiary-dim": "#ced8eb",
+                        "on-surface": "#fdfbfe",
+                        "primary-fixed-dim": "#00ec3b",
+                        "surface-variant": "#242629",
+                        "inverse-primary": "#006f16",
+                        "surface-container-lowest": "#000000",
+                        "background": "#0d0e10",
+                        "surface-bright": "#2b2c2f",
+                        "surface-tint": "#9cff93",
+                        "tertiary-fixed-dim": "#ced8eb",
+                        "on-primary": "#006413",
+                        "on-tertiary-container": "#4a5464",
+                        "primary-fixed": "#00fc40",
+                        "tertiary": "#eff3ff",
+                        "on-error-container": "#ffd2c8",
+                        "secondary-container": "#a04100"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "stats": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glow-primary { box-shadow: 0 0 20px rgba(0, 252, 64, 0.2); }
+        .glow-text-primary { text-shadow: 0 0 10px rgba(156, 255, 147, 0.5); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#0d0e10]/95 backdrop-blur-md">
+<div class="text-2xl font-black tracking-tighter text-[#fdfbfe] dark:text-[#fdfbfe]">SBGLEAGUE</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="index.html">Home</a>
+<a class="text-[#9cff93] font-bold border-b-2 border-[#9cff93] pb-1 hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="about.html">About</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="players.html">Players</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="schedule.html">Schedule</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="leaderboard.html">Leaderboard</a>
+<a class="text-[#eff3ff] font-medium hover:text-[#00fc40] hover:drop-shadow-[0_0_8px_rgba(0,252,64,0.6)] transition-all scale-95 active:scale-90 duration-150" href="news.html">News</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm glow-primary transition-all active:scale-95">Buy Tickets</button>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[716px] flex items-center px-10 mb-24 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="Dark dramatic tactical golf course atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAel2pXORPk8LprcQOwj01lxS6jb3sFt2mrrtDWcUkqiuqRWXGfw-R3ui3M8Z5Syn3OvAcJt5kwJu7nYEpMUrnAniM3-bwUyd2VlkafBmCRlXdN_n39MNb-KyZAyZPD9_DCsW_j4x3JYVlXNars-tZDa-WMZtHOKIWDxQXb-xEFA3WvBHfg5HDwghspzymqdYfPSbd2r-exOKx7Q35gYkbQg8zvVCON2vpFjoHYcjSFv-hnrG7qySCSQjCEhq1_wJN64Ltiff5sZM"/>
+</div>
+<div class="relative z-20 max-w-5xl">
+<h1 class="font-headline text-[5rem] md:text-[8rem] font-black uppercase leading-none tracking-tighter text-primary italic glow-text-primary">
+                    ABOUT THE SPORT
+                </h1>
+<div class="flex items-center mt-4">
+<div class="h-1 w-24 bg-secondary mr-6"></div>
+<p class="font-stats text-xl md:text-2xl uppercase tracking-[0.3em] text-tertiary">From the Fairway to the Front Line</p>
+</div>
+</div>
+<div class="absolute bottom-10 right-10 flex flex-col items-end opacity-50 font-stats text-xs">
+<span>COORD: 51.5074° N, 0.1278° W</span>
+<span>STATUS: OPERATIONAL</span>
+</div>
+</section>
+<!-- Origin Story -->
+<section class="px-10 max-w-7xl mx-auto mb-40">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 border border-primary text-primary font-stats text-xs tracking-widest uppercase">Founding Intel</div>
+<h2 class="font-headline text-5xl font-bold uppercase tracking-widest leading-tight">GOLF WAS TOO <span class="text-secondary">PEACEFUL</span>.</h2>
+<p class="text-tertiary text-lg leading-relaxed font-body max-w-xl">
+                        Established in 2019 by a collective of disgruntled ex-special ops and pro-golfers, SBGL was born from a single directive: disrupt the silence. We removed the etiquette, added ballistic-grade equipment, and legalized tactical interference. This isn't just a game of strokes; it's a battle for territorial dominance where the hazard is as likely to be a proximity mine as it is a sand trap.
+                    </p>
+</div>
+<div class="bg-surface-container p-12 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-stats text-primary text-4xl opacity-20">01</div>
+<div class="relative z-10">
+<div class="font-stats text-secondary text-7xl font-bold mb-2">2019</div>
+<p class="font-headline text-xl text-on-surface tracking-widest uppercase">The Year of Disruption</p>
+<div class="mt-10 h-[2px] w-full bg-outline-variant relative">
+<div class="absolute top-0 left-0 h-full w-[85%] bg-primary"></div>
+</div>
+<div class="flex justify-between mt-4 font-stats text-xs text-tertiary uppercase">
+<span>Civilian Golf</span>
+<span class="text-primary">SBGL Intensity</span>
+</div>
+</div>
+<div class="absolute inset-0 border border-primary/10 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Official Rules -->
+<section class="mb-40 bg-surface-container-low py-24">
+<div class="px-10 max-w-7xl mx-auto">
+<h2 class="font-headline text-5xl font-black uppercase tracking-tighter mb-16 text-center italic">ENGAGEMENT PROTOCOLS</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Rule 1 -->
+<div class="bg-surface-container p-8 border-l-4 border-primary hover:bg-surface-container-high transition-colors">
+<span class="font-stats text-primary text-xl font-bold">01</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">STRICT SCORING</h3>
+<p class="text-tertiary text-sm leading-relaxed">Standard golf scoring applies. Lowest stroke count wins the hole. Every blast, dodge, and shot counts.</p>
+</div>
+<!-- Rule 2 -->
+<div class="bg-surface-container p-8 border-l-4 border-primary hover:bg-surface-container-high transition-colors">
+<span class="font-stats text-primary text-xl font-bold">02</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">BATTLE CREDITS</h3>
+<p class="text-tertiary text-sm leading-relaxed">Combat gear is purchased via Battle Credits (BC). Earn BC through birdies, eagles, and tactical takedowns.</p>
+</div>
+<!-- Rule 3 -->
+<div class="bg-surface-container p-8 border-l-4 border-primary hover:bg-surface-container-high transition-colors">
+<span class="font-stats text-primary text-xl font-bold">03</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">MINE RADIUS</h3>
+<p class="text-tertiary text-sm leading-relaxed">Proximity mines must be deployed at least 10+ yards from any active tee box. Safety first, chaos second.</p>
+</div>
+<!-- Rule 4 -->
+<div class="bg-surface-container p-8 border-l-4 border-primary hover:bg-surface-container-high transition-colors">
+<span class="font-stats text-primary text-xl font-bold">04</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">SMOKE OPS</h3>
+<p class="text-tertiary text-sm leading-relaxed">Smoke grenades require active Ref approval. Unauthorized usage results in a 2-stroke tactical penalty.</p>
+</div>
+<!-- Rule 5 -->
+<div class="bg-surface-container p-8 border-l-4 border-secondary hover:bg-surface-container-high transition-colors">
+<span class="font-stats text-secondary text-xl font-bold">05</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">LEGAL SABOTAGE</h3>
+<p class="text-tertiary text-sm leading-relaxed">Sabotage of equipment/environment is fully legal. Direct physical assault is strictly prohibited.</p>
+</div>
+<!-- Rule 6 -->
+<div class="bg-surface-container p-8 border-l-4 border-primary hover:bg-surface-container-high transition-colors">
+<span class="font-stats text-primary text-xl font-bold">06</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">BLAST RATED</h3>
+<p class="text-tertiary text-sm leading-relaxed">All players must use SBGL-certified blast-rated golf bags. Normal canvas bags will not survive the course.</p>
+</div>
+<!-- Rule 7 -->
+<div class="bg-surface-container p-8 border-l-4 border-primary hover:bg-surface-container-high transition-colors lg:col-span-2">
+<span class="font-stats text-primary text-xl font-bold">07</span>
+<h3 class="font-headline text-xl font-bold mt-4 mb-3 tracking-widest uppercase">SUDDEN DEATH</h3>
+<p class="text-tertiary text-sm leading-relaxed">Tie-breakers are resolved via Sudden Death Elimination on the 19th bunker. One ball, one shot, maximum hazards enabled.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Arsenal Catalog -->
+<section class="px-10 max-w-7xl mx-auto mb-40">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<div>
+<h2 class="font-headline text-6xl font-black uppercase tracking-tighter italic text-primary">ARSENAL CATALOG</h2>
+<p class="font-stats text-sm tracking-widest text-tertiary mt-2 uppercase">Authorized equipment for the current season</p>
+</div>
+<div class="font-stats text-secondary text-sm hidden md:block uppercase">BC = BATTLE CREDITS</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Item 1 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">bomb</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Proximity Mine</h4>
+<span class="font-stats text-secondary font-bold mt-2">75 BC</span>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">air</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Smoke Grenade</h4>
+<span class="font-stats text-secondary font-bold mt-2">40 BC</span>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">rocket_launch</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Rocket Driver</h4>
+<span class="font-stats text-secondary font-bold mt-2">200 BC</span>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">bolt</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Shockwave Putter</h4>
+<span class="font-stats text-secondary font-bold mt-2">120 BC</span>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">theater_comedy</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Decoy Ball</h4>
+<span class="font-stats text-secondary font-bold mt-2">30 BC</span>
+</div>
+<!-- Item 6 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">nest_cam_magnet_mount</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Magnetic Wedge</h4>
+<span class="font-stats text-secondary font-bold mt-2">90 BC</span>
+</div>
+<!-- Item 7 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">explosion</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Flash Grenade</h4>
+<span class="font-stats text-secondary font-bold mt-2">55 BC</span>
+</div>
+<!-- Item 8 -->
+<div class="bg-surface-container-highest p-6 flex flex-col items-center group cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 group-hover:scale-110 transition-transform">directions_car</span>
+<h4 class="font-headline text-sm font-bold tracking-widest uppercase">Turbo Cart</h4>
+<span class="font-stats text-secondary font-bold mt-2">150 BC</span>
+</div>
+</div>
+</section>
+<!-- Battle Courses -->
+<section class="px-10 max-w-7xl mx-auto mb-40">
+<h2 class="font-headline text-5xl font-black uppercase tracking-tighter mb-12 text-center">ACTIVE THEATERS</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Course 1 -->
+<div class="relative group overflow-hidden">
+<img class="w-full h-80 object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" data-alt="Desert golf course terrain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_syZ-_OkU3a_qpFBWit5xP1SRqadkJA3hFfsKa1chUHWlvWP2mmasFJfMXME039ltJaC7Fjp88z-nxeBg1cybkfA6-v5cJ_6MFYjmf2OmCpbE2vk4Hf8nHq1VCG00aAGOc-3IfOhPnUgS9b_qz3l0MBEEeDjb6oxXjF1m9uGZ5xy6ykkCneIeN0AxvYI_YckUjLvfzsPrspLGPigx-Yni6DL_2DUMQ_Qj6xp24NNs3vqnwx9UoRF5ApsN-UXw_uGDzzMFAbu3p2A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-stats text-xs text-primary uppercase">Zone Alpha</p>
+<h4 class="font-headline text-2xl font-bold uppercase tracking-widest">Sandstorm Crater</h4>
+<div class="flex items-center mt-3">
+<span class="font-stats text-xs text-tertiary">BHR:</span>
+<div class="flex ml-2 gap-1">
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-surface-bright"></div>
+<div class="w-4 h-1 bg-surface-bright"></div>
+<div class="w-4 h-1 bg-surface-bright"></div>
+<div class="w-4 h-1 bg-surface-bright"></div>
+</div>
+<span class="font-stats text-xs text-secondary ml-2 font-bold">06</span>
+</div>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="relative group overflow-hidden">
+<img class="w-full h-80 object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" data-alt="Industrial urban golf landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJmdRuZesAOa7QmqxCeu6L3XFC_TTSfxQuYMGY7rXnht1TB-kNrMCR5PIykitLhYgnekk0HhDU9oZRcpShoSJKucb4LbzmaoZs7ka3RsCebXY5DbSbrtJRaYl8oyX5IR59pUTqkX5XDQ959thQVcGD_Dk8DRDh7zWHxtk22ykYtBTm8ELf_YoncYfXppT8wRX9LER1AZh1dy2EDaBIpPxGvF2nAEf7Li1lQDocZwlveW-BXiKkz9gnuckR8ymKTydNxoXdFN1qD98"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-stats text-xs text-primary uppercase">Zone Gamma</p>
+<h4 class="font-headline text-2xl font-bold uppercase tracking-widest">Steel Harbor</h4>
+<div class="flex items-center mt-3">
+<span class="font-stats text-xs text-tertiary">BHR:</span>
+<div class="flex ml-2 gap-1">
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-surface-bright"></div>
+<div class="w-4 h-1 bg-surface-bright"></div>
+</div>
+<span class="font-stats text-xs text-secondary ml-2 font-bold">08</span>
+</div>
+</div>
+</div>
+<!-- Course 3 -->
+<div class="relative group overflow-hidden">
+<img class="w-full h-80 object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" data-alt="Mountainous forest golf terrain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuZGXC5PlNS0_lK5nYxYL6PWx-0I_snXZb72SNxDd8DA9Y74BYcUN9FNx6y4PEmpoIhLjPFV3BfRzYnBVlFv0Zc5PshRIIKZaX57E5RmladCYd_tjjg1axFH8YPjSbSd1Osqk8Q02dLGnbMed7_RPevMk8DPgjA4DPXEq0NVNBEdxwPZ7MC6P8LFDqn_XMNMJ1orC1_g3IAKGHMLXcPym7h2LSa5Ea8UaLkXC3Koa0QGhxYaXQUHMtQYIfNnKFhSdj_vEz2hFWXgE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-stats text-xs text-primary uppercase">Zone Delta</p>
+<h4 class="font-headline text-2xl font-bold uppercase tracking-widest">Midnight Ridge</h4>
+<div class="flex items-center mt-3">
+<span class="font-stats text-xs text-tertiary">BHR:</span>
+<div class="flex ml-2 gap-1">
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary"></div>
+</div>
+<span class="font-stats text-xs text-secondary ml-2 font-bold">10</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Safety CTA -->
+<section class="mb-40 px-10">
+<div class="max-w-7xl mx-auto bg-primary py-20 px-10 flex flex-col md:flex-row items-center justify-between">
+<div class="mb-8 md:mb-0 text-on-primary">
+<h2 class="font-headline text-5xl font-black uppercase tracking-tighter italic">RECRUITING NOW</h2>
+<p class="font-stats text-sm uppercase tracking-widest opacity-80 mt-2">Operational Oversight Required for the 2026 Season</p>
+</div>
+<button class="bg-surface text-primary px-10 py-5 font-headline font-bold text-xl uppercase tracking-widest hover:bg-surface-bright transition-all glow-primary flex items-center group">
+                    Become a Certified SBGL Referee
+                    <span class="material-symbols-outlined ml-4 group-hover:translate-x-2 transition-transform">military_tech</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#000000] dark:bg-[#000000] border-t border-[#181a1c]">
+<div class="w-full py-16 px-8 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<!-- Brand Column -->
+<div class="space-y-6">
+<div class="text-xl font-black text-[#fdfbfe] tracking-tighter uppercase">SBGLEAGUE</div>
+<p class="font-body text-sm text-[#eff3ff]/60 leading-relaxed max-w-xs">
+                    The ultimate fusion of tactical warfare and professional golf. Broadcasting from the world's most dangerous courses since 2017.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+<a class="w-10 h-10 bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+<!-- League Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">League</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Athlete Code of Conduct</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Brand Assets</a></li>
+</ul>
+</div>
+<!-- Support Links -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Logistics</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Contact Support</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Ticketing FAQ</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Arena Safety Manual</a></li>
+<li><a class="text-[#eff3ff]/60 hover:text-[#9cff93] transition-colors" href="#">Media Accreditation</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div class="space-y-6">
+<h4 class="font-headline text-lg font-bold text-[#fdfbfe] uppercase tracking-wider">Intelligence Access</h4>
+<p class="font-body text-xs text-[#eff3ff]/40">Receive direct encrypted updates on course layouts and athlete drafts.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-surface-container border-none text-xs font-label p-3 focus:ring-1 focus:ring-primary-container outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary-container text-on-primary font-headline font-bold uppercase text-xs py-3 tracking-widest hover:bg-primary-fixed-dim transition-all">Subscribe</button>
+</form>
+</div>
+</div>
+<!-- Copyright -->
+<div class="w-full max-w-7xl mx-auto px-8 py-8 border-t border-[#181a1c] flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest">© 2024 SUPER BATTLE GOLF LEAGUE. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-6">
+<span class="font-label text-[10px] text-[#eff3ff]/40 tracking-widest uppercase">ENCRYPTED CONNECTION: AES-256</span>
+<span class="font-label text-[10px] text-[#9cff93] tracking-widest uppercase">SYSTEM STATUS: OPTIMAL</span>
+</div>
+</div>
+</footer>
+</body></html>

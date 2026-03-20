@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Season Standings & Stats — Super Battle Golf League</title>
+  <meta name="description" content="SBGL Season 7 leaderboard — season standings, round-by-round scores, and player statistics.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .standings-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .standings-table thead th {
+      background: var(--color-green);
+      color: var(--bg-primary);
+      padding: 14px 16px;
+      text-align: left;
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .standings-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .standings-table tbody tr:hover { background: var(--bg-elevated); }
+    .standings-table tbody td {
+      padding: 14px 16px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .standings-table tbody tr:nth-child(even) { background: rgba(26,29,37,0.4); }
+    .standings-table tbody tr:nth-child(even):hover { background: var(--bg-elevated); }
+    .standings-table tbody tr.top-three td { background: rgba(0,255,65,0.04); }
+    .standings-table tbody tr.top-three:hover td { background: rgba(0,255,65,0.08); }
+    .rank-num {
+      font-family: var(--font-display);
+      font-size: 20px;
+      min-width: 40px;
+      display: inline-block;
+    }
+    .rank-1 { color: #FFD700; }
+    .rank-2 { color: #C0C0C0; }
+    .rank-3 { color: #CD7F32; }
+    .trend-up { color: var(--color-green); }
+    .trend-down { color: var(--color-red); }
+    .trend-neutral { color: var(--text-secondary); }
+    .score-positive { color: var(--color-green); }
+    .score-negative { color: var(--color-red); }
+    .mini-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      width: 80px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .mini-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--color-green), #00cc34); }
+    .stat-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .stat-card:hover { border-color: var(--color-green); }
+    .stat-card .big-num { font-family: var(--font-display); font-size: 52px; color: var(--color-green); line-height: 1; }
+    .stat-card .stat-label { font-size: 12px; color: var(--text-secondary); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px; }
+    .stat-card .sub-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⛳</div>
+      <div class="logo-text">SBG<span>LEAGUE</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="players.html">Players</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="news.html">News</a>
+      <a href="schedule.html" class="nav-cta">Buy Tickets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">Season 7 · Live</span>
+    <h1 class="display-2 mt-16">Season<br><span class="text-green">Standings</span></h1>
+    <p class="text-muted mt-24" style="font-size:18px;max-width:600px;">Live Season 7 rankings updated after each tournament. Top 8 qualify for the Grand Slam Championship.</p>
+  </div>
+</div>
+
+<!-- Season Stats -->
+<section style="background:var(--bg-surface);">
+  <div class="container">
+    <span class="label">Season 7 At A Glance</span>
+    <div class="grid-4 mt-24">
+      <div class="stat-card">
+        <div class="big-num">6</div>
+        <div class="stat-label">Events Completed</div>
+        <div class="sub-label">of 16 total</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-num">-32</div>
+        <div class="stat-label">Best Season Avg</div>
+        <div class="sub-label">The Crusher · Kowalski</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-num">196</div>
+        <div class="stat-label">Grenades Deployed</div>
+        <div class="sub-label">Season total</div>
+      </div>
+      <div class="stat-card">
+        <div class="big-num">48</div>
+        <div class="stat-label">Active Athletes</div>
+        <div class="sub-label">22 countries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Grand Slam Qualification Banner -->
+<section style="background:linear-gradient(135deg,rgba(255,215,0,0.04),var(--bg-primary));border-top:1px solid rgba(255,215,0,0.15);border-bottom:1px solid rgba(255,215,0,0.15);">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <span class="label" style="color:#FFD700;">Grand Slam Qualification</span>
+        <h2 class="heading-1 mt-8">Top 8 Advance to the Grand Slam Championship</h2>
+        <p class="text-muted mt-8">November 8–15, 2026 · Volcano Ridge, Hawaii · $800K Prize Pool</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="badge badge-green">💀 The Crusher — QUALIFIED</span>
+        <span class="badge badge-green">💣 Demolition Dave — QUALIFIED</span>
+        <span class="badge badge-green">⚡ Iron Maiden — QUALIFIED</span>
+        <span class="badge badge-orange">🔥 Bunker Buster — ON THE BUBBLE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Standings Table -->
+<section>
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <span class="label">World Rankings</span>
+        <h2 class="heading-1 mt-8">Season 7 Standings</h2>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);">
+        Updated: April 12, 2026 · After Crater Cup QF Round 1
+      </div>
+    </div>
+    <div style="overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>+/-</th>
+            <th>Athlete</th>
+            <th>Country</th>
+            <th>Events</th>
+            <th>Avg Score</th>
+            <th>Wins</th>
+            <th>Pts</th>
+            <th>Hit %</th>
+            <th>Battle Efficiency</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="top-three">
+            <td><span class="rank-num rank-1">1</span></td>
+            <td><span class="trend-neutral">—</span></td>
+            <td style="font-weight:600;font-family:var(--font-body);">💀 The Crusher <span style="font-size:12px;color:var(--text-secondary);">Kowalski</span></td>
+            <td>🇵🇱 POL</td>
+            <td>6</td>
+            <td class="score-positive">-32</td>
+            <td style="color:#FFD700;">3</td>
+            <td style="color:#FFD700;font-weight:700;">2,840</td>
+            <td>94%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:94%"></div></div></td>
+            <td><span class="badge badge-green">Qualified</span></td>
+          </tr>
+          <tr class="top-three">
+            <td><span class="rank-num rank-2">2</span></td>
+            <td><span class="trend-neutral">—</span></td>
+            <td style="font-weight:600;font-family:var(--font-body);">💣 Demolition Dave <span style="font-size:12px;color:var(--text-secondary);">Harrington</span></td>
+            <td>🇺🇸 USA</td>
+            <td>6</td>
+            <td class="score-positive">-29</td>
+            <td style="color:#C0C0C0;">2</td>
+            <td style="color:#C0C0C0;font-weight:700;">2,610</td>
+            <td>91%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:91%"></div></div></td>
+            <td><span class="badge badge-green">Qualified</span></td>
+          </tr>
+          <tr class="top-three">
+            <td><span class="rank-num rank-3">3</span></td>
+            <td><span class="trend-up">▲1</span></td>
+            <td style="font-weight:600;font-family:var(--font-body);">⚡ Iron Maiden <span style="font-size:12px;color:var(--text-secondary);">Tanaka</span></td>
+            <td>🇯🇵 JPN</td>
+            <td>6</td>
+            <td class="score-positive">-28</td>
+            <td style="color:#CD7F32;">1</td>
+            <td style="color:#CD7F32;font-weight:700;">2,480</td>
+            <td>96%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:96%"></div></div></td>
+            <td><span class="badge badge-green">Qualified</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num" style="color:var(--text-primary);">4</span></td>
+            <td><span class="trend-down">▼1</span></td>
+            <td style="font-family:var(--font-body);">🔥 Bunker Buster <span style="font-size:12px;color:var(--text-secondary);">Chen</span></td>
+            <td>🇰🇷 KOR</td>
+            <td>5</td>
+            <td class="score-positive">-26</td>
+            <td>2</td>
+            <td style="font-weight:700;">2,390</td>
+            <td>89%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:89%"></div></div></td>
+            <td><span class="badge badge-orange">Bubble</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num" style="color:var(--text-primary);">5</span></td>
+            <td><span class="trend-up">▲2</span></td>
+            <td style="font-family:var(--font-body);">🛡️ Shield Wall <span style="font-size:12px;color:var(--text-secondary);">Brauer</span></td>
+            <td>🇩🇪 GER</td>
+            <td>6</td>
+            <td class="score-positive">-24</td>
+            <td>1</td>
+            <td style="font-weight:700;">2,220</td>
+            <td>98%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:98%"></div></div></td>
+            <td><span class="badge badge-orange">Bubble</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num" style="color:var(--text-primary);">6</span></td>
+            <td><span class="trend-down">▼1</span></td>
+            <td style="font-family:var(--font-body);">🌪️ Storm King <span style="font-size:12px;color:var(--text-secondary);">Moura</span></td>
+            <td>🇧🇷 BRA</td>
+            <td>6</td>
+            <td class="score-positive">-23</td>
+            <td>0</td>
+            <td style="font-weight:700;">2,110</td>
+            <td>88%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:88%"></div></div></td>
+            <td><span class="badge badge-orange">Bubble</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num" style="color:var(--text-primary);">7</span></td>
+            <td><span class="trend-up">▲3</span></td>
+            <td style="font-family:var(--font-body);">🎯 Dead Eye <span style="font-size:12px;color:var(--text-secondary);">Ashworth</span></td>
+            <td>🇬🇧 GBR</td>
+            <td>5</td>
+            <td class="score-positive">-22</td>
+            <td>0</td>
+            <td style="font-weight:700;">2,060</td>
+            <td>97%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:97%"></div></div></td>
+            <td><span class="badge badge-orange">Bubble</span></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num" style="color:var(--text-primary);">8</span></td>
+            <td><span class="trend-neutral">—</span></td>
+            <td style="font-family:var(--font-body);">🧲 The Magnet <span style="font-size:12px;color:var(--text-secondary);">Walsh</span></td>
+            <td>🇦🇺 AUS</td>
+            <td>6</td>
+            <td class="score-positive">-21</td>
+            <td>0</td>
+            <td style="font-weight:700;">1,980</td>
+            <td>85%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:85%"></div></div></td>
+            <td><span class="badge badge-orange">Bubble</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><span class="trend-down">▼2</span></td>
+            <td style="font-family:var(--font-body);">🤖 Drone Lord <span style="font-size:12px;color:var(--text-secondary);">Zhang</span></td>
+            <td>🇸🇬 SGP</td>
+            <td>6</td>
+            <td class="score-positive">-20</td>
+            <td>0</td>
+            <td>1,870</td>
+            <td>90%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:90%"></div></div></td>
+            <td><span class="badge badge-gray">Chasing</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><span class="trend-neutral">—</span></td>
+            <td style="font-family:var(--font-body);">☁️ Le Brouillard <span style="font-size:12px;color:var(--text-secondary);">Dupont</span></td>
+            <td>🇫🇷 FRA</td>
+            <td>5</td>
+            <td class="score-positive">-19</td>
+            <td>1</td>
+            <td>1,810</td>
+            <td>87%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:87%"></div></div></td>
+            <td><span class="badge badge-gray">Chasing</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><span class="trend-up">▲1</span></td>
+            <td style="font-family:var(--font-body);">🐍 La Serpiente <span style="font-size:12px;color:var(--text-secondary);">Reyes</span></td>
+            <td>🇲🇽 MEX</td>
+            <td>6</td>
+            <td class="score-positive">-18</td>
+            <td>0</td>
+            <td>1,760</td>
+            <td>83%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:83%"></div></div></td>
+            <td><span class="badge badge-gray">Chasing</span></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><span class="trend-down">▼1</span></td>
+            <td style="font-family:var(--font-body);">🦅 The Eagle <span style="font-size:12px;color:var(--text-secondary);">Dlamini</span></td>
+            <td>🇿🇦 RSA</td>
+            <td>6</td>
+            <td class="score-positive">-17</td>
+            <td>0</td>
+            <td>1,690</td>
+            <td>86%</td>
+            <td><div class="mini-bar"><div class="mini-bar-fill" style="width:86%"></div></div></td>
+            <td><span class="badge badge-gray">Chasing</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-center mt-32">
+      <p class="text-muted mb-16" style="font-size:14px;">Showing top 12 of 48 ranked athletes</p>
+      <a href="#" class="btn btn-secondary">Load Full Standings (48)</a>
+    </div>
+  </div>
+</section>
+
+<!-- Individual Stats -->
+<section style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Season 7 Records</span>
+      <h2 class="display-3">Stat<br><span class="text-green">Leaders</span></h2>
+    </div>
+    <div class="grid-3" style="gap:16px;">
+      <div class="card">
+        <span class="label mb-16" style="display:block;">Lowest Season Avg</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-size:40px;">💀</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:20px;">THE CRUSHER</div>
+            <div class="score-positive" style="font-family:var(--font-mono);font-size:32px;font-weight:700;">-32</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="label mb-16" style="display:block;">Highest Hit Accuracy</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-size:40px;">🛡️</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:20px;">SHIELD WALL</div>
+            <div class="score-positive" style="font-family:var(--font-mono);font-size:32px;font-weight:700;">98%</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="label mb-16" style="display:block;">Most Event Wins</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-size:40px;">💀</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:20px;">THE CRUSHER</div>
+            <div class="score-positive" style="font-family:var(--font-mono);font-size:32px;font-weight:700;">3 W</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="label mb-16" style="display:block;">Most Grenades Used</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-size:40px;">💣</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:20px;">DEMOLITION DAVE</div>
+            <div style="font-family:var(--font-mono);font-size:32px;font-weight:700;color:var(--color-orange);">34</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="label mb-16" style="display:block;">Best Single Round</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-size:40px;">💀</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:20px;">THE CRUSHER</div>
+            <div class="score-positive" style="font-family:var(--font-mono);font-size:32px;font-weight:700;">-18</div>
+            <div style="font-size:12px;color:var(--text-secondary);">Volcano Ridge · R1</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="label mb-16" style="display:block;">Highest Battle Efficiency</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="font-size:40px;">⚡</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:20px;">IRON MAIDEN</div>
+            <div class="score-positive" style="font-family:var(--font-mono);font-size:32px;font-weight:700;">9.4/10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">SBG<span>LEAGUE</span></div>
+        <p>The official governing body of Super Battle Golf worldwide. Sanctioning elite full-contact golf competition since Season 1.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Competition</h4>
+        <ul>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="leaderboard.html">Standings</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="news.html">Results</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The Sport</h4>
+        <ul>
+          <li><a href="about.html">About SBG</a></li>
+          <li><a href="about.html#rules">Rules</a></li>
+          <li><a href="about.html#courses">Battle Courses</a></li>
+          <li><a href="about.html#safety">Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Media</h4>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="#">SBGL+ Stream</a></li>
+          <li><a href="#">Photo Gallery</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Super Battle Golf League. All rights reserved.</span>
+      <span>Sanctioned by the World Battle Sports Authority · Safety First, Victory Always</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

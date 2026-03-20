@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Battle Golf League — Official Site</title>
+  <meta name="description" content="The official site of the Super Battle Golf League — the world's premier full-contact, explosives-permitted golf competition.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,255,65,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,107,0,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(42,45,56,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,45,56,0.3) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 120px var(--gutter) 80px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot {
+      width: 8px; height: 8px;
+      background: var(--color-green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 12vw, 160px);
+      line-height: 0.88;
+      letter-spacing: 0.01em;
+      margin-bottom: 32px;
+    }
+    .hero-title .line-green { color: var(--color-green); display: block; }
+    .hero-title .line-accent { color: var(--color-orange); display: block; }
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-scroll-line {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--color-green));
+    }
+    /* ---- Featured Match ---- */
+    .featured-match {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-match::before {
+      content: 'LIVE';
+      position: absolute;
+      top: 12px; right: 12px;
+      background: var(--color-red);
+      color: white;
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      padding: 2px 10px;
+      border-radius: 100px;
+      animation: livePulse 1.5s infinite;
+    }
+    @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .match-player { text-align: center; flex: 1; }
+    .match-player .name { font-family: var(--font-display); font-size: 28px; letter-spacing: 0.05em; }
+    .match-player .country { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .match-vs {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--color-green);
+      padding: 0 24px;
+    }
+    .match-score { font-family: var(--font-mono); font-size: 48px; font-weight: 700; padding: 0 16px; }
+    .match-info { text-align: center; }
+    .match-info .course { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.05em; }
+    .match-info .round { font-family: var(--font-display); font-size: 18px; color: var(--color-orange); }
+    /* ---- Stats Strip ---- */
+    .stats-strip {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-strip .grid-4 { text-align: center; }
+    /* ---- Features ---- */
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    /* ---- Schedule Strip ---- */
+    .event-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .event-row:hover { background: var(--bg-elevated); }
+    .event-date { font-family: var(--font-mono); font-size: 13px; color: var(--text-secondary); min-width: 100px; }
+    .event-name { font-weight: 600; flex: 1; }
+    .event-location { font-size: 14px; color: var(--text-secondary); }
+    /* ---- News Cards ---- */
+    .news-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .news-card:hover { border-color: var(--color-green); transform: translateY(-3px); }
+    .news-thumb {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    .news-body { padding: 20px; }
+    .news-body h3 { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .news-body p { font-size: 14px; color: var(--text-secondary); }
+    .news-meta { font-size: 12px; color: var(--text-secondary); margin-top: 12px; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⛳</div>
+      <div class="logo-text">SBG<span>LEAGUE</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="players.html">Players</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="news.html">News</a>
+      <a href="schedule.html" class="nav-cta">Buy Tickets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Live Ticker -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    ⛳ LIVE: Crater Cup Quarterfinals — Demolition Dave leads by 3 &nbsp;•&nbsp; Iron Maiden defeats "Bunker Buster" Chen 6-4 at Volcano Ridge &nbsp;•&nbsp; SBGL Season 7 begins April 12 — 48 competitors, 16 Battle Courses &nbsp;•&nbsp; World Ranking Update: "The Crusher" Kowalski rises to #1 &nbsp;•&nbsp; New rule: Proximity Mines now limited to 2 per round &nbsp;•&nbsp; Ticket sales for the Grand Slam open Friday &nbsp;•&nbsp; ⛳ LIVE: Crater Cup Quarterfinals — Demolition Dave leads by 3 &nbsp;•&nbsp;
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="dot"></div>
+      <span class="label">Official Site of the SBGL — Season 7</span>
+    </div>
+    <h1 class="hero-title">
+      <span>SUPER</span>
+      <span class="line-green">BATTLE</span>
+      <span class="line-accent">GOLF</span>
+    </h1>
+    <p class="hero-subtitle">
+      The world's most dangerous sport. 18 holes. Tactical munitions. No mercy. The Super Battle Golf League — where precision meets destruction.
+    </p>
+    <div class="hero-actions">
+      <a href="schedule.html" class="btn btn-primary">Watch Live</a>
+      <a href="about.html" class="btn btn-secondary">Learn the Rules</a>
+    </div>
+
+    <!-- Live Match -->
+    <div class="featured-match">
+      <div class="match-player">
+        <div class="name">DEMOLITION<br>DAVE</div>
+        <div class="country">🇺🇸 USA · Rank #2</div>
+      </div>
+      <div>
+        <div class="match-score" style="display:flex;align-items:center;gap:16px;">
+          <span style="color:var(--color-green)">-7</span>
+          <span class="match-vs">VS</span>
+          <span style="color:var(--text-secondary)">-4</span>
+        </div>
+        <div class="match-info">
+          <div class="round">Crater Cup · QF · Hole 14</div>
+          <div class="course">⛰️ Volcano Ridge Course · Hawaii</div>
+        </div>
+      </div>
+      <div class="match-player">
+        <div class="name">BUNKER<br>BUSTER CHEN</div>
+        <div class="country">🇰🇷 Korea · Rank #5</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-line"></div>
+</section>
+
+<!-- Stats Strip -->
+<section class="stats-strip" style="padding: 48px 0;">
+  <div class="container">
+    <div class="grid-4">
+      <div class="stat-box">
+        <span class="stat-number" data-target="48">48</span>
+        <span class="stat-label">Pro Athletes</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="16">16</span>
+        <span class="stat-label">Battle Courses</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="7">7</span>
+        <span class="stat-label">Seasons Played</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="2400000">$2.4M</span>
+        <span class="stat-label">Prize Pool</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Is Super Battle Golf -->
+<section style="background: var(--bg-surface);">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">The Sport</span>
+      <h2 class="display-3">Golf. But Deadlier.</h2>
+      <p class="text-muted mt-16" style="max-width:600px;font-size:18px;">Super Battle Golf is a full-contact sport where professional golfers compete using standard golf equipment — plus a regulated arsenal of tactical tools to hinder opponents and control the course.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="feature-icon">💥</span>
+        <h3 class="heading-2">Battle Mechanics</h3>
+        <p class="text-muted mt-8">Players are allocated a Battle Budget each round to purchase grenades, proximity mines, turret deployments, and shields. Strategy is everything.</p>
+      </div>
+      <div class="card">
+        <span class="feature-icon">⛳</span>
+        <h3 class="heading-2">Real Golf Rules</h3>
+        <p class="text-muted mt-8">Standard USGA golf rules apply except where superseded by SBGL Battle Regulations. Handicaps, stroke play, and match play formats are all supported.</p>
+      </div>
+      <div class="card">
+        <span class="feature-icon">🏆</span>
+        <h3 class="heading-2">Global Competition</h3>
+        <p class="text-muted mt-8">48 certified Battle Golfers from 22 countries compete across 16 official Battle Courses each season, culminating in the Grand Slam Championship.</p>
+      </div>
+      <div class="card">
+        <span class="feature-icon">🛡️</span>
+        <h3 class="heading-2">Safety Gear Required</h3>
+        <p class="text-muted mt-8">All competitors must wear SBGL-certified blast armor, helmet, and visor. Course spectators are protected behind certified blast barriers.</p>
+      </div>
+      <div class="card">
+        <span class="feature-icon">🗺️</span>
+        <h3 class="heading-2">Battle Courses</h3>
+        <p class="text-muted mt-8">Official courses feature craters, active lava zones, wind cannons, and magnetic rough. Each course has a unique Battle Hazard Rating (BHR).</p>
+      </div>
+      <div class="card">
+        <span class="feature-icon">📡</span>
+        <h3 class="heading-2">Live Coverage</h3>
+        <p class="text-muted mt-8">All SBGL events broadcast live on BattleSports Network and streaming on SBGL+. 12 cameras per hole capture every shot and detonation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Events -->
+<section>
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;">
+      <div>
+        <span class="label">Schedule</span>
+        <h2 class="display-3 mt-8">Upcoming Events</h2>
+      </div>
+      <a href="schedule.html" class="btn btn-secondary">Full Schedule</a>
+    </div>
+    <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
+      <div class="event-row">
+        <div class="event-date">APR 12–14</div>
+        <span class="badge badge-red" style="min-width:80px;text-align:center;">LIVE</span>
+        <div class="event-name">Crater Cup — Quarterfinals</div>
+        <div class="event-location">🌋 Volcano Ridge, Hawaii</div>
+        <a href="schedule.html" class="btn btn-primary" style="padding:8px 20px;font-size:14px;">Watch</a>
+      </div>
+      <div class="event-row">
+        <div class="event-date">APR 19–21</div>
+        <span class="badge badge-orange" style="min-width:80px;text-align:center;">UPCOMING</span>
+        <div class="event-name">Crater Cup — Semifinals & Final</div>
+        <div class="event-location">🌋 Volcano Ridge, Hawaii</div>
+        <a href="schedule.html" class="btn btn-secondary" style="padding:8px 20px;font-size:14px;">Tickets</a>
+      </div>
+      <div class="event-row">
+        <div class="event-date">MAY 3–5</div>
+        <span class="badge badge-blue" style="min-width:80px;text-align:center;">OPEN</span>
+        <div class="event-name">Pacific Rim Battle Open</div>
+        <div class="event-location">🏔️ Glacier Ridge, Alaska</div>
+        <a href="schedule.html" class="btn btn-secondary" style="padding:8px 20px;font-size:14px;">Tickets</a>
+      </div>
+      <div class="event-row">
+        <div class="event-date">MAY 24–26</div>
+        <span class="badge badge-blue" style="min-width:80px;text-align:center;">OPEN</span>
+        <div class="event-name">European Assault Classic</div>
+        <div class="event-location">🏰 Castle Greens, Scotland</div>
+        <a href="schedule.html" class="btn btn-secondary" style="padding:8px 20px;font-size:14px;">Tickets</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top Players -->
+<section style="background:var(--bg-surface);">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;">
+      <div>
+        <span class="label">Competitors</span>
+        <h2 class="display-3 mt-8">Top Ranked Players</h2>
+      </div>
+      <a href="players.html" class="btn btn-secondary">Full Roster</a>
+    </div>
+    <div class="grid-4">
+      <div class="player-card">
+        <div class="player-avatar" style="background:linear-gradient(135deg,#1a1d25,#0e2a1a);">💀</div>
+        <div class="player-info">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="player-name">THE CRUSHER</div>
+            <span class="badge badge-green">#1</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Aleksander Kowalski · 🇵🇱</div>
+          <div class="player-stats">
+            <div class="player-stat"><strong>-32</strong>Season avg</div>
+            <div class="player-stat"><strong>3</strong>Titles</div>
+            <div class="player-stat"><strong>94%</strong>Hit rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-avatar" style="background:linear-gradient(135deg,#1a1d25,#1a120a);">💣</div>
+        <div class="player-info">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="player-name">DEMOLITION DAVE</div>
+            <span class="badge badge-green">#2</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Dave Harrington · 🇺🇸</div>
+          <div class="player-stats">
+            <div class="player-stat"><strong>-29</strong>Season avg</div>
+            <div class="player-stat"><strong>2</strong>Titles</div>
+            <div class="player-stat"><strong>91%</strong>Hit rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-avatar" style="background:linear-gradient(135deg,#1a1d25,#1a0a1a);">⚡</div>
+        <div class="player-info">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="player-name">IRON MAIDEN</div>
+            <span class="badge badge-green">#3</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Yuki Tanaka · 🇯🇵</div>
+          <div class="player-stats">
+            <div class="player-stat"><strong>-28</strong>Season avg</div>
+            <div class="player-stat"><strong>1</strong>Titles</div>
+            <div class="player-stat"><strong>96%</strong>Hit rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="player-card">
+        <div class="player-avatar" style="background:linear-gradient(135deg,#1a1d25,#0a1520);">🔥</div>
+        <div class="player-info">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="player-name">BUNKER BUSTER</div>
+            <span class="badge badge-green">#4</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Ji-Ho Chen · 🇰🇷</div>
+          <div class="player-stats">
+            <div class="player-stat"><strong>-26</strong>Season avg</div>
+            <div class="player-stat"><strong>2</strong>Titles</div>
+            <div class="player-stat"><strong>89%</strong>Hit rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News Section -->
+<section>
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;">
+      <div>
+        <span class="label">Latest</span>
+        <h2 class="display-3 mt-8">News & Highlights</h2>
+      </div>
+      <a href="news.html" class="btn btn-secondary">All News</a>
+    </div>
+    <div class="grid-3">
+      <div class="news-card">
+        <div class="news-thumb" style="background:linear-gradient(135deg,#0e2a1a,#1a1d25);">💥</div>
+        <div class="news-body">
+          <span class="badge badge-red mb-8">Breaking</span>
+          <h3>Kowalski Sets New Course Record at Volcano Ridge</h3>
+          <p>The Polish champion demolished the Volcano Ridge course record with an unprecedented -18 round, using only 3 grenades.</p>
+          <div class="news-meta">April 12, 2026 · Match Report</div>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb" style="background:linear-gradient(135deg,#1a120a,#1a1d25);">🏆</div>
+        <div class="news-body">
+          <span class="badge badge-orange mb-8">Season 7</span>
+          <h3>SBGL Announces Expanded Season 7 Format</h3>
+          <p>The league grows to 48 athletes across 16 official Battle Courses. New proximity mine rules effective April 1.</p>
+          <div class="news-meta">March 28, 2026 · League News</div>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb" style="background:linear-gradient(135deg,#0a1520,#1a1d25);">🛡️</div>
+        <div class="news-body">
+          <span class="badge badge-blue mb-8">Equipment</span>
+          <h3>New Blast Armor Standard Approved for Season 7</h3>
+          <p>The SBGL Safety Council has approved the MK-7 blast armor series, offering 40% more shrapnel protection at the same weight.</p>
+          <div class="news-meta">March 20, 2026 · Safety</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section style="background: linear-gradient(135deg, #0e2a1a 0%, var(--bg-primary) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container text-center">
+    <span class="label">Don't Miss Out</span>
+    <h2 class="display-2 mt-16 glow-green" style="max-width:700px;margin-left:auto;margin-right:auto;">
+      Season 7 Kicks Off April 12
+    </h2>
+    <p class="text-muted mt-24" style="font-size:18px;max-width:500px;margin:24px auto;">Watch every match live on SBGL+ or grab your seat at an official Battle Course.</p>
+    <div class="flex-center gap-16 mt-32">
+      <a href="schedule.html" class="btn btn-primary">Get Tickets</a>
+      <a href="players.html" class="btn btn-secondary">Meet the Athletes</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">SBG<span>LEAGUE</span></div>
+        <p>The official governing body of Super Battle Golf worldwide. Sanctioning elite full-contact golf competition since Season 1.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Competition</h4>
+        <ul>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="leaderboard.html">Standings</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="news.html">Results</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The Sport</h4>
+        <ul>
+          <li><a href="about.html">About SBG</a></li>
+          <li><a href="about.html#rules">Rules</a></li>
+          <li><a href="about.html#courses">Battle Courses</a></li>
+          <li><a href="about.html#safety">Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Media</h4>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="#">SBGL+ Stream</a></li>
+          <li><a href="#">Photo Gallery</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Super Battle Golf League. All rights reserved.</span>
+      <span>Sanctioned by the World Battle Sports Authority · Safety First, Victory Always</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

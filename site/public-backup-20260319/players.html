@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Players Roster — Super Battle Golf League</title>
+  <meta name="description" content="Meet the 48 certified Battle Golfers of the SBGL Season 7 roster.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--color-green);
+      color: var(--color-green);
+      background: rgba(0, 255, 65, 0.08);
+    }
+    .player-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .sbgl-player-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .sbgl-player-card:hover {
+      border-color: var(--color-green);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 255, 65, 0.12);
+    }
+    .pc-avatar {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      position: relative;
+    }
+    .pc-rank {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--color-green);
+      background: rgba(0,0,0,0.7);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .pc-flag {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-size: 24px;
+    }
+    .pc-body { padding: 16px; }
+    .pc-handle { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.05em; }
+    .pc-name { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+    .pc-specialty { margin-top: 10px; }
+    .pc-stats-row { display: flex; justify-content: space-between; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .pc-stat { text-align: center; }
+    .pc-stat-val { font-family: var(--font-mono); font-weight: 700; font-size: 16px; color: var(--color-green); }
+    .pc-stat-lbl { font-size: 10px; color: var(--text-secondary); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+    /* Top 3 Podium */
+    .podium {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 64px;
+    }
+    .podium-card {
+      text-align: center;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      flex: 1;
+      max-width: 280px;
+      padding: 24px 16px;
+    }
+    .podium-card.first {
+      border-color: #FFD700;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding-top: 40px;
+      z-index: 2;
+      box-shadow: 0 -8px 40px rgba(255, 215, 0, 0.15);
+    }
+    .podium-card.second {
+      border-color: #C0C0C0;
+      border-radius: var(--radius-lg) 0 0 0;
+    }
+    .podium-card.third {
+      border-color: #CD7F32;
+      border-radius: 0 var(--radius-lg) 0 0;
+    }
+    .podium-avatar { font-size: 64px; margin-bottom: 8px; }
+    .podium-rank { font-size: 32px; margin-bottom: 4px; }
+    .podium-handle { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; }
+    .podium-score { font-family: var(--font-mono); font-size: 28px; color: var(--color-green); margin-top: 8px; }
+    .podium-base {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+    .base-block {
+      flex: 1;
+      max-width: 280px;
+      font-family: var(--font-display);
+      font-size: 48px;
+      text-align: center;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .base-block.first { height: 60px; line-height: 60px; border-color: #FFD700; background: rgba(255,215,0,0.05); }
+    .base-block.second { height: 40px; line-height: 40px; border-color: #C0C0C0; background: rgba(192,192,192,0.05); }
+    .base-block.third { height: 24px; line-height: 24px; border-color: #CD7F32; background: rgba(205,127,50,0.05); }
+    @media (max-width: 1024px) { .player-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .player-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⛳</div>
+      <div class="logo-text">SBG<span>LEAGUE</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="players.html" class="active">Players</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="news.html">News</a>
+      <a href="schedule.html" class="nav-cta">Buy Tickets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">Season 7 Roster</span>
+    <h1 class="display-2 mt-16">The Athletes<br><span class="text-green">of the SBGL</span></h1>
+    <p class="text-muted mt-24" style="font-size:18px;max-width:600px;">48 certified Battle Golfers from 22 countries. The world's most dangerous athletes, armed with 9-irons and explosives.</p>
+  </div>
+</div>
+
+<!-- Podium (Top 3) -->
+<section style="background:var(--bg-surface);">
+  <div class="container text-center">
+    <span class="label">World Rankings</span>
+    <h2 class="display-3 mt-16 mb-32">Top <span class="text-green">3</span> This Season</h2>
+    <div class="podium">
+      <div class="podium-card second">
+        <div class="podium-rank">🥈</div>
+        <div class="podium-avatar">💣</div>
+        <div class="podium-handle">DEMOLITION<br>DAVE</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Dave Harrington · 🇺🇸</div>
+        <div class="podium-score">-29</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">Season Avg</div>
+      </div>
+      <div class="podium-card first">
+        <div class="podium-rank">🥇</div>
+        <div class="podium-avatar">💀</div>
+        <div class="podium-handle">THE<br>CRUSHER</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Aleksander Kowalski · 🇵🇱</div>
+        <div class="podium-score">-32</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">Season Avg</div>
+      </div>
+      <div class="podium-card third">
+        <div class="podium-rank">🥉</div>
+        <div class="podium-avatar">⚡</div>
+        <div class="podium-handle">IRON<br>MAIDEN</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Yuki Tanaka · 🇯🇵</div>
+        <div class="podium-score">-28</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">Season Avg</div>
+      </div>
+    </div>
+    <div class="podium-base">
+      <div class="base-block second">2</div>
+      <div class="base-block first">1</div>
+      <div class="base-block third">3</div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Roster -->
+<section>
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+      <h2 class="heading-1">Full Roster — <span class="text-green">48 Athletes</span></h2>
+      <div style="font-family:var(--font-mono);font-size:14px;color:var(--text-secondary);">Season 7</div>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active">All Regions</button>
+      <button class="filter-btn">Americas</button>
+      <button class="filter-btn">Europe</button>
+      <button class="filter-btn">Asia-Pacific</button>
+      <button class="filter-btn">Middle East & Africa</button>
+    </div>
+    <div class="player-grid">
+
+      <!-- Row 1 -->
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#0a1a00,#1a1d25);">
+          💀
+          <div class="pc-rank">#1</div>
+          <div class="pc-flag">🇵🇱</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">THE CRUSHER</div>
+          <div class="pc-name">Aleksander Kowalski</div>
+          <div class="pc-specialty"><span class="badge badge-orange">Grenade Specialist</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-32</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">3</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">94%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#1a0800,#1a1d25);">
+          💣
+          <div class="pc-rank">#2</div>
+          <div class="pc-flag">🇺🇸</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">DEMOLITION DAVE</div>
+          <div class="pc-name">Dave Harrington</div>
+          <div class="pc-specialty"><span class="badge badge-red">Mine Tactician</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-29</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">2</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">91%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#1a001a,#1a1d25);">
+          ⚡
+          <div class="pc-rank">#3</div>
+          <div class="pc-flag">🇯🇵</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">IRON MAIDEN</div>
+          <div class="pc-name">Yuki Tanaka</div>
+          <div class="pc-specialty"><span class="badge badge-blue">EMP Expert</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-28</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">1</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">96%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#001020,#1a1d25);">
+          🔥
+          <div class="pc-rank">#4</div>
+          <div class="pc-flag">🇰🇷</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">BUNKER BUSTER</div>
+          <div class="pc-name">Ji-Ho Chen</div>
+          <div class="pc-specialty"><span class="badge badge-orange">Bunker Specialist</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-26</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">2</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">89%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#001a10,#1a1d25);">
+          🛡️
+          <div class="pc-rank">#5</div>
+          <div class="pc-flag">🇩🇪</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">SHIELD WALL</div>
+          <div class="pc-name">Klaus Brauer</div>
+          <div class="pc-specialty"><span class="badge badge-green">Defensive Master</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-24</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">1</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">98%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#150015,#1a1d25);">
+          🌪️
+          <div class="pc-rank">#6</div>
+          <div class="pc-flag">🇧🇷</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">STORM KING</div>
+          <div class="pc-name">Rafael Moura</div>
+          <div class="pc-specialty"><span class="badge badge-blue">Wind Turret Pro</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-23</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">0</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">88%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#1a0a00,#1a1d25);">
+          🎯
+          <div class="pc-rank">#7</div>
+          <div class="pc-flag">🇬🇧</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">DEAD EYE</div>
+          <div class="pc-name">Fiona Ashworth</div>
+          <div class="pc-specialty"><span class="badge badge-green">Precision Golfer</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-22</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">0</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">97%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#001515,#1a1d25);">
+          🧲
+          <div class="pc-rank">#8</div>
+          <div class="pc-flag">🇦🇺</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">THE MAGNET</div>
+          <div class="pc-name">Connor Walsh</div>
+          <div class="pc-specialty"><span class="badge badge-blue">Decoy Tactician</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-21</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">0</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">85%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#0a001a,#1a1d25);">
+          🤖
+          <div class="pc-rank">#9</div>
+          <div class="pc-flag">🇸🇬</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">DRONE LORD</div>
+          <div class="pc-name">Wei Zhang</div>
+          <div class="pc-specialty"><span class="badge badge-blue">Scanner Expert</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-20</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">0</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">90%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#1a1000,#1a1d25);">
+          ☁️
+          <div class="pc-rank">#10</div>
+          <div class="pc-flag">🇫🇷</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">LE BROUILLARD</div>
+          <div class="pc-name">Marcel Dupont</div>
+          <div class="pc-specialty"><span class="badge badge-gray">Smoke Screen Ace</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-19</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">1</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">87%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#1a0010,#1a1d25);">
+          🐍
+          <div class="pc-rank">#11</div>
+          <div class="pc-flag">🇲🇽</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">LA SERPIENTE</div>
+          <div class="pc-name">Diego Reyes</div>
+          <div class="pc-specialty"><span class="badge badge-orange">Mine Tactician</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-18</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">0</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">83%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sbgl-player-card">
+        <div class="pc-avatar" style="background:linear-gradient(135deg,#001a1a,#1a1d25);">
+          🦅
+          <div class="pc-rank">#12</div>
+          <div class="pc-flag">🇿🇦</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-handle">THE EAGLE</div>
+          <div class="pc-name">Themba Dlamini</div>
+          <div class="pc-specialty"><span class="badge badge-green">Long Driver</span></div>
+          <div class="pc-stats-row">
+            <div class="pc-stat"><div class="pc-stat-val">-17</div><div class="pc-stat-lbl">Avg</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">0</div><div class="pc-stat-lbl">Titles</div></div>
+            <div class="pc-stat"><div class="pc-stat-val">86%</div><div class="pc-stat-lbl">Hit %</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Show More Placeholder -->
+    <div class="text-center mt-48">
+      <p class="text-muted mb-16" style="font-size:14px;">Showing 12 of 48 registered athletes</p>
+      <a href="#" class="btn btn-secondary">Load Full Roster</a>
+    </div>
+  </div>
+</section>
+
+<!-- Certification CTA -->
+<section style="background:var(--bg-surface);border-top:1px solid var(--border);">
+  <div class="container text-center">
+    <span class="label">Become a Battle Golfer</span>
+    <h2 class="display-3 mt-16">Think You've Got<br><span class="text-green">What It Takes?</span></h2>
+    <p class="text-muted mt-24" style="max-width:500px;margin:24px auto;font-size:17px;">SBGL Certification requires a handicap of +5 or better, completion of the Battle Tactics course, and a passing score on the Safety Protocol exam.</p>
+    <a href="about.html" class="btn btn-primary mt-24">Learn About Certification</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">SBG<span>LEAGUE</span></div>
+        <p>The official governing body of Super Battle Golf worldwide. Sanctioning elite full-contact golf competition since Season 1.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Competition</h4>
+        <ul>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="leaderboard.html">Standings</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="news.html">Results</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The Sport</h4>
+        <ul>
+          <li><a href="about.html">About SBG</a></li>
+          <li><a href="about.html#rules">Rules</a></li>
+          <li><a href="about.html#courses">Battle Courses</a></li>
+          <li><a href="about.html#safety">Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Media</h4>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="#">SBGL+ Stream</a></li>
+          <li><a href="#">Photo Gallery</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Super Battle Golf League. All rights reserved.</span>
+      <span>Sanctioned by the World Battle Sports Authority · Safety First, Victory Always</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Filter bar interaction
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

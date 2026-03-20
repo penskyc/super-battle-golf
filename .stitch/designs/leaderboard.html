@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SBGL S7 | STANDINGS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-variant": "#343537",
+                "on-secondary-fixed-variant": "#7a3000",
+                "surface": "#121315",
+                "inverse-on-surface": "#303033",
+                "surface-bright": "#38393b",
+                "inverse-primary": "#006e16",
+                "on-secondary-fixed": "#351000",
+                "on-tertiary-fixed-variant": "#424750",
+                "primary": "#ebffe2",
+                "primary-fixed-dim": "#00e639",
+                "surface-dim": "#121315",
+                "tertiary-fixed": "#dee2ed",
+                "secondary-fixed-dim": "#ffb693",
+                "on-tertiary-container": "#5c616a",
+                "on-background": "#e3e2e5",
+                "tertiary-fixed-dim": "#c2c6d1",
+                "on-primary-fixed": "#002203",
+                "on-secondary-container": "#572000",
+                "on-primary-fixed-variant": "#00530e",
+                "on-primary-container": "#007117",
+                "secondary-fixed": "#ffdbcc",
+                "on-surface": "#e3e2e5",
+                "inverse-surface": "#e3e2e5",
+                "tertiary": "#f8f9ff",
+                "surface-container-lowest": "#0d0e10",
+                "on-surface-variant": "#b9ccb2",
+                "on-tertiary": "#2c3139",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#d9dde8",
+                "surface-container-high": "#292a2c",
+                "outline-variant": "#3b4b37",
+                "primary-fixed": "#72ff70",
+                "on-tertiary-fixed": "#171c23",
+                "primary-container": "#00ff41",
+                "surface-container": "#1f2022",
+                "secondary-container": "#fe6b00",
+                "on-secondary": "#561f00",
+                "secondary": "#ffb693",
+                "error": "#ffb4ab",
+                "outline": "#84967e",
+                "surface-container-low": "#1b1c1e",
+                "surface-tint": "#00e639",
+                "surface-container-highest": "#343537",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "background": "#121315",
+                "on-primary": "#003907"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "bebas": ["Bebas Neue"],
+                "mono": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 255, 65, 0.03) 1px, transparent 0);
+            background-size: 32px 32px;
+            font-family: 'Inter', sans-serif;
+        }
+        .hud-line {
+            background: linear-gradient(90deg, transparent, #00FF41, transparent);
+            height: 1px;
+            opacity: 0.2;
+        }
+        .neon-glow-text {
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#121315] dark:bg-[#121315] shadow-[0_0_20px_rgba(0,255,65,0.1)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="font-['Bebas_Neue'] text-2xl tracking-tighter text-[#00FF41] italic">SBGL S7</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Bebas_Neue'] uppercase tracking-[0.05em] text-lg text-[#F0F4FF] opacity-80 hover:text-[#00FF41] hover:bg-[#292a2c] transition-all duration-300 px-3 py-1" href="#">ROSTER</a>
+<a class="font-['Bebas_Neue'] uppercase tracking-[0.05em] text-lg text-[#F0F4FF] opacity-80 hover:text-[#00FF41] hover:bg-[#292a2c] transition-all duration-300 px-3 py-1" href="#">SCHEDULE</a>
+<a class="font-['Bebas_Neue'] uppercase tracking-[0.05em] text-lg text-[#00FF41] border-b-2 border-[#00FF41] pb-1" href="#">STANDINGS</a>
+<a class="font-['Bebas_Neue'] uppercase tracking-[0.05em] text-lg text-[#F0F4FF] opacity-80 hover:text-[#00FF41] hover:bg-[#292a2c] transition-all duration-300 px-3 py-1" href="#">INTEL</a>
+<a class="font-['Bebas_Neue'] uppercase tracking-[0.05em] text-lg text-[#F0F4FF] opacity-80 hover:text-[#00FF41] hover:bg-[#292a2c] transition-all duration-300 px-3 py-1" href="#">STORE</a>
+</div>
+<button class="bg-primary-container text-on-primary font-['Bebas_Neue'] px-6 py-2 text-xl tracking-wider hover:shadow-[0_0_15px_rgba(0,255,65,0.4)] scale-95 active:scale-90 transition-all duration-300">
+                JOIN BATTLE
+            </button>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<header class="mb-12 border-l-4 border-primary-container pl-6 py-2">
+<h1 class="font-bebas text-6xl md:text-8xl tracking-[0.05em] text-on-surface neon-glow-text">SEASON 7 STANDINGS</h1>
+<p class="font-mono text-primary-fixed-dim text-sm tracking-widest mt-2 uppercase">// DATA STREAM: CURRENT AS OF WEEK 8 // OPERATIONAL STATUS: ONLINE</p>
+</header>
+<!-- Podium Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 items-end">
+<!-- Rank 2 -->
+<div class="order-2 md:order-1 bg-surface-container-low p-6 border-t-2 border-outline-variant relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute -top-4 left-6 bg-surface px-3 font-mono text-xs text-outline italic">RANK_02</div>
+<div class="aspect-square w-full mb-6 bg-surface-container-highest overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Tactical profile photo of a competitive gamer in neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKKNaXywG4ZNzRWY4-c_U1Is5Dn3gJ_lWzv4xkn_zniSNRyttc_Q0Kg6afofS-w2ZVTRaIJKlAS7TOd28yATDefuiwXiH50xILnzEq33Yso1JFogopiXYO5shiVQRnOyCpo4sxeLZjpdkvyG8H434ZsyTP3m8Pv7ekvmJOY2vv3mP3MazzpNPy5aKIBeYlrnSbiWN7qamzsTtRF5Wy1YPL5HrqMKIVQsC5PeR0iGj-h1CcXfKW6hxaO_ivBKrZ5kt85i3a9gPvr8k"/>
+<div class="absolute bottom-0 right-0 p-2 bg-on-background/10 text-[#C0C0C0] font-bebas text-4xl">SILVER</div>
+</div>
+<h3 class="font-bebas text-3xl text-on-surface">NEON BANSHEE</h3>
+<div class="flex justify-between items-baseline mt-2">
+<span class="font-mono text-primary-fixed-dim text-2xl">2,640</span>
+<span class="font-mono text-xs opacity-60">PTS</span>
+</div>
+</div>
+<!-- Rank 1 -->
+<div class="order-1 md:order-2 bg-surface-container-high p-8 border-t-4 border-primary-container relative transform scale-105 shadow-[0_20px_50px_rgba(0,255,65,0.15)] z-10">
+<div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary px-4 py-1 font-bebas text-lg tracking-widest">APEX LEADER</div>
+<div class="aspect-square w-full mb-6 bg-surface-container-highest overflow-hidden relative border-2 border-primary-container/30">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="Intense athlete portrait with green tactical overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF5lmTs4jE59CTUlokQ6kRSnRe1bbbEFgwBCC5h3v5O5z0ETdGhuDKaiIOi3ZORBXh9cYMtZW5BXGvcPEz5tTs3pN6zrn91JD0Sc8X5A5yppRRX3LUuj1nfXEaoaiDq2IZQddoeau0bX-VJ02z9sdMLO3Vt1An57EHbKMKAULn68dj-DY2OTygO8qxm96qB3-IcqPrt5uy6R3PyWHq4EDONsrlukbRflwYDT_0YRO3DDhjjiujT7XH6nRhdR0yt2iBP9Pmw67OaEY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-transparent"></div>
+<div class="absolute bottom-0 right-0 p-2 bg-primary-container text-on-primary font-bebas text-5xl">GOLD</div>
+</div>
+<h3 class="font-bebas text-5xl text-on-surface mb-2">THE CRUSHER</h3>
+<div class="flex justify-between items-baseline border-t border-primary-container/20 pt-4">
+<span class="font-mono text-primary-container text-4xl font-bold">2,847</span>
+<span class="font-mono text-sm text-primary-container">TOTAL_POINTS</span>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="order-3 bg-surface-container-low p-6 border-t-2 border-outline-variant relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute -top-4 left-6 bg-surface px-3 font-mono text-xs text-outline italic">RANK_03</div>
+<div class="aspect-square w-full mb-6 bg-surface-container-highest overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Competitive sports professional profile in shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhtjPXRaXFD-6w2wG5oO54QfQ0qu2hVp8e-24WYOcPHunG8slqucPglI4zoNSKkud_qGlJ_8ZyShshVf4F74vxca-vIsWPASGvNA5XBj0j3q9iXNx_tzhMemYzIME6zSu4LbpGI7uHCnjyitsv7qHCc9MAkHChnnx9FaUXWiXElrhUdi4Ebkcu3kOIVX2L5xQagIdVU8GwKOYGcxS6lYSB2IekP5kI0FQvIVIh-VZU0nx8PHRBpYBr4R4CGpiPcBh1J8B49C24QLg"/>
+<div class="absolute bottom-0 right-0 p-2 bg-on-background/10 text-[#CD7F32] font-bebas text-4xl">BRONZE</div>
+</div>
+<h3 class="font-bebas text-3xl text-on-surface">IRON MIKE</h3>
+<div class="flex justify-between items-baseline mt-2">
+<span class="font-mono text-primary-fixed-dim text-2xl">2,411</span>
+<span class="font-mono text-xs opacity-60">PTS</span>
+</div>
+</div>
+</section>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Main Content: Standings Table -->
+<div class="lg:w-3/4">
+<!-- Filters -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6 p-4 bg-surface-container-lowest border border-outline-variant/10">
+<div class="flex gap-4">
+<select class="bg-surface-container-low border-none text-on-surface font-mono text-sm focus:ring-1 focus:ring-secondary-container rounded-none uppercase">
+<option>SEASON 7</option>
+<option>SEASON 6</option>
+</select>
+<select class="bg-surface-container-low border-none text-on-surface font-mono text-sm focus:ring-1 focus:ring-secondary-container rounded-none uppercase">
+<option>SORT BY: POINTS</option>
+<option>SORT BY: WIN RATE</option>
+<option>SORT BY: BATTLE CREDITS</option>
+<option>SORT BY: HIT%</option>
+</select>
+</div>
+<div class="font-mono text-[10px] text-outline tracking-tighter uppercase hidden sm:block">
+                        QUERY_EXECUTED: 0.0042s
+                    </div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-primary-container text-on-primary font-bebas text-lg tracking-widest text-left">
+<th class="px-4 py-3">RANK</th>
+<th class="px-2 py-3">TRN</th>
+<th class="px-4 py-3">PLAYER_UNIT</th>
+<th class="px-4 py-3 text-center">W</th>
+<th class="px-4 py-3 text-center">L</th>
+<th class="px-4 py-3 text-center">HIT%</th>
+<th class="px-4 py-3 text-center">AVG_SCORE</th>
+<th class="px-4 py-3 text-right">CREDITS</th>
+<th class="px-4 py-3 text-right">POINTS</th>
+<th class="px-4 py-3 text-center">QS</th>
+</tr>
+</thead>
+<tbody class="font-mono text-sm">
+<!-- Top 3 special rows -->
+<tr class="bg-surface-container-high/50 border-l-4 border-[#00FF41]">
+<td class="px-4 py-4 font-bebas text-2xl text-[#FFD700]">01</td>
+<td class="px-2 py-4 text-primary-fixed-dim">▲</td>
+<td class="px-4 py-4 font-bold text-on-surface">THE CRUSHER</td>
+<td class="px-4 py-4 text-center">18</td>
+<td class="px-4 py-4 text-center">2</td>
+<td class="px-4 py-4 text-center">94%</td>
+<td class="px-4 py-4 text-center">+1.2</td>
+<td class="px-4 py-4 text-right">3,850 BC</td>
+<td class="px-4 py-4 text-right font-bold">2,847</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-secondary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span></td>
+</tr>
+<tr class="bg-surface-container-low border-l-4 border-outline-variant">
+<td class="px-4 py-4 font-bebas text-2xl text-[#C0C0C0]">02</td>
+<td class="px-2 py-4 text-on-surface/40">—</td>
+<td class="px-4 py-4 font-bold text-on-surface">NEON BANSHEE</td>
+<td class="px-4 py-4 text-center">16</td>
+<td class="px-4 py-4 text-center">4</td>
+<td class="px-4 py-4 text-center">91%</td>
+<td class="px-4 py-4 text-center">+2.1</td>
+<td class="px-4 py-4 text-right">2,900 BC</td>
+<td class="px-4 py-4 text-right font-bold">2,640</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-secondary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span></td>
+</tr>
+<tr class="bg-surface-container-high/30 border-l-4 border-outline-variant">
+<td class="px-4 py-4 font-bebas text-2xl text-[#CD7F32]">03</td>
+<td class="px-2 py-4 text-primary-fixed-dim">▲</td>
+<td class="px-4 py-4 font-bold text-on-surface">IRON MIKE</td>
+<td class="px-4 py-4 text-center">15</td>
+<td class="px-4 py-4 text-center">5</td>
+<td class="px-4 py-4 text-center">88%</td>
+<td class="px-4 py-4 text-center">+2.4</td>
+<td class="px-4 py-4 text-right">4,100 BC</td>
+<td class="px-4 py-4 text-right font-bold">2,411</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-secondary-container" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span></td>
+</tr>
+<!-- Standard rows -->
+<tr class="bg-surface-container-low border-l-4 border-transparent hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 opacity-60">04</td>
+<td class="px-2 py-4 text-error">▼</td>
+<td class="px-4 py-4">LADY DETONATOR</td>
+<td class="px-4 py-4 text-center">14</td>
+<td class="px-4 py-4 text-center">6</td>
+<td class="px-4 py-4 text-center">85%</td>
+<td class="px-4 py-4 text-center">+3.1</td>
+<td class="px-4 py-4 text-right">4,200 BC</td>
+<td class="px-4 py-4 text-right">2,298</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container" data-icon="star">star</span></td>
+</tr>
+<tr class="bg-surface-container-high/20 border-l-4 border-transparent hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 opacity-60">05</td>
+<td class="px-2 py-4 text-primary-fixed-dim">▲</td>
+<td class="px-4 py-4">GHOST DRIVER</td>
+<td class="px-4 py-4 text-center">13</td>
+<td class="px-4 py-4 text-center">7</td>
+<td class="px-4 py-4 text-center">92%</td>
+<td class="px-4 py-4 text-center">+2.8</td>
+<td class="px-4 py-4 text-right">1,800 BC</td>
+<td class="px-4 py-4 text-right">2,150</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container" data-icon="star">star</span></td>
+</tr>
+<tr class="bg-surface-container-low border-l-4 border-transparent hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 opacity-60">06</td>
+<td class="px-2 py-4 text-on-surface/40">—</td>
+<td class="px-4 py-4">COBALT STRIKE</td>
+<td class="px-4 py-4 text-center">12</td>
+<td class="px-4 py-4 text-center">8</td>
+<td class="px-4 py-4 text-center">82%</td>
+<td class="px-4 py-4 text-center">+3.5</td>
+<td class="px-4 py-4 text-right">2,500 BC</td>
+<td class="px-4 py-4 text-right">1,980</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container" data-icon="star">star</span></td>
+</tr>
+<tr class="bg-surface-container-high/20 border-l-4 border-transparent hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 opacity-60">07</td>
+<td class="px-2 py-4 text-error">▼</td>
+<td class="px-4 py-4">SHADOW FOX</td>
+<td class="px-4 py-4 text-center">11</td>
+<td class="px-4 py-4 text-center">9</td>
+<td class="px-4 py-4 text-center">89%</td>
+<td class="px-4 py-4 text-center">+3.9</td>
+<td class="px-4 py-4 text-right">3,100 BC</td>
+<td class="px-4 py-4 text-right">1,840</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container" data-icon="star">star</span></td>
+</tr>
+<tr class="bg-surface-container-low border-l-4 border-transparent hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 opacity-60">08</td>
+<td class="px-2 py-4 text-primary-fixed-dim">▲</td>
+<td class="px-4 py-4">TANK RED</td>
+<td class="px-4 py-4 text-center">10</td>
+<td class="px-4 py-4 text-center">10</td>
+<td class="px-4 py-4 text-center">78%</td>
+<td class="px-4 py-4 text-center">+4.2</td>
+<td class="px-4 py-4 text-right">2,200 BC</td>
+<td class="px-4 py-4 text-right">1,720</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container" data-icon="star">star</span></td>
+</tr>
+<tr class="bg-surface-container-high/20 border-l-4 border-transparent hover:bg-surface-container-high transition-colors border-b-2 border-secondary-container/40">
+<td class="px-4 py-4 opacity-60">09</td>
+<td class="px-2 py-4 text-primary-fixed-dim">▲</td>
+<td class="px-4 py-4">VORTEX PRIME</td>
+<td class="px-4 py-4 text-center">9</td>
+<td class="px-4 py-4 text-center">11</td>
+<td class="px-4 py-4 text-center">84%</td>
+<td class="px-4 py-4 text-center">+4.5</td>
+<td class="px-4 py-4 text-right">1,550 BC</td>
+<td class="px-4 py-4 text-right">1,610</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container" data-icon="star">star</span></td>
+</tr>
+<tr class="bg-surface-container-low border-l-4 border-transparent hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 opacity-60 text-outline">10</td>
+<td class="px-2 py-4 text-on-surface/40">—</td>
+<td class="px-4 py-4 text-outline">Z-ZERO</td>
+<td class="px-4 py-4 text-center text-outline">8</td>
+<td class="px-4 py-4 text-center text-outline">12</td>
+<td class="px-4 py-4 text-center text-outline">76%</td>
+<td class="px-4 py-4 text-center text-outline">+5.1</td>
+<td class="px-4 py-4 text-right text-outline">1,200 BC</td>
+<td class="px-4 py-4 text-right text-outline">1,490</td>
+<td class="px-4 py-4 text-center"><span class="material-symbols-outlined text-on-tertiary-container opacity-20" data-icon="star">star</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Qualification Callout -->
+<div class="mt-8 bg-surface-container-low p-6 border-2 border-dashed border-secondary-container/30 relative">
+<div class="flex flex-col md:flex-row justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="warning">warning</span>
+<h4 class="font-bebas text-2xl tracking-widest text-secondary-container uppercase">TOP 8 QUALIFY FOR GRAND SLAM</h4>
+</div>
+<div class="font-mono text-xs text-outline">CUT-OFF LINE: RANK 08</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary-container" style="width: 66%;"></div>
+</div>
+<div class="flex justify-between font-mono text-[10px] mt-2 text-outline-variant">
+<span>SLOTS FILLED: 5/8</span>
+<span>QUALIFICATION CLOSES: WEEK 12</span>
+</div>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:w-1/4 flex flex-col gap-6">
+<!-- Most Wins -->
+<div class="bg-surface-container-low p-5 border-l-2 border-primary-container relative group overflow-hidden">
+<div class="absolute -right-2 -bottom-2 opacity-5 scale-150 rotate-12">
+<span class="material-symbols-outlined text-9xl" data-icon="emoji_events">emoji_events</span>
+</div>
+<p class="font-bebas text-outline tracking-wider text-xs">STAT_LEADER: MOST WINS</p>
+<h5 class="font-bebas text-3xl text-on-surface group-hover:text-primary-container transition-colors">THE CRUSHER</h5>
+<div class="flex justify-between items-end mt-4">
+<span class="font-mono text-4xl text-primary-fixed-dim">08</span>
+<span class="font-mono text-[10px] text-outline italic uppercase">WINS_RECORD</span>
+</div>
+</div>
+<!-- Highest Hit% -->
+<div class="bg-surface-container-low p-5 border-l-2 border-primary-container relative group overflow-hidden">
+<p class="font-bebas text-outline tracking-wider text-xs">STAT_LEADER: HIGHEST HIT%</p>
+<h5 class="font-bebas text-3xl text-on-surface group-hover:text-primary-container transition-colors">THE CRUSHER</h5>
+<div class="flex justify-between items-end mt-4">
+<div class="flex items-baseline gap-1">
+<span class="font-mono text-4xl text-primary-fixed-dim">94</span>
+<span class="font-mono text-xl text-primary-fixed-dim">%</span>
+</div>
+<span class="font-mono text-[10px] text-outline italic uppercase">PRECISION_INDEX</span>
+</div>
+</div>
+<!-- Battle Credits -->
+<div class="bg-surface-container-low p-5 border-l-2 border-secondary-container relative group overflow-hidden">
+<p class="font-bebas text-outline tracking-wider text-xs">STAT_LEADER: TOTAL CREDITS</p>
+<h5 class="font-bebas text-3xl text-on-surface group-hover:text-secondary-container transition-colors">LADY DETONATOR</h5>
+<div class="flex justify-between items-end mt-4">
+<span class="font-mono text-4xl text-secondary-container">4,200</span>
+<span class="font-mono text-[10px] text-outline italic uppercase">BC_RESERVES</span>
+</div>
+</div>
+<!-- Lowest Score -->
+<div class="bg-surface-container-low p-5 border-l-2 border-primary-container relative group overflow-hidden">
+<p class="font-bebas text-outline tracking-wider text-xs">STAT_LEADER: LOWEST AVG</p>
+<h5 class="font-bebas text-3xl text-on-surface group-hover:text-primary-container transition-colors">NEON BANSHEE</h5>
+<div class="flex justify-between items-end mt-4">
+<span class="font-mono text-4xl text-primary-fixed-dim">+2.1</span>
+<span class="font-mono text-[10px] text-outline italic uppercase">COURSE_EFFICIENCY</span>
+</div>
+</div>
+<!-- Ad/CTA -->
+<div class="mt-4 p-6 bg-gradient-to-br from-surface-container-highest to-surface border border-outline-variant/30 text-center">
+<h6 class="font-bebas text-2xl mb-4">WANT TO CLIMB THE RANKS?</h6>
+<button class="w-full bg-outline py-2 font-bebas text-surface tracking-widest hover:bg-on-surface transition-colors mb-3">ENLIST NOW</button>
+<p class="font-mono text-[10px] text-outline uppercase tracking-tighter">PILOT SLOTS AVAILABLE FOR WEEK 9 SESSIONS</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#00FF41]/10 mt-auto bg-[#0A0B0D] dark:bg-[#0A0B0D]">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full">
+<div class="font-['Bebas_Neue'] text-xl text-[#F0F4FF] mb-6 md:mb-0">SUPER BATTLE GOLF LEAGUE</div>
+<div class="flex gap-8 mb-6 md:mb-0">
+<a class="font-['JetBrains_Mono'] text-[10px] tracking-widest uppercase text-[#84967e] hover:text-[#F0F4FF] transition-colors" href="#">PRIVACY</a>
+<a class="font-['JetBrains_Mono'] text-[10px] tracking-widest uppercase text-[#84967e] hover:text-[#F0F4FF] transition-colors" href="#">TERMS</a>
+<a class="font-['JetBrains_Mono'] text-[10px] tracking-widest uppercase text-[#84967e] hover:text-[#F0F4FF] transition-colors" href="#">CONTACT HQ</a>
+<a class="font-['JetBrains_Mono'] text-[10px] tracking-widest uppercase text-[#84967e] hover:text-[#F0F4FF] transition-colors" href="#">MEDIA KIT</a>
+</div>
+<div class="font-['JetBrains_Mono'] text-[10px] tracking-widest uppercase text-[#84967e] text-center md:text-right">
+                © 2024 SUPER BATTLE GOLF LEAGUE. OPERATIONAL SECURITY: ENCRYPTED.
+            </div>
+</div>
+</footer>
+<!-- Tactical Grid Overlay -->
+<div class="fixed inset-0 pointer-events-none border-[20px] border-primary-container/5 z-[60]"></div>
+<div class="fixed top-1/2 left-0 w-8 h-[1px] bg-primary-container/20 z-[60]"></div>
+<div class="fixed top-1/2 right-0 w-8 h-[1px] bg-primary-container/20 z-[60]"></div>
+</body></html>

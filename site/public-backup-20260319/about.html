@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Sport — Super Battle Golf League</title>
+  <meta name="description" content="Learn about Super Battle Golf — the rules, battle mechanics, official courses, and safety standards of the SBGL.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .rule-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .rule-number {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--color-green);
+      line-height: 1;
+      min-width: 60px;
+      opacity: 0.4;
+    }
+    .weapon-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .weapon-card:hover { border-color: var(--color-orange); }
+    .weapon-icon { font-size: 40px; min-width: 50px; }
+    .weapon-cost { font-family: var(--font-mono); color: var(--color-orange); font-size: 13px; margin-top: 4px; }
+    .course-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .course-card:hover { border-color: var(--color-green); transform: translateY(-3px); }
+    .course-header {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      position: relative;
+    }
+    .course-bhr {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-orange);
+    }
+    .course-body { padding: 20px; }
+    .course-name { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; }
+    .course-loc { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .bhr-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+    .bhr-fill { height: 100%; background: linear-gradient(90deg, var(--color-green), var(--color-orange)); border-radius: 2px; }
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 40px;
+    }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-elevated);
+      border: 2px solid var(--color-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .timeline-year { font-family: var(--font-display); font-size: 20px; color: var(--color-green); }
+    .timeline-title { font-weight: 600; margin-top: 4px; }
+    .timeline-desc { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">⛳</div>
+      <div class="logo-text">SBG<span>LEAGUE</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="players.html">Players</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="news.html">News</a>
+      <a href="schedule.html" class="nav-cta">Buy Tickets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">The Sport</span>
+    <h1 class="display-2 mt-16">About<br><span class="text-green">Super Battle Golf</span></h1>
+    <p class="text-muted mt-24" style="font-size:18px;max-width:600px;">Full-contact. Explosives-permitted. Globally sanctioned. This is what happens when precision sport meets tactical combat.</p>
+  </div>
+</div>
+
+<!-- What Is It -->
+<section>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div>
+        <span class="label">Origin Story</span>
+        <h2 class="display-3 mt-16">Born from<br><span class="text-green">Battle</span></h2>
+        <p style="color:var(--text-secondary);margin-top:24px;line-height:1.8;">Super Battle Golf was developed in 2019 by the World Battle Sports Authority (WBSA) as a fusion of competitive stroke-play golf and tactical battlefield simulation. The sport was initially tested in controlled military training facilities before being opened to elite civilian athletes in 2020.</p>
+        <p style="color:var(--text-secondary);margin-top:16px;line-height:1.8;">The first official SBGL season launched in 2020 with 12 athletes. Today, Season 7 features 48 certified competitors from 22 countries battling across 16 internationally sanctioned Battle Courses.</p>
+      </div>
+      <div>
+        <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+          <div style="font-size:96px;margin-bottom:16px;">⛳💥</div>
+          <div style="font-family:var(--font-display);font-size:28px;letter-spacing:0.05em;">WHERE PRECISION<br>MEETS DESTRUCTION</div>
+          <div style="color:var(--text-secondary);margin-top:16px;font-size:14px;">Sanctioned by the World Battle Sports Authority</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rules -->
+<section id="rules" style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Regulations</span>
+      <h2 class="display-3">Official Rules<br><span class="text-green">& Regulations</span></h2>
+    </div>
+    <div class="rule-item">
+      <div class="rule-number">01</div>
+      <div>
+        <h3 class="heading-2">Standard Golf Rules Apply</h3>
+        <p class="text-muted mt-8">All USGA Rules of Golf are in effect unless directly superseded by SBGL Battle Regulations. This includes stroke count, out-of-bounds, water hazards, and green regulations. Scorecards must be signed and submitted after each round.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-number">02</div>
+      <div>
+        <h3 class="heading-2">Battle Budget System</h3>
+        <p class="text-muted mt-8">Each player receives 500 Battle Credits (BC) per round to spend on approved tactical items from the SBGL Arsenal Catalog. Unused credits carry over between holes but reset each round. No BC may be traded or gifted between players.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-number">03</div>
+      <div>
+        <h3 class="heading-2">Deployment Zones</h3>
+        <p class="text-muted mt-8">Tactical items may only be deployed within your designated Deployment Zone (DZ), which extends 10 yards in any direction from your current ball position. Deploying outside your DZ results in a 2-stroke penalty and item confiscation.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-number">04</div>
+      <div>
+        <h3 class="heading-2">Direct Contact Prohibited</h3>
+        <p class="text-muted mt-8">Physical contact between athletes is strictly forbidden. All interference must be executed via approved tactical items. Violations result in immediate disqualification from the hole and a 3-stroke penalty applied to the overall round score.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-number">05</div>
+      <div>
+        <h3 class="heading-2">Ball Displacement Rules</h3>
+        <p class="text-muted mt-8">If a tactical item causes an opponent's ball to move, the affected player may place the ball at the original position (verified by hole sensors) or play from where it lands. A free drop within one club length of the blast radius boundary is permitted.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-number">06</div>
+      <div>
+        <h3 class="heading-2">Safety Gear Mandatory</h3>
+        <p class="text-muted mt-8">All competitors must wear SBGL-certified blast armor (Mk-7 or approved equivalent), full visor helmet, and blast-resistant gloves at all times during active play. Removal of safety gear results in immediate removal from the course and a match forfeit.</p>
+      </div>
+    </div>
+    <div class="rule-item" style="border-bottom:none;">
+      <div class="rule-number">07</div>
+      <div>
+        <h3 class="heading-2">Proximity Mine Limit</h3>
+        <p class="text-muted mt-8">Effective Season 7: Maximum 2 proximity mines per player per round. Mines must be visually marked with the player's assigned color flag. Course marshals conduct random mine sweeps at holes 6, 12, and 18.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Arsenal / Battle Items -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Arsenal Catalog</span>
+      <h2 class="display-3">Approved<br><span class="text-green">Battle Items</span></h2>
+      <p class="text-muted mt-16">All items below are approved for SBGL competition. Prices shown in Battle Credits (BC).</p>
+    </div>
+    <div class="grid-3" style="gap:16px;">
+      <div class="weapon-card">
+        <div class="weapon-icon">💣</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Concussion Grenade</h3>
+          <div class="weapon-cost">150 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Displaces opponent's ball up to 15 yards in any direction. 5-yard blast radius. Limited 2 per round.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">🪤</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Proximity Mine</h3>
+          <div class="weapon-cost">200 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Triggered by ball contact. Detonates, relocating the ball to a random fair-lie position. Max 2 per round (S7).</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">🛡️</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Blast Shield</h3>
+          <div class="weapon-cost">100 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Deploys a 3-yard protective dome around your ball for one shot, blocking all incoming tactical items.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">🌪️</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Wind Turret</h3>
+          <div class="weapon-cost">175 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">A portable fan unit that generates a localized 25mph crosswind at opponent's tee zone for one shot.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">🧲</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Magnetic Decoy</h3>
+          <div class="weapon-cost">125 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">A decoy ball that attracts proximity mines. Place near opponent's mine to trigger a safe detonation.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">🔥</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Smoke Screen</h3>
+          <div class="weapon-cost">75 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Deploys a 20-yard smoke cloud obscuring the target green for 3 minutes. Blocks line-of-sight.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">📡</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Scanner Drone</h3>
+          <div class="weapon-cost">150 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Reveals all opponent-deployed items on the next 3 holes. Single use per match.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">⚡</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">EMP Pulse</h3>
+          <div class="weapon-cost">250 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Disables all opponent electronic items (drones, turrets) within 30 yards for 2 holes. Most expensive item in the catalog.</p>
+        </div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">🪨</div>
+        <div>
+          <h3 class="heading-2" style="font-size:20px;">Bunker Blocker</h3>
+          <div class="weapon-cost">100 BC</div>
+          <p class="text-muted mt-8" style="font-size:14px;">Deploys temporary sand wall in a bunker, making escape significantly more difficult. Removed by marshals after the hole.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Battle Courses -->
+<section id="courses" style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Official Venues</span>
+      <h2 class="display-3">Battle Courses</h2>
+      <p class="text-muted mt-16">BHR = Battle Hazard Rating (1–10). Higher BHR = more extreme natural hazards, terrain, and tactical complexity.</p>
+    </div>
+    <div class="grid-3">
+      <div class="course-card">
+        <div class="course-header" style="background:linear-gradient(135deg,#2a0a00,#1a1d25);">
+          🌋
+          <div class="course-bhr">BHR: 9.8</div>
+        </div>
+        <div class="course-body">
+          <div class="course-name">Volcano Ridge</div>
+          <div class="course-loc">📍 Hilo, Hawaii, USA</div>
+          <p class="text-muted mt-8" style="font-size:13px;">18 holes around an active lava field. Mandatory heat shields required. Signature hole 7 crosses an active lava flow via suspended bridge.</p>
+          <div class="bhr-bar"><div class="bhr-fill" style="width:98%"></div></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-header" style="background:linear-gradient(135deg,#001a2a,#1a1d25);">
+          🏔️
+          <div class="course-bhr">BHR: 8.5</div>
+        </div>
+        <div class="course-body">
+          <div class="course-name">Glacier Ridge</div>
+          <div class="course-loc">📍 Anchorage, Alaska, USA</div>
+          <p class="text-muted mt-8" style="font-size:13px;">Sub-zero temperature play on a glacial course. Ice geysers and permafrost shifts create unpredictable hazards mid-round.</p>
+          <div class="bhr-bar"><div class="bhr-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-header" style="background:linear-gradient(135deg,#0a1a0a,#1a1d25);">
+          🏰
+          <div class="course-bhr">BHR: 7.2</div>
+        </div>
+        <div class="course-body">
+          <div class="course-name">Castle Greens</div>
+          <div class="course-loc">📍 Edinburgh, Scotland</div>
+          <p class="text-muted mt-8" style="font-size:13px;">A 600-year-old estate converted into an official Battle Course. Stone ruins, narrow corridors, and the infamous "Siege Wall" make this a fan favourite.</p>
+          <div class="bhr-bar"><div class="bhr-fill" style="width:72%"></div></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-header" style="background:linear-gradient(135deg,#1a1500,#1a1d25);">
+          🏜️
+          <div class="course-bhr">BHR: 8.0</div>
+        </div>
+        <div class="course-body">
+          <div class="course-name">Desert Warzone</div>
+          <div class="course-loc">📍 Dubai, UAE</div>
+          <p class="text-muted mt-8" style="font-size:13px;">An arid, 12,000-yard course with sandstorm hazards and 120°F heat. Sand vortex zones replace traditional rough on 6 holes.</p>
+          <div class="bhr-bar"><div class="bhr-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-header" style="background:linear-gradient(135deg,#001520,#1a1d25);">
+          🌊
+          <div class="course-bhr">BHR: 7.8</div>
+        </div>
+        <div class="course-body">
+          <div class="course-name">Pacific Storm Links</div>
+          <div class="course-loc">📍 Okinawa, Japan</div>
+          <p class="text-muted mt-8" style="font-size:13px;">Clifftop ocean course with unpredictable sea winds and tide-flooded bunkers on the back 9. Spectacular views, dangerous conditions.</p>
+          <div class="bhr-bar"><div class="bhr-fill" style="width:78%"></div></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-header" style="background:linear-gradient(135deg,#1a0020,#1a1d25);">
+          🌃
+          <div class="course-bhr">BHR: 6.5</div>
+        </div>
+        <div class="course-body">
+          <div class="course-name">Night Operations Arena</div>
+          <div class="course-loc">📍 Las Vegas, Nevada, USA</div>
+          <p class="text-muted mt-8" style="font-size:13px;">The only fully night-play course in the SBGL. Played under blackout conditions with UV-marked balls and thermal optic visors.</p>
+          <div class="bhr-bar"><div class="bhr-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Safety -->
+<section id="safety">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;">
+      <div>
+        <span class="label">Safety First</span>
+        <h2 class="display-3 mt-16">Player &<br><span class="text-green">Spectator Safety</span></h2>
+        <p class="text-muted mt-24" style="line-height:1.8;">Safety is the SBGL's highest priority. Every aspect of the sport is governed by the SBGL Safety Council, a body of 9 engineers, medical professionals, and former athletes.</p>
+        <p class="text-muted mt-16" style="line-height:1.8;">All events feature on-site medical teams, blast containment infrastructure, and a real-time course monitoring system that can halt play within 4 seconds of detecting an unsafe detonation.</p>
+        <div class="grid-2 mt-32" style="gap:16px;">
+          <div class="card" style="padding:20px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">🦺</div>
+            <div style="font-family:var(--font-display);font-size:18px;">MK-7 Blast Armor</div>
+            <div class="text-muted" style="font-size:13px;margin-top:4px;">Mandatory for all competitors</div>
+          </div>
+          <div class="card" style="padding:20px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">🏥</div>
+            <div style="font-family:var(--font-display);font-size:18px;">Onsite Medical</div>
+            <div class="text-muted" style="font-size:13px;margin-top:4px;">Full trauma team at every event</div>
+          </div>
+          <div class="card" style="padding:20px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">📡</div>
+            <div style="font-family:var(--font-display);font-size:18px;">Real-Time Monitoring</div>
+            <div class="text-muted" style="font-size:13px;margin-top:4px;">Sensors on every hole</div>
+          </div>
+          <div class="card" style="padding:20px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">🧱</div>
+            <div style="font-family:var(--font-display);font-size:18px;">Blast Barriers</div>
+            <div class="text-muted" style="font-size:13px;margin-top:4px;">All spectator zones protected</div>
+          </div>
+        </div>
+      </div>
+      <!-- History Timeline -->
+      <div>
+        <span class="label">History</span>
+        <h2 class="display-3 mt-16">The Journey<br><span class="text-green">So Far</span></h2>
+        <div style="margin-top:32px;">
+          <div class="timeline-item">
+            <div class="timeline-dot">⚙️</div>
+            <div>
+              <div class="timeline-year">2019</div>
+              <div class="timeline-title">Sport Conceived</div>
+              <div class="timeline-desc">WBSA commissions the development of Super Battle Golf as a new sanctioned sport category.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🏁</div>
+            <div>
+              <div class="timeline-year">2020</div>
+              <div class="timeline-title">Season 1 Launches</div>
+              <div class="timeline-desc">First season with 12 athletes across 4 Battle Courses. "Iron Hammer" Volkov wins the inaugural Grand Slam.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">📺</div>
+            <div>
+              <div class="timeline-year">2021</div>
+              <div class="timeline-title">BattleSports Network Deal</div>
+              <div class="timeline-desc">Broadcast agreement brings SBGL to 180 countries. Viewership exceeds 40 million for the Season 2 final.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🌍</div>
+            <div>
+              <div class="timeline-year">2023</div>
+              <div class="timeline-title">Global Expansion</div>
+              <div class="timeline-desc">League expands to 32 athletes from 18 countries. First Asian Battle Course opens at Pacific Storm Links.</div>
+            </div>
+          </div>
+          <div class="timeline-item" style="padding-bottom:0;">
+            <div class="timeline-dot">🏆</div>
+            <div>
+              <div class="timeline-year">2026</div>
+              <div class="timeline-title">Season 7 — Biggest Yet</div>
+              <div class="timeline-desc">48 athletes, 16 courses, $2.4M prize pool. The Crusher Kowalski defends his Season 6 title.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">SBG<span>LEAGUE</span></div>
+        <p>The official governing body of Super Battle Golf worldwide. Sanctioning elite full-contact golf competition since Season 1.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Competition</h4>
+        <ul>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="leaderboard.html">Standings</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="news.html">Results</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>The Sport</h4>
+        <ul>
+          <li><a href="about.html">About SBG</a></li>
+          <li><a href="about.html#rules">Rules</a></li>
+          <li><a href="about.html#courses">Battle Courses</a></li>
+          <li><a href="about.html#safety">Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Media</h4>
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="#">SBGL+ Stream</a></li>
+          <li><a href="#">Photo Gallery</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Super Battle Golf League. All rights reserved.</span>
+      <span>Sanctioned by the World Battle Sports Authority · Safety First, Victory Always</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
